@@ -10,9 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_28_144951) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_28_152343) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "challenges", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "status"
+    t.bigint "player_id", null: false
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "monster_id"
+    t.bigint "expense_id"
+    t.index ["expense_id"], name: "index_challenges_on_expense_id"
+    t.index ["monster_id"], name: "index_challenges_on_monster_id"
+    t.index ["player_id"], name: "index_challenges_on_player_id"
+  end
+
+  create_table "expenses", force: :cascade do |t|
+    t.float "amount"
+    t.date "expense_date"
+    t.bigint "player_id", null: false
+    t.bigint "challenge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_id"], name: "index_expenses_on_challenge_id"
+    t.index ["player_id"], name: "index_expenses_on_player_id"
+  end
+
+  create_table "monsters", force: :cascade do |t|
+    t.string "type"
+    t.float "hitpoints"
+    t.float "healthpoints"
+    t.integer "level"
+    t.bigint "challenge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_id"], name: "index_monsters_on_challenge_id"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "avatar_url"
+    t.float "hitpoints"
+    t.float "healthpoints"
+    t.float "rubies"
+    t.float "balance"
+    t.integer "level"
+    t.string "objective"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_players_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +77,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_28_144951) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "challenges", "expenses"
+  add_foreign_key "challenges", "monsters"
+  add_foreign_key "challenges", "players"
+  add_foreign_key "expenses", "challenges"
+  add_foreign_key "expenses", "players"
+  add_foreign_key "monsters", "challenges"
+  add_foreign_key "players", "users"
 end
