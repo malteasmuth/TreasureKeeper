@@ -1,2 +1,11 @@
+<div class="container">
+
 <h1>Challenges#new</h1>
 <p>Find me in app/views/challenges/new.html.erb</p>
+
+  <%= simple_form_for @challenge do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.button :submit, "Create new challenge", class:"btn btn-primary" %>
+  <% end %>
+</div>
