@@ -1,28 +1,30 @@
 class PlayersController < ApplicationController
+  before_action :set_player, only: [:show, :edit, :update, :destroy]
+
   def index
+    # aLL of the players
     @players = Player.all
   end
 
   def show
-
   end
+
+  #Create a new player
+  # One user story, two actions:
 
   def new
-    #@player = Player.new
-  end
-
-  def save
-
+    @player = Player.new
   end
 
   def create
-    # @player = Player.find(params[:id])
-    @player = Player.new
-    @player.user = current_user # Assign the new player to the current user
-     @player.save
-   #   redirect_to player_path(@player)
+    @player = Player.new(player_params)
+    @player.user = current_user
 
-
+    if @player.save
+      redirect_to root_path, notice: 'Player was successfully created.'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -34,14 +36,16 @@ class PlayersController < ApplicationController
 
   def delete
   end
-  # strong params
-  # private
 
-  # def set_player
-  #   @player = Player.find(params[:id])
-  # end
+# strong params
+  private
 
-  # def player_params
-  #   params.require(:player).permit(:username)
-  # end
+  def player_params
+    params.require(:player).permit(:avatar, :avatar_url, :hitpoints, :rubies, :balance, :level, :objective)
+  end
+
+  def set_player
+    @player = Player.find(params[:id])
+  end
+
 end
