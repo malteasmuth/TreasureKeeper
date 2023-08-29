@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_28_154442) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_29_103657) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,14 +41,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_28_154442) do
   end
 
   create_table "monsters", force: :cascade do |t|
-    t.string "type"
     t.float "hitpoints"
     t.float "healthpoints"
     t.integer "level"
-    t.bigint "challenge_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["challenge_id"], name: "index_monsters_on_challenge_id"
+    t.string "creature_type"
   end
 
   create_table "players", force: :cascade do |t|
@@ -83,6 +81,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_28_154442) do
   add_foreign_key "challenges", "players"
   add_foreign_key "expenses", "challenges"
   add_foreign_key "expenses", "players"
-  add_foreign_key "monsters", "challenges"
   add_foreign_key "players", "users"
 end
