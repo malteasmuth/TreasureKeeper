@@ -33,11 +33,13 @@ class ChallengesController < ApplicationController
   end
 
   def player_attack
+
     @challenge = Challenge.find(params["challenge_id"])
     @player = Player.find_by(user_id: current_user)
     @player.healthpoints
     @player.hitpoints
     @player.rubies
+
 
     @monster = Monster.find(@challenge.monster_id)
     @monster.healthpoints
@@ -55,6 +57,7 @@ class ChallengesController < ApplicationController
     params.require(:challenge).permit(:name, :description)
   end
 
+
   def calculate_damage
     if rand(1..10) == 1
       0
@@ -63,5 +66,5 @@ class ChallengesController < ApplicationController
     else
       @player.hitpoints
     end
-  end
+  end 
 end
