@@ -7,6 +7,6 @@
   <h2>Against: <%= @monster.creature_type %></h2>
   <h2>Monster health: <%= @monster.healthpoints %></h2>
   <p>
-    Add action buttons here
+    <%= link_to "attack", challenge_attack_path(@challenge) %>
   </p>
 </div>
