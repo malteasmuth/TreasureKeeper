@@ -1,2 +1,14 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<%# This should be one step in the journey%>
+
+<div class="container">
+  <% @challenges.each do |challenge| %>
+    <h2>Your challenge: <%= challenge.name %></h2>
+    <% monster = Monster.find(challenge.monster_id) %>
+    <h3>Monster type: <%= monster.creature_type  %></h3>
+    <h3>Status: <%= challenge.status %>
+    <p><%= link_to "continue", challenge_path(challenge), class: "btn btn-primary" %></p>
+  <% end %>
+</div>

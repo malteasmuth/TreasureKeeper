@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7d5c9c52011926f9d2452f5800a238bafc8bf35f
   devise_for :users
+  resources :challenges do
+    get "attack", to: "challenges#player_attack"
+  end
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :players, only: %i[index show new create edit update delete]
