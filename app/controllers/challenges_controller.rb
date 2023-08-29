@@ -12,11 +12,15 @@ class ChallengesController < ApplicationController
   end
 
   def create
-    @current_player = Player.where(user_id: current_user)
+    @current_player = Player.find_by(user_id: current_user)
     @challenge = Challenge.new(challenge_params)
-    @challenge.player_id = @current_player
-    @challenge.monster_id = Monster.new(creature_type: "dragon")
-    raise
+    @challenge.player_id = @current_player.id
+    @challenge.monster_id = Monster.create(creature_type: "dragon").id
+    if @challenge.save
+      redirect_to challenge_path(@challenge)
+    else
+      render :new, status: :unprocessable_entitiy
+    end
   end
 
   def edit
