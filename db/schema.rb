@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_08_29_141754) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,14 +42,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_141754) do
   end
 
   create_table "monsters", force: :cascade do |t|
-    t.string "type"
     t.float "hitpoints"
     t.float "healthpoints"
     t.integer "level"
-    t.bigint "challenge_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["challenge_id"], name: "index_monsters_on_challenge_id"
+    t.string "creature_type"
   end
 
   create_table "players", force: :cascade do |t|
@@ -63,7 +62,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_141754) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.string "avatar"
     t.index ["user_id"], name: "index_players_on_user_id"
+  end
+
+  create_table "treasure_chests", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.float "value"
+    t.integer "status"
+    t.bigint "player_id", null: false
+    t.bigint "challenge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_id"], name: "index_treasure_chests_on_challenge_id"
+    t.index ["player_id"], name: "index_treasure_chests_on_player_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,6 +96,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_141754) do
   add_foreign_key "challenges", "players"
   add_foreign_key "expenses", "challenges"
   add_foreign_key "expenses", "players"
-  add_foreign_key "monsters", "challenges"
   add_foreign_key "players", "users"
+  add_foreign_key "treasure_chests", "challenges"
+  add_foreign_key "treasure_chests", "players"
 end
