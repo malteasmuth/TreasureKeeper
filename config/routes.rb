@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
+=======
 
+>>>>>>> 7d5c9c52011926f9d2452f5800a238bafc8bf35f
   devise_for :users
   resources :challenges do
     get "attack", to: "challenges#player_attack"
