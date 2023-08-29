@@ -1,14 +1,14 @@
 class ChallengesController < ApplicationController
   def index
-    @challenges = Challenges.all
+    @challenges = Challenge.all
   end
 
   def show
-    @challenge = Challenges.find(params[:id])
+    @challenge = Challenge.find(params[:id])
   end
 
   def new
-    
+
   end
 
   def create
