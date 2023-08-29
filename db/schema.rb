@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_29_103657) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_29_145604) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,6 +64,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_103657) do
     t.index ["user_id"], name: "index_players_on_user_id"
   end
 
+  create_table "treasure_chests", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.float "value"
+    t.integer "status"
+    t.bigint "player_id", null: false
+    t.bigint "challenge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_id"], name: "index_treasure_chests_on_challenge_id"
+    t.index ["player_id"], name: "index_treasure_chests_on_player_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -82,4 +95,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_103657) do
   add_foreign_key "expenses", "challenges"
   add_foreign_key "expenses", "players"
   add_foreign_key "players", "users"
+  add_foreign_key "treasure_chests", "challenges"
+  add_foreign_key "treasure_chests", "players"
 end
