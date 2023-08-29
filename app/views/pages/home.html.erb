@@ -4,6 +4,11 @@
 
 <div>
   <% @challenges.each do |challenge| %>
-    <%= challenge.name %>
+    <h2>Your challenge: <%= challenge.name %></h2>
+    <h3>What you need to do: </h3>
+    <p><%= challenge.description %></p>
+    <% monster = Monster.find(challenge.monster_id) %>
+    <h3>Monster type: <%= monster.creature_type  %></h3>
+    <h3>Status: <%= challenge.status %>
   <% end %>
 </div>
