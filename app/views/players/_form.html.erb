@@ -1,0 +1,15 @@
+
+
+<div class="container">
+  <%= simple_form_for @player do |f| %>
+      <%= f.input :avatar_url %>
+      <%= f.input :hitpoints %>
+      <%= f.input :number %>
+      <%= f.input :rubies %>
+      <%= f.input :balance %>
+      <%= f.input :level %>
+      <%= f.input :objective %>
+      <%= f.input :user_id %>
+      <%= f.submit :submit, 'confirm' %>
+  <% end %>
+</div>
