@@ -1,0 +1,13 @@
+<h1>Challenges#show</h1>
+<p>Find me in app/views/challenges/show.html.erb</p>
+
+<div>
+  <h3><%= @challenge.name %></h3>
+  <h2>To do: <%= @challenge.description %></h2>
+  <h2>Against: <%= @monster.creature_type %></h2>
+  <h2>Monster health: <%= @monster.healthpoints.to_i %></h2>
+  <% link_to "attack",   %>
+  <p>
+    <%= link_to "attack", challenge_attack_path(@challenge) %>
+  </p>
+</div>
