@@ -8,7 +8,7 @@ class PlayersController < ApplicationController
   end
 
   def new
-    @player = Player.new
+    #@player = Player.new
   end
 
   def save
@@ -16,8 +16,13 @@ class PlayersController < ApplicationController
   end
 
   def create
-    @player = Player.new(params[:id])
+    # @player = Player.find(params[:id])
+    @player = Player.new
     @player.user = current_user # Assign the new player to the current user
+     @player.save
+   #   redirect_to player_path(@player)
+
+
   end
 
   def edit
