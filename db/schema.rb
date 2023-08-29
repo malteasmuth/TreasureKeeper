@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[7.0].define(version: 2023_08_29_143734) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_29_141754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_143734) do
   create_table "challenges", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "status"
+    t.integer "status", default: 0
     t.bigint "player_id", null: false
     t.date "end_date"
     t.datetime "created_at", null: false
@@ -53,9 +52,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_143734) do
 
   create_table "players", force: :cascade do |t|
     t.string "avatar_url"
-    t.float "hitpoints"
-    t.float "healthpoints"
-    t.float "rubies"
+    t.float "hitpoints", default: 20.0
+    t.float "healthpoints", default: 100.0
+    t.float "rubies", default: 50.0
     t.float "balance"
     t.integer "level"
     t.string "objective"
