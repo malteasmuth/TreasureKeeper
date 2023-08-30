@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_29_145604) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_30_124521) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,9 +24,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_145604) do
     t.datetime "updated_at", null: false
     t.bigint "monster_id"
     t.bigint "expense_id"
+    t.float "budget"
+    t.float "current_value"
+    t.bigint "treasure_chest_id"
     t.index ["expense_id"], name: "index_challenges_on_expense_id"
     t.index ["monster_id"], name: "index_challenges_on_monster_id"
     t.index ["player_id"], name: "index_challenges_on_player_id"
+    t.index ["treasure_chest_id"], name: "index_challenges_on_treasure_chest_id"
   end
 
   create_table "expenses", force: :cascade do |t|
@@ -43,10 +47,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_145604) do
   create_table "monsters", force: :cascade do |t|
     t.float "hitpoints"
     t.float "healthpoints"
-    t.integer "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "creature_type"
+    t.string "image_url"
+    t.bigint "challenge_id"
+    t.index ["challenge_id"], name: "index_monsters_on_challenge_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -54,14 +59,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_145604) do
     t.float "hitpoints", default: 20.0
     t.float "healthpoints", default: 100.0
     t.float "rubies", default: 50.0
-    t.float "balance"
-    t.integer "level"
-    t.string "objective"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.string "avatar"
     t.index ["user_id"], name: "index_players_on_user_id"
   end
 
@@ -69,11 +70,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_145604) do
     t.string "name"
     t.string "description"
     t.float "value"
-    t.integer "status"
+    t.integer "status", default: 0
     t.bigint "player_id", null: false
     t.bigint "challenge_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "current_value"
     t.index ["challenge_id"], name: "index_treasure_chests_on_challenge_id"
     t.index ["player_id"], name: "index_treasure_chests_on_player_id"
   end
@@ -93,8 +95,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_145604) do
   add_foreign_key "challenges", "expenses"
   add_foreign_key "challenges", "monsters"
   add_foreign_key "challenges", "players"
+  add_foreign_key "challenges", "treasure_chests"
   add_foreign_key "expenses", "challenges"
   add_foreign_key "expenses", "players"
+  add_foreign_key "monsters", "challenges"
   add_foreign_key "players", "users"
   add_foreign_key "treasure_chests", "challenges"
   add_foreign_key "treasure_chests", "players"
