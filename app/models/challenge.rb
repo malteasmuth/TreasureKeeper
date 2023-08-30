@@ -1,5 +1,4 @@
 class Challenge < ApplicationRecord
-
   # belongs_to :player
   # belongs_to :monster
   has_many :expenses
