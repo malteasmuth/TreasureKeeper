@@ -5,6 +5,7 @@ class ChallengesController < ApplicationController
   def show
     @challenge = Challenge.find(params[:id])
     @monster = Monster.find(@challenge.monster_id)
+    @expenses = Expense.where(challenge_id: @challenge.id)
   end
 
   def new
@@ -15,7 +16,9 @@ class ChallengesController < ApplicationController
     @current_player = Player.find_by(user_id: current_user)
     @challenge = Challenge.new(challenge_params)
     @challenge.player_id = @current_player.id
-    @challenge.monster_id = Monster.create(healthpoints: 20, hitpoints: 15).id
+    monster = Monster.new(healthpoints: 20, hitpoints: 15)
+    monster.save
+    @challenge.monster_id = monster.id
     if @challenge.save
       redirect_to challenge_path(@challenge)
     else
@@ -53,7 +56,7 @@ class ChallengesController < ApplicationController
   private
 
   def challenge_params
-    params.require(:challenge).permit(:name, :description)
+    params.require(:challenge).permit(:name, :description, :budget)
   end
 
 
