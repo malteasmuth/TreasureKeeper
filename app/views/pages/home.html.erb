@@ -6,7 +6,6 @@
 <div class="container">
   <% @challenges.each do |challenge| %>
     <h2>Your challenge: <%= challenge.name %></h2>
-    <% monster = Monster.find(challenge.monster_id) %>
     <h3>Status: <%= challenge.status %>
     <p><%= link_to "continue", challenge_path(challenge), class: "btn btn-primary" %></p>
   <% end %>
