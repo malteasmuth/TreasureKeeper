@@ -1,2 +1,8 @@
-<h1>Expenses#new</h1>
-<p>Find me in app/views/expenses/new.html.erb</p>
+<h1>Enter a new expense</h1>
+<p>Warning: This may lead to growing monsters!</p>
+
+<%= simple_form_for [@challenge, @expense] do |f| %>
+  <%= f.input :amount, label: 'How much did you spent?' %>
+  <%= f.input :expense_date, label: 'Enter date' %>
+  <%= f.button :submit, 'save' %>
+<% end %>
