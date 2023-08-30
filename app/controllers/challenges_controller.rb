@@ -19,7 +19,7 @@ class ChallengesController < ApplicationController
     if @challenge.save
       redirect_to challenge_path(@challenge)
     else
-      render :new, status: :unprocessable_entitiy
+      render :new, status: :unprocessable_entity
     end
   end
 
