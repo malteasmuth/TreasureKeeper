@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :challenges do
     get "attack", to: "challenges#player_attack"
   end
-  root to: "pages#home"
+
+  root to: "pages#index"
 
   resources :treasure_chests, only: %i[index]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
