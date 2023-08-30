@@ -7,9 +7,6 @@ class PlayersController < ApplicationController
   def show
   end
 
-  #Create a new player
-  # One user story, two actions:
-
   def new
     @player = Player.new
   end
