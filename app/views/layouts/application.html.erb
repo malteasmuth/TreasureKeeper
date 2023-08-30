@@ -10,14 +10,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <%# background colour set to contrast the app view. Adjust if needed %>
+
   <body style="background-color: #393E46"><%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-    <%# Defaut centering for all pages and forms. Adjust as required %>
-    <div class="col-xs d-flex justify-content-center align-items-center">
-      <div class="card text-center my-5" style="background-color: #F4EFDD; border-radius: 10px;">
         <%= yield %>
-      </div>
-    </div>
   </body>
 </html>
