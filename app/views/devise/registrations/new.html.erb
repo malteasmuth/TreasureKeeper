@@ -1,7 +1,7 @@
 
 
 <div class="container">
-  <h2>Sign up</h2>
+  <h2>Treasure Keeper</h2>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
@@ -9,14 +9,14 @@
       <%= f.input :email,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "email" }%>
+                  input_html: { autocomplete: "Email address" }%>
       <%= f.input :password,
                   required: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { autocomplete: "Password" } %>
       <%= f.input :password_confirmation,
                   required: true,
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { autocomplete: "Re-enter password" } %>
     </div>
 
     <div class="form-actions">
