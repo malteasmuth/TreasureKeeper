@@ -2,13 +2,8 @@
 
 <div class="container">
   <%= simple_form_for @player do |f| %>
-      <%= f.input :avatar, collection: ["Knight1","Knight2","Elf1","Elf2","knight"] %>
-      <%= f.input :avatar_url %>
-      <%= f.input :hitpoints %>
-      <%= f.input :rubies %>
-      <%= f.input :balance %>
-      <%= f.input :level %>
-      <%= f.input :objective %>
-      <%= f.button :submit, 'Add' %>
+      <%= f.input :username %>
+      <%= f.input :avatar_url, collection: ["Knight1","Knight2","Elf1","Elf2","knight"] %>
+      <%= f.button :submit, 'Start your journey' %>
   <% end %>
 </div>

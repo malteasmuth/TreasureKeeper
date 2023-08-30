@@ -2,7 +2,6 @@ class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
 
   def index
-    # aLL of the players
     @players = Player.all
   end
 
@@ -41,7 +40,7 @@ class PlayersController < ApplicationController
   private
 
   def player_params
-    params.require(:player).permit(:avatar, :avatar_url, :hitpoints, :rubies, :balance, :level, :objective)
+    params.require(:player).permit(:avatar_url, :username)
   end
 
   def set_player
