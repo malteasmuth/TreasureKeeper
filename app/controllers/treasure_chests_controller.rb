@@ -1,0 +1,2 @@
+class TreasureChestsController < ApplicationController
+end
