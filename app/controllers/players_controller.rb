@@ -2,14 +2,10 @@ class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
 
   def index
-    @players = Player.all
   end
 
   def show
   end
-
-  #Create a new player
-  # One user story, two actions:
 
   def new
     @player = Player.new

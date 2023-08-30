@@ -5,6 +5,8 @@ class ChallengesController < ApplicationController
   def show
     @challenge = Challenge.find(params[:id])
     @monster = Monster.find(@challenge.monster_id)
+    @expenses = Expense.where(challenge_id: @challenge.id)
+    @monster_rage = monster_rage
   end
 
   def new
@@ -55,9 +57,16 @@ class ChallengesController < ApplicationController
   private
 
   def challenge_params
-    params.require(:challenge).permit(:name, :description)
+    params.require(:challenge).permit(:name, :description, :budget)
   end
 
+  def monster_rage
+    sum = 0
+    @expenses.each do |expense|
+      sum += expense.amount
+    end
+    ((sum / @challenge.budget) * 100).to_i
+  end
 
   def calculate_damage
     if rand(1..10) == 1
