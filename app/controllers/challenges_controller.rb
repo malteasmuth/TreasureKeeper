@@ -15,7 +15,7 @@ class ChallengesController < ApplicationController
     @current_player = Player.find_by(user_id: current_user)
     @challenge = Challenge.new(challenge_params)
     @challenge.player_id = @current_player.id
-    @challenge.monster_id = Monster.create(creature_type: "dragon", healthpoints: 20, hitpoints: 15).id
+    @challenge.monster_id = Monster.create(healthpoints: 20, hitpoints: 15).id
     if @challenge.save
       redirect_to challenge_path(@challenge)
     else
@@ -33,7 +33,6 @@ class ChallengesController < ApplicationController
   end
 
   def player_attack
-
     @challenge = Challenge.find(params["challenge_id"])
     @player = Player.find_by(user_id: current_user)
     @player.healthpoints
@@ -46,7 +45,7 @@ class ChallengesController < ApplicationController
     @monster.hitpoints
 
     @damage_dealt = calculate_damage
-    @monster.hitpoints -= @damage_dealt
+    @monster.healthpoints -= @damage_dealt
     @monster.save
     redirect_to challenge_path(@challenge)
   end
@@ -66,5 +65,5 @@ class ChallengesController < ApplicationController
     else
       @player.hitpoints
     end
-  end 
+  end
 end
