@@ -1,7 +1,10 @@
 
 <h1>Player Information</h1>
-<img src="<%= @player.avatar_url %>" alt="Player Avatar">
-<img src="<%= @player.avatar_url %>" alt="Player Avatar">
+
+
+<%= cl_image_tag("#{@player.avatar_url}", title: "Treasure Keeper/life_full.png",
+      width: 50, crop: :fill) %>
+
 <p><%= @player.username %></p>
 <p>Hitpoints: <%= @player.hitpoints %></p>
 <p>Healthpoints: <%= @player.healthpoints %></p>
