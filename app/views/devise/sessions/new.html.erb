@@ -1,6 +1,9 @@
 <h2>Treasure Keeper</h2>
 
 <div class="container">
+  <div><%= cl_image_tag("Treasure Keeper/treasure.png", title: "Treasure Keeper/treasure.png",
+      width: 50, crop: :fill) %>
+</div>
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs">
       <%= f.input :email,
