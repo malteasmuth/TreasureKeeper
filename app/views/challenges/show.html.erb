@@ -1,7 +1,7 @@
 <div>
   <h3><%= @challenge.name %></h3>
   <h2><%= @challenge.description %></h2>
-  <h2>Your budget: <%= @challenge.budget %></h2>
+  <h2>Your budget: <%= @challenge.budget %> EUR</h2>
   <h2>Your expenses: </h2>
     <%# calculate sum of expenses %>
     <% sum = 0 %>
@@ -10,11 +10,12 @@
        <% sum += expense.amount %>
     <% end %></ul>
   <h2>Total amount: <%= sum %> EUR</h2>
-  <p>Imagine this as a status bar: Enrage the monster</p>
+  <p>Enrage the monster</p>
   <p>Whenever you spend money, the monster gets angry</p>
   <p>When you reach 100 % of monster rage, it will attack you badly</p>
-  <p>Also possibility for random attacks based on rage percentage??</p>
+  <p>There is also a possibility for random attacks based on rage percentage</p>
   <h2>Monster rage: <%= @monster_rage %> %</h2>
+  <h2>Your healthpoints: <%= @player.healthpoints.to_i %></h2>
   <p><%= link_to "attack", challenge_attack_path(@challenge), class: "btn btn-danger" %></p>
   <p><%= link_to "add an expense", new_challenge_expense_path(@challenge), class: "btn btn-primary " %></p>
 </div>
