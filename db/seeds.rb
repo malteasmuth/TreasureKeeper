@@ -134,7 +134,7 @@ challenges_data = [
 # # Clear existing data
 # # Challenge.destroy_all
 
-# # Seed Challengee 
+# # Seed Challengee
 # Clear existing data
 # Challenge.destroy_all
 
