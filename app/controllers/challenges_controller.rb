@@ -66,7 +66,7 @@ class ChallengesController < ApplicationController
   end
 
   def challenge_params
-    params.require(:challenge).permit(:name, :description, :budget)
+    params.require(:challenge).permit(:name, :description, :budget, :end_date)
   end
 
   def monster_rage
