@@ -1,4 +1,4 @@
-<% @challenge = Challenge.find_by(player_id: current_user, status: "running") %>
+<% @challenge = Challenge.find_by(player_id: current_user, status: "running", status: "won", status: "lost") %>
 <% @player = Player.find_by(user_id: current_user) %>
 
 <div class="navbar navbar-expand-sm navbar-light navbar-treasure-keeper">
