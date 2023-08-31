@@ -1,9 +1,7 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
 
-  def show
-    @player = Player.find_by(user_id: current_user)
-  end
+  def show; end
 
   def new
     @player = Player.new
