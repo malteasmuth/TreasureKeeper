@@ -12,7 +12,14 @@
   height: 84vh;
 }
 .challenges-show {
-  background-image: url('treasure_keeper_chamber.jpg');
+  background-image: url('treasure_keeper_castle.jpg');
+  background-size: contain;
+  background-position: center;
+  height: 712px;
+}
+
+.portal {
+  background-image: url('treasure_keeper_portal.jpg');
   background-size: contain;
   background-position: center;
   height: 712px;

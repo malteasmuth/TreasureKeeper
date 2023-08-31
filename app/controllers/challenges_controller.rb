@@ -39,14 +39,13 @@ class ChallengesController < ApplicationController
   def delete
   end
 
-  def player_attack
+  def player_attack()
     @challenge = Challenge.find(params["challenge_id"])
     @player = Player.find_by(user_id: current_user)
     @monster = Monster.find(@challenge.monster_id)
 
     @damage_dealt = calculate_damage
     @monster.healthpoints -= @damage_dealt
-    @monster.save
     redirect_to challenge_path(@challenge)
   end
 
@@ -91,7 +90,7 @@ class ChallengesController < ApplicationController
   def resolve_challenge
     if @monster_rage >= 100
       @challenge.lost!
-    elsif @monster_rage < 100
+    elsif @monster_rage < 100 && Date.today > @challenge.end_date
       @challenge.won!
     end
   end

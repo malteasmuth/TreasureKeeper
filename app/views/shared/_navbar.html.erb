@@ -1,4 +1,4 @@
-<% @challenge = Challenge.find_by(player_id: current_user, status: "running") %>
+<% @challenge = Challenge.find_by(player_id: current_user, status: "running", status: "won", status: "lost") %>
 <% @player = Player.find_by(user_id: current_user) %>
 
 <div class="navbar navbar-expand-sm navbar-light navbar-treasure-keeper">
@@ -8,7 +8,7 @@
       width: 50, crop: :fill) %>
     <% end %>
 
-    <%= link_to root_path, class: "navbar-brand" do %>
+    <%= link_to home_path, class: "navbar-brand" do %>
       <%= cl_image_tag("Treasure Keeper/map.png", title: "Treasure Keeper/map.png",
       width: 50, crop: :fill) %>
     <% end %>
