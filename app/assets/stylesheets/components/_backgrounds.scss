@@ -1,6 +1,25 @@
+// Background wallpapers
 .treasure-chests {
   background-image: url('treasure_keeper_chamber.jpg');
   background-size: contain;
   background-position: center;
   height: 712px;
+}
+.main-page {
+  background-image: url('treasure_keeper_castle.jpg');
+  background-size: contain;
+  background-position: center;
+  height: 84vh;
+}
+.challenges-show {
+  background-image: url('treasure_keeper_chamber.jpg');
+  background-size: contain;
+  background-position: center;
+  height: 712px;
+}
+
+// use this to make div containers have a transparent background
+.transparent-bg {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.3);
 }
