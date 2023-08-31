@@ -1,7 +1,6 @@
 <% @challenge = Challenge.find_by(player_id: current_user, status: "running") %>
 <% @player = Player.find_by(user_id: current_user) %>
 
-
 <div class="navbar navbar-expand-sm navbar-light navbar-treasure-keeper">
   <div class="container-fluid d-flex justify-content-around">
     <%= link_to treasure_chests_path, class: "navbar-brand" do %>
@@ -14,14 +13,18 @@
       width: 50, crop: :fill) %>
     <% end %>
 
+    <% if @challenge %>
     <%= link_to challenge_path(@challenge), class: "navbar-brand" do %>
       <%= cl_image_tag("Treasure Keeper/swords.png", title: "Treasure Keeper/swords.png",
       width: 50, crop: :fill) %>
-    <% end %>
+      <% end %>
+    <% end  %>
 
+  <% if @player %>
     <%= link_to player_path(@player), class: "navbar-brand" do %>
       <%= cl_image_tag("Treasure Keeper/knight.png", title: "Treasure Keeper/knight.png",
       width: 50, crop: :fill) %>
     <% end %>
+  <% end%>
   </div>
 </div>
