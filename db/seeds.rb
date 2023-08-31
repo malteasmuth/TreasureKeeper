@@ -8,7 +8,7 @@
 # require "faker"
 
 
-puts "Cleaning database.....one time Seed "
+puts "Cleaning database..... "
 
 Expense.destroy_all
 TreasureChest.destroy_all
@@ -114,40 +114,6 @@ challenges_data = [
     current_value: 100.0,
   }
 ]
-
-# puts "Creating some challenges..🌱🌱"
-
-# # Clear existing data
-# # Challenge.destroy_all
-
-# # Seed Challengee
-# Clear existing data
-# Challenge.destroy_all
-
-# Seed Challenges
-
-# challenges_data = [
-#   {
-#     name: "Challenge 1",
-#     description: "Description 1",
-#     status: 0,
-#     player_id: 22, # the first player that exist if we do not drop the DB
-#     end_date: Date.today + 7.days,
-#     monster_id: 7, # this is a troll
-#     budget: 100.0,
-#     current_value: 50.0,
-#   },
-#   {
-#     name: "Challenge 2",
-#     description: "Description 2",
-#     status: 0,
-#     player_id: 23,
-#     end_date: Date.today + 14.days,
-#     monster_id: 10, # a Dragon here!
-#     budget: 150.0,
-#     current_value: 100.0,
-#   }
-# ]
 
 challenges_data.each do |challenge_data|
   Challenge.create(challenge_data)

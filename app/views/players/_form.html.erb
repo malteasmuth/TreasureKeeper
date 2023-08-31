@@ -3,7 +3,8 @@
 <div class="container">
   <%= simple_form_for @player do |f| %>
       <%= f.input :username %>
-      <%= f.input :avatar_url, collection: ["Knight1","Knight2","Elf1","Elf2","knight"] %>
+      <%= f.input :avatar_url, collection: ["Treasure Keeper/swordman.png",
+      "Treasure Keeper/wizard.png","Treasure Keeper/knight.png","Treasure Keeper/queen.png"] %>
       <%= f.button :submit, 'Start your journey' %>
   <% end %>
 </div>
