@@ -31,7 +31,7 @@ class ChallengesController < ApplicationController
   end
 
   def update
-  endresolve_challenge
+  end
 
   def delete
   end
