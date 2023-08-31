@@ -1,6 +1,6 @@
 class TreasureChest < ApplicationRecord
   belongs_to :player
-  belongs_to :challenge
+  has_many :challenges, dependent: :destroy
 
   enum status: %i[running lost won]
 end

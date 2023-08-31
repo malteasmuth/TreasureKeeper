@@ -10,12 +10,12 @@
 
 puts "Cleaning database.....one time Seed "
 
-User.destroy_all
-Player.destroy_all
-Monster.destroy_all
-Challenge.destroy_all
 Expense.destroy_all
-
+TreasureChest.destroy_all
+Challenge.destroy_all
+Monster.destroy_all
+Player.destroy_all
+User.destroy_all
 puts "Creating 4 users...."
 
 
