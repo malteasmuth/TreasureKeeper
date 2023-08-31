@@ -31,7 +31,7 @@
 # # Clear existing data
 # Player.destroy_all
 
-# # Seed Players
+# # # Seed Players
 # players_data = [
 #   { avatar_url: "Treasure Keeper/swordman.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, user_id: 2, username: "player1" },
 #   { avatar_url: "Treasure Keeper/wizard.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, user_id: 3, username: "player2" },
@@ -91,10 +91,16 @@
 # Next, seed the "Expenses" table with the challenge_id column, referring to the
 
 # puts "Creating some challenges..🌱🌱"
+
 # # Clear existing data
 # # Challenge.destroy_all
 
-# # Seed Challenges
+# # Seed Challengee 
+# Clear existing data
+# Challenge.destroy_all
+
+# Seed Challenges
+
 # challenges_data = [
 #   {
 #     name: "Challenge 1",
