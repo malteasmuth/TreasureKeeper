@@ -91,10 +91,16 @@
 # Next, seed the "Expenses" table with the challenge_id column, referring to the
 
 # puts "Creating some challenges..🌱🌱"
+
+# # Clear existing data
+# # Challenge.destroy_all
+
+# # Seed Challengee 
 # Clear existing data
 # Challenge.destroy_all
 
 # Seed Challenges
+
 # challenges_data = [
 #   {
 #     name: "Challenge 1",
