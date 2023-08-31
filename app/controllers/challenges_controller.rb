@@ -8,7 +8,8 @@ class ChallengesController < ApplicationController
     @monster = Monster.find(@challenge.monster_id)
     @expenses = Expense.where(challenge_id: @challenge.id)
     @monster_rage = monster_rage
-    check_attack(@challenge)
+    check_attack
+    resolve_challenge
   end
 
   def new
@@ -19,6 +20,8 @@ class ChallengesController < ApplicationController
     @current_player = Player.find_by(user_id: current_user)
     @challenge = Challenge.new(challenge_params)
     @challenge.player_id = @current_player.id
+    monster = Monster.new(healthpoints: 20, hitpoints: 20)
+    monster.save
     @challenge.monster_id = monster.id
     if @challenge.save
       redirect_to challenge_path(@challenge)
@@ -31,7 +34,7 @@ class ChallengesController < ApplicationController
   end
 
   def update
-  endresolve_challenge
+  end
 
   def delete
   end
@@ -49,7 +52,7 @@ class ChallengesController < ApplicationController
 
   private
 
-  def check_attack(challenge)
+  def check_attack
     attack_chance = 0
     if @monster_rage > 75
       attack_chance = 80
@@ -58,10 +61,9 @@ class ChallengesController < ApplicationController
     else
       attack_chance = 50
     end
-
     return unless rand(1..100) <= attack_chance
-      @player.healthpoints -= ((@monster.hitpoints + @monster_rage) / 100)
-      @player.save
+
+    @player.update(healthpoints: ((@monster.hitpoints + @monster_rage) / 100))
   end
 
   def challenge_params
@@ -89,7 +91,7 @@ class ChallengesController < ApplicationController
   def resolve_challenge
     if @monster_rage >= 100
       @challenge.lost!
-    elsif @monster_rage < 100 && end_date >= Date.today
+    elsif @monster_rage < 100
       @challenge.won!
     end
   end
