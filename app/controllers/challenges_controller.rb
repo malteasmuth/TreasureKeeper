@@ -91,8 +91,9 @@ class ChallengesController < ApplicationController
   def resolve_challenge
     if @monster_rage >= 100
       @challenge.lost!
-    elsif @monster_rage < 100
+    elsif @monster_rage < 100 && Date.today > @challenge.end_date
       @challenge.won!
     end
+    raise
   end
 end

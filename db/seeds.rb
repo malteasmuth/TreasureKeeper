@@ -41,7 +41,6 @@ players_data = [
   { avatar_url: "Treasure Keeper/swordman.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, username: "player4", user_id: User.all.pluck(:id).sample }
 ]
 
-
 players_data.each do |player_data|
   Player.create(player_data)
 end
