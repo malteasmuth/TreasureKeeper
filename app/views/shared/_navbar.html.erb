@@ -15,7 +15,7 @@
       width: 50, crop: :fill) %>
     <% end %>
 
-    <%= link_to player_path, class: "navbar-brand" do %>
+    <%= link_to player_path(@player), class: "navbar-brand" do %>
       <%= cl_image_tag("Treasure Keeper/knight.png", title: "Treasure Keeper/knight.png",
       width: 50, crop: :fill) %>
     <% end %>
