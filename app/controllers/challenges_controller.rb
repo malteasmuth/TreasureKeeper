@@ -4,23 +4,26 @@ class ChallengesController < ApplicationController
 
   def show
     @challenge = Challenge.find(params[:id])
+    @player = Player.find_by(user_id: current_user)
     @monster = Monster.find(@challenge.monster_id)
     @expenses = Expense.where(challenge_id: @challenge.id)
     @monster_rage = monster_rage
+    check_attack
+    resolve_challenge
   end
 
   def new
     @challenge = Challenge.new
   end
 
-
   def create
     @current_player = Player.find_by(user_id: current_user)
     @challenge = Challenge.new(challenge_params)
     @challenge.player_id = @current_player.id
-
+    monster = Monster.new(healthpoints: 20, hitpoints: 20)
+    monster.save
+    @challenge.monster_id = monster.id
     if @challenge.save
-      @monster = Monster.create(healthpoints: 20, hitpoints: 15, challenge_id: @challenge.id)
       redirect_to challenge_path(@challenge)
     else
       render :new, status: :unprocessable_entity
@@ -39,14 +42,7 @@ class ChallengesController < ApplicationController
   def player_attack
     @challenge = Challenge.find(params["challenge_id"])
     @player = Player.find_by(user_id: current_user)
-    @player.healthpoints
-    @player.hitpoints
-    @player.rubies
-
-
     @monster = Monster.find(@challenge.monster_id)
-    @monster.healthpoints
-    @monster.hitpoints
 
     @damage_dealt = calculate_damage
     @monster.healthpoints -= @damage_dealt
@@ -56,8 +52,22 @@ class ChallengesController < ApplicationController
 
   private
 
+  def check_attack
+    attack_chance = 0
+    if @monster_rage > 75
+      attack_chance = 80
+    elsif @monster_rage > 50
+      attack_chance = 60
+    else
+      attack_chance = 50
+    end
+    return unless rand(1..100) <= attack_chance
+
+    @player.update(healthpoints: ((@monster.hitpoints + @monster_rage) / 100))
+  end
+
   def challenge_params
-    params.require(:challenge).permit(:name, :description, :budget)
+    params.require(:challenge).permit(:name, :description, :budget, :end_date)
   end
 
   def monster_rage
@@ -65,7 +75,7 @@ class ChallengesController < ApplicationController
     @expenses.each do |expense|
       sum += expense.amount
     end
-    ((sum / @challenge.budget) * 100).to_i
+    return ((sum / @challenge.budget) * 100).round
   end
 
   def calculate_damage
@@ -75,6 +85,14 @@ class ChallengesController < ApplicationController
       @player.hitpoints * rand(1.4..2.0).to_i
     else
       @player.hitpoints
+    end
+  end
+
+  def resolve_challenge
+    if @monster_rage >= 100
+      @challenge.lost!
+    elsif @monster_rage < 100
+      @challenge.won!
     end
   end
 end
