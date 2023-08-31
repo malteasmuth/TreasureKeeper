@@ -7,20 +7,20 @@ class ChallengesController < ApplicationController
     @monster = Monster.find(@challenge.monster_id)
     @expenses = Expense.where(challenge_id: @challenge.id)
     @monster_rage = monster_rage
+    resolve_challenge
   end
 
   def new
     @challenge = Challenge.new
   end
 
-
   def create
     @current_player = Player.find_by(user_id: current_user)
     @challenge = Challenge.new(challenge_params)
     @challenge.player_id = @current_player.id
-
+    monster = Monster.create(healthpoints: 20, hitpoints: 15, challenge_id: @challenge.id)
+    @challenge.monster_id = monster.id
     if @challenge.save
-      @monster = Monster.create(healthpoints: 20, hitpoints: 15, challenge_id: @challenge.id)
       redirect_to challenge_path(@challenge)
     else
       render :new, status: :unprocessable_entity
@@ -31,7 +31,7 @@ class ChallengesController < ApplicationController
   end
 
   def update
-  end
+  endresolve_challenge
 
   def delete
   end
@@ -42,7 +42,6 @@ class ChallengesController < ApplicationController
     @player.healthpoints
     @player.hitpoints
     @player.rubies
-
 
     @monster = Monster.find(@challenge.monster_id)
     @monster.healthpoints
@@ -75,6 +74,14 @@ class ChallengesController < ApplicationController
       @player.hitpoints * rand(1.4..2.0).to_i
     else
       @player.hitpoints
+    end
+  end
+
+  def resolve_challenge
+    if @monster_rage >= 100
+      @challenge.lost!
+    elsif @monster_rage < 100 && end_date >= Date.today
+      @challenge.won!
     end
   end
 end
