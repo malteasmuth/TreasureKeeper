@@ -1,3 +1,7 @@
+<% @challenge = Challenge.find_by(player_id: current_user, status: "running") %>
+<% @player = Player.find_by(user_id: current_user) %>
+
+
 <div class="navbar navbar-expand-sm navbar-light navbar-treasure-keeper">
   <div class="container-fluid d-flex justify-content-around">
     <%= link_to treasure_chests_path, class: "navbar-brand" do %>
