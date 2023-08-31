@@ -10,11 +10,12 @@
 
 puts "Cleaning database.....one time Seed "
 
-User.destroy_all
-Player.destroy_all
-Monster.destroy_all
 Expense.destroy_all
-
+TreasureChest.destroy_all
+Challenge.destroy_all
+Monster.destroy_all
+Player.destroy_all
+User.destroy_all
 puts "Creating 4 users...."
 
 
@@ -30,18 +31,7 @@ users_data.each do |user_data|
   User.create(user_data)
 end
 
-<<<<<<< HEAD
  puts "Creating 4 Players one per user .."
-=======
-# # # Seed Players
-# players_data = [
-#   { avatar_url: "Treasure Keeper/swordman.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, user_id: 2, username: "player1" },
-#   { avatar_url: "Treasure Keeper/wizard.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, user_id: 3, username: "player2" },
-#   { avatar_url: "Treasure Keeper/knight.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, user_id: 4, username: "player3" },
-#   { avatar_url: "Treasure Keeper/swordman.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, user_id: 5, username: "player4" }
-# ]
->>>>>>> f021f167d9417d59a9830ef3984d720b6398193f
-
 
 # Seed Players
 players_data = [
@@ -100,10 +90,7 @@ end
 # First, seed the "Challenges" table without the expense_id column.
 # Next, seed the "Expenses" table with the challenge_id column, referring to the
 
-<<<<<<< HEAD
 puts "Creating some challenges..🌱🌱"
-# Clear existing data
-# Challenge.destroy_all
 
 # Seed Challenges
 challenges_data = [
@@ -128,50 +115,10 @@ challenges_data = [
     current_value: 100.0,
   }
 ]
-=======
-# puts "Creating some challenges..🌱🌱"
-
-# # Clear existing data
-# # Challenge.destroy_all
-
-# # Seed Challengee 
-# Clear existing data
-# Challenge.destroy_all
-
-# Seed Challenges
-
-# challenges_data = [
-#   {
-#     name: "Challenge 1",
-#     description: "Description 1",
-#     status: 0,
-#     player_id: 22, # the first player that exist if we do not drop the DB
-#     end_date: Date.today + 7.days,
-#     monster_id: 7, # this is a troll
-#     budget: 100.0,
-#     current_value: 50.0,
-#   },
-#   {
-#     name: "Challenge 2",
-#     description: "Description 2",
-#     status: 0,
-#     player_id: 23,
-#     end_date: Date.today + 14.days,
-#     monster_id: 10, # a Dragon here!
-#     budget: 150.0,
-#     current_value: 100.0,
-#   }
-# ]
->>>>>>> f021f167d9417d59a9830ef3984d720b6398193f
 
 challenges_data.each do |challenge_data|
   Challenge.create(challenge_data)
 end
-
-
-# Some expenses
-
-# Clear existing data
 
 # Seed Expenses
 expenses_data = [
