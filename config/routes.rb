@@ -4,8 +4,8 @@ Rails.application.routes.draw do
     get "attack", to: "challenges#player_attack"
     resources :expenses, only: %i[show new create]
   end
-
-  root to: "pages#index"
+  
+  root to: "pages#home"
 
   resources :treasure_chests, only: %i[index new create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
