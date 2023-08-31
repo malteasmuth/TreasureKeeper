@@ -1,0 +1,77 @@
+.area {
+  padding: 10px;
+  text-align: center;
+}
+
+h2 {
+  padding: 5px;
+  text-align: center;
+}
+
+p {
+  width: 500px;
+  padding: 1%;
+  margin: auto;
+}
+
+.btn {
+  text-align: center;
+  width: 100px;
+  background-color: #A8C2C4;
+  border: 2px solid #97aeb0;
+  padding: 20px;
+  display: inline-block;
+  margin: 30px 10px;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  cursor: pointer;
+}
+
+.health-box {
+  background-color: #ccc;
+  height: 30px;
+  width: 500px;
+  margin: 0 auto;
+  border: solid 1px #aaa;
+}
+
+.health-bar {
+  background-color: #007f00;
+  width: inherit;
+  height: 28px;
+  position: relative;
+  bottom: 56px;
+}
+
+.health-bar-red {
+  width: 100%;
+  height: 100%;
+  background-color: #cc0000;
+}
+
+.health-bar-blue {
+  width: 100%;
+  height: 100%;
+  background-color: #3bd3df;
+  bottom: 28px;
+  position: relative;
+}
+
+.health-bar-text {
+  position: relative;
+  bottom: 80px;
+}
+
+.message-box {
+  text-align: center;
+  padding: 5px;
+}
+
+.total,
+.message-box {
+  font-size: 16px;
+  margin: 5px;
+}
