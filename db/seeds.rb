@@ -41,6 +41,7 @@ players_data = [
   { avatar_url: "Treasure Keeper/swordman.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, username: "player4", user_id: User.all.pluck(:id).sample }
 ]
 
+
 players_data.each do |player_data|
   Player.create(player_data)
 end
@@ -86,7 +87,6 @@ monsters_data.each do |monster_data|
   Monster.create(monster_data)
 end
 
-
 # First, seed the "Challenges" table without the expense_id column.
 # Next, seed the "Expenses" table with the challenge_id column, referring to the
 
@@ -115,6 +115,40 @@ challenges_data = [
     current_value: 100.0,
   }
 ]
+
+# puts "Creating some challenges..🌱🌱"
+
+# # Clear existing data
+# # Challenge.destroy_all
+
+# # Seed Challengee
+# Clear existing data
+# Challenge.destroy_all
+
+# Seed Challenges
+
+# challenges_data = [
+#   {
+#     name: "Challenge 1",
+#     description: "Description 1",
+#     status: 0,
+#     player_id: 22, # the first player that exist if we do not drop the DB
+#     end_date: Date.today + 7.days,
+#     monster_id: 7, # this is a troll
+#     budget: 100.0,
+#     current_value: 50.0,
+#   },
+#   {
+#     name: "Challenge 2",
+#     description: "Description 2",
+#     status: 0,
+#     player_id: 23,
+#     end_date: Date.today + 14.days,
+#     monster_id: 10, # a Dragon here!
+#     budget: 150.0,
+#     current_value: 100.0,
+#   }
+# ]
 
 challenges_data.each do |challenge_data|
   Challenge.create(challenge_data)
