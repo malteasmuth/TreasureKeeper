@@ -1,18 +1,18 @@
-.navbar-lewagon {
+.navbar-treasure-keeper {
   justify-content: space-between;
-  background: white;
+  background-color: #FDFBF0;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-treasure-keeper .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-treasure-keeper .navbar-brand img {
   width: 40px;
 }
 
 .page-container {
   display: grid;
   min-height: 100vh;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 4fr auto;
 }

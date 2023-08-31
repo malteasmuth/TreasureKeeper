@@ -1,12 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
 <%# This is going to be where the map shows and the game takes place %>
 
-<div class="container">
-  <% @challenges.each do |challenge| %>
-    <h2>Your challenge: <%= challenge.name %></h2>
-    <h3>Status: <%= challenge.status %>
-    <p><%= link_to "continue", challenge_path(challenge), class: "btn btn-primary" %></p>
-  <% end %>
-</div>
+  <div class="main-page">
+    <% @challenges.each do |challenge| %>
+      <h2>Your challenge: <%= challenge.name %></h2>
+      <h3>Status: <%= challenge.status %>
+      <p><%= link_to "continue", challenge_path(challenge), class: "btn" %></p>
+    <% end %>
+  </div>
