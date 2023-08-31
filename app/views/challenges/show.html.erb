@@ -6,8 +6,8 @@
     <%# calculate sum of expenses %>
     <% sum = 0 %>
     <ul><% @expenses.each do |expense| %>
-       <li><%= expense.amount %></li>
-       <% sum += expense.amount %>
+      <li><%= expense.amount %></li>
+      <% sum += expense.amount %>
     <% end %></ul>
   <h2>Total amount: <%= sum %> EUR</h2>
  <%# give status, maybe color-coding %>
