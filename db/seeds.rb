@@ -13,6 +13,7 @@ puts "Cleaning database.....one time Seed "
 User.destroy_all
 Player.destroy_all
 Monster.destroy_all
+Challenge.destroy_all
 Expense.destroy_all
 
 puts "Creating 4 users...."
@@ -30,18 +31,7 @@ users_data.each do |user_data|
   User.create(user_data)
 end
 
-<<<<<<< HEAD
  puts "Creating 4 Players one per user .."
-=======
-# # # Seed Players
-# players_data = [
-#   { avatar_url: "Treasure Keeper/swordman.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, user_id: 2, username: "player1" },
-#   { avatar_url: "Treasure Keeper/wizard.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, user_id: 3, username: "player2" },
-#   { avatar_url: "Treasure Keeper/knight.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, user_id: 4, username: "player3" },
-#   { avatar_url: "Treasure Keeper/swordman.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, user_id: 5, username: "player4" }
-# ]
->>>>>>> f021f167d9417d59a9830ef3984d720b6398193f
-
 
 # Seed Players
 players_data = [
@@ -100,10 +90,7 @@ end
 # First, seed the "Challenges" table without the expense_id column.
 # Next, seed the "Expenses" table with the challenge_id column, referring to the
 
-<<<<<<< HEAD
 puts "Creating some challenges..🌱🌱"
-# Clear existing data
-# Challenge.destroy_all
 
 # Seed Challenges
 challenges_data = [
@@ -128,6 +115,7 @@ challenges_data = [
     current_value: 100.0,
   }
 ]
+<<<<<<< HEAD
 =======
 # puts "Creating some challenges..🌱🌱"
 
@@ -163,15 +151,12 @@ challenges_data = [
 #   }
 # ]
 >>>>>>> f021f167d9417d59a9830ef3984d720b6398193f
+=======
+>>>>>>> 11b24286eb30d957065621eb25433f91c318be6d
 
 challenges_data.each do |challenge_data|
   Challenge.create(challenge_data)
 end
-
-
-# Some expenses
-
-# Clear existing data
 
 # Seed Expenses
 expenses_data = [
