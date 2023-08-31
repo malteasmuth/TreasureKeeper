@@ -1,11 +1,14 @@
+<div class="container mt-5">
+  <h1 class="mb-4">Player Information</h1>
 
-<h1>Player Information</h1>
-
-
-<%= cl_image_tag("#{@player.avatar_url}", title: "Treasure Keeper/life_full.png",
-      width: 50, crop: :fill) %>
-
-<p><%= @player.username %></p>
-<p>Hitpoints: <%= @player.hitpoints %></p>
-<p>Healthpoints: <%= @player.healthpoints %></p>
-<p>Rubies: <%= @player.rubies %></p>
+  <div class="d-flex align-items-center mb-3">
+    <%= cl_image_tag("#{@player.avatar_url}", title: "Treasure Keeper/life_full.png",
+      width: 50, crop: :fill, class: "mr-3 rounded-circle") %>
+    <div>
+      <p class="mb-0"><%= @player.username %></p>
+      <p class="mb-0">Hitpoints: <%= @player.hitpoints %></p>
+      <p class="mb-0">Healthpoints: <%= @player.healthpoints %></p>
+      <p class="mb-0">Rubies: <%= @player.rubies %></p>
+    </div>
+  </div>
+</div>
