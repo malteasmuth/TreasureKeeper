@@ -6,17 +6,29 @@
   height: 712px;
 }
 // This is the map
-.main-page {
-  background-image: url('treasure_keeper_castle.jpg');
+.treasure-chests {
+  background-image: url('treasure_keeper_battlefield.jpg');
   background-size: contain;
   background-position: center;
-  height: 84vh;
+  height: 712px;
 }
-.treasure-chests {
+.treasure-chests-new {
+  background-image: url('treasure_keeper_expenses.jpg');
+  background-size: contain;
+  background-position: center;
+  height: 712px;
+}
+.treasure-chests-show {
   background-image: url('treasure_keeper_chamber.jpg');
   background-size: contain;
   background-position: center;
   height: 712px;
+}
+.challenges-index {
+  background-image: url('treasure_keeper_battlefield_2.jpg');
+  background-size: contain;
+  background-position: center;
+  height: 84vh;
 }
 .challenges-new {
   background-image: url('treasure_keeper_dragon_2.jpg');

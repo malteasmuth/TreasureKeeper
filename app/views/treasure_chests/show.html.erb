@@ -1,4 +1,4 @@
-<div>
+<div class="treasure-chests-show d-flex flex-column justify-content-center align-items-center">
   <h2><%= @treasure_chest.name %></h2>
   <h2><%= @treasure_chest.description %></h2>
         <% if @treasure_chest.current_value != nil %>
@@ -6,7 +6,11 @@
         <% else %>
           <% @treasure_chest.current_value = 0 %>
         <% end %>
-  <%= @treasure_chest.current_value %>/ <%= @treasure_chest.value %></p>
+
+      <% if @treasure_chest.current_value != nil %>
+      <% else %>
+      <%= @treasure_chest.current_value %> / <%= @treasure_chest.value %>
+      <% end %>
 
   <%= link_to "Add a new challenge", new_treasure_chest_challenge_path(@treasure_chest), class: "btn btn-primary"%>
 </div>

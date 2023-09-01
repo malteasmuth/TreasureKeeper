@@ -1,7 +1,12 @@
 <%# This is going to be where the map shows and the game takes place %>
-<div class="main-page d-flex flex-column justify-content-center align-items-center">
+<div class="challenges-index d-flex flex-column justify-content-center align-items-center">
   <h6>Your Challenges</h6>
-  <div class="overflow-auto border p-3" style="width: 300px; max-height: 600px; border-radius: 15px;">
+  <% if @challenges.empty? %>
+      <div class="overflow-auto border p-3" style="width: 300px; max-height: 600px; border-radius: 15px;">
+      <p>You Have No Challenges</p>
+    <% else %>
+      <div class="overflow-auto border p-3" style="width: 300px; max-height: 600px; border-radius: 15px;">
+    <% end %>
     <% @challenges.each do |challenge| %>
       <div class="text-center">
         <h6><span style="color: #F29C1F;"><%= challenge.name %><span></h6>
