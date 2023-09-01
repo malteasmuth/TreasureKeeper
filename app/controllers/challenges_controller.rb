@@ -1,4 +1,6 @@
 class ChallengesController < ApplicationController
+  before_action :get_player
+
   def index
   end
 
@@ -41,7 +43,7 @@ class ChallengesController < ApplicationController
   def delete
   end
 
-  def player_attack()
+  def player_attack
     @challenge = Challenge.find(params["challenge_id"])
     @player = Player.find_by(user_id: current_user)
     @monster = Monster.find(@challenge.monster_id)
@@ -100,5 +102,9 @@ class ChallengesController < ApplicationController
       @challenge.treasure_chest.current_value += @challenge.budget - @challenge.current_value
       @challenge.treasure_chest.save
     end
+  end
+
+  def get_player
+    @current_player = Player.find_by(user_id: current_user)
   end
 end

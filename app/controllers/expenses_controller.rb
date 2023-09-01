@@ -1,4 +1,6 @@
 class ExpensesController < ApplicationController
+  before_action: get_player
+
   def show
   end
 
@@ -33,6 +35,10 @@ class ExpensesController < ApplicationController
 
   def expense_params
     params.require(:expense).permit(:amount, :expense_date, :challenge_id)
+  end
+
+  def get_player
+    @current_player = Player.find_by(user_id: current_user)
   end
 
 end
