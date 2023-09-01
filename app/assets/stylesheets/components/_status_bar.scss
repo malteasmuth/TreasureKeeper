@@ -17,3 +17,9 @@
   min-height: 100vh;
   grid-template-rows: auto 4fr auto;
 }
+
+.status-bar-container {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+}

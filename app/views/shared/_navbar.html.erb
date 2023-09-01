@@ -19,7 +19,7 @@
 
   <% if @player %>
     <%= link_to player_path(@player), class: "navbar-brand" do %>
-      <%= image_tag(@player.icon_creator(@player.avatar_url)) %>
+      <%= image_tag asset_path "Icons/#{@player.icon_creator}" %>
     <% end %>
   <% end%>
   </div>
