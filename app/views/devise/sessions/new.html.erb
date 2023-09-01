@@ -1,8 +1,6 @@
-<h2>Treasure Keeper</h2>
-
-<div class="container">
-  <div><%= cl_image_tag("Treasure Keeper/treasure.png", title: "Treasure Keeper/treasure.png",
-      width: 50, crop: :fill) %>
+<div class="expenses-new container d-flex flex-column align-items-center">
+  <h6>Treasure Keeper</h6>
+  <%= image_tag asset_path("Icons/treasure.png"), class: "icon" %>
 </div>
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs">
