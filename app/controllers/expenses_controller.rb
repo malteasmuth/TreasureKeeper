@@ -1,5 +1,5 @@
 class ExpensesController < ApplicationController
-  before_action: get_player
+  before_action :get_player
 
   def show
   end
@@ -40,5 +40,4 @@ class ExpensesController < ApplicationController
   def get_player
     @current_player = Player.find_by(user_id: current_user)
   end
-
 end
