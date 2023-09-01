@@ -3,13 +3,13 @@
   <div class="transparent-bg mb-2 pt-3 px-3 border d-flex flex-column align-items-center" style="border-radius: 10px; width: 355px;">
     <h3 class=""><%= @challenge.name %></h3>
     <h2><%= @challenge.description %></h2>
-    <span><p style="color: #F29C1F">Status: <%= @challenge.status %><p></span>
+    <p>Status: <span style="color: #F29C1F"><%= @challenge.status %></span><p>
   </div>
   <div class="transparent-bg mb-2 pt-3 px-3 border d-flex flex-column justify-content-center align-items-center" style="border-radius: 10px; width: 355px;">
     <p>Your budget: <%= @challenge.budget %> EUR</p>
     <p>Your expenses: </p>
 
-    <div class="overflow-auto" style="max-height: 30px;">
+    <div class="overflow-auto" style="max-height: 80px;">
       <%# calculate sum of expenses %>
       <% sum = 0 %>
       <% @expenses.each do |expense| %>

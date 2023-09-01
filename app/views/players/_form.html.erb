@@ -1,10 +1,13 @@
 <%# We need to refactor this page to establish the name of the avatar %>
 
-<div class="container">
+<div class="container d-flex flex-column align-items-center" style="max-width: 250px;">
   <%= simple_form_for @player do |f| %>
-      <%= f.input :username %>
-      <%= f.input :avatar_url, collection: ["Treasure Keeper/swordman.png",
-      "Treasure Keeper/wizard.png","Treasure Keeper/knight.png","Treasure Keeper/queen.png"] %>
-      <%= f.button :submit, 'Start your journey' %>
+    <%= f.input :username, label: false, placeholder: 'Username' %>
+
+    <%= f.input :avatar_url, label: false, collection: ["", "Treasure Keeper/swordman.png",
+      "Treasure Keeper/wizard.png", "Treasure Keeper/knight.png", "Treasure Keeper/queen.png"],
+      prompt: 'Select Avatar', include_blank: false %>
+
+    <%= f.button :submit, 'Start your journey' %>
   <% end %>
 </div>

@@ -1,9 +1,13 @@
 <%# This is going to be where the map shows and the game takes place %>
-
-  <div class="main-page">
+<div class="main-page d-flex flex-column justify-content-center align-items-center">
+  <h6>Your Challenges</h6>
+  <div class="overflow-auto border p-3" style="width: 300px; max-height: 600px; border-radius: 15px;">
     <% @challenges.each do |challenge| %>
-      <h2>Your challenge: <%= challenge.name %></h2>
-      <h3>Status: <%= challenge.status %>
-      <p><%= link_to "continue", treasure_chest_challenge_path(challenge.treasure_chest, challenge), class: "btn" %></p>
+      <div class="text-center">
+        <h6><span style="color: #F29C1F;"><%= challenge.name %><span></h6>
+        <h6>Status: <span style="color: #F29C1F;"><%= challenge.status %><span></h6>
+        <p><%= link_to "continue", treasure_chest_challenge_path(challenge.treasure_chest, challenge), class: "btn" %></p>
+      </div>
     <% end %>
   </div>
+</div>

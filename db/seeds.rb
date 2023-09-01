@@ -35,10 +35,10 @@ end
 
 # Seed Players
 players_data = [
-  { avatar_url: "Treasure Keeper/swordman.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, username: "player1", user_id: User.all.pluck(:id).sample },
-  { avatar_url: "Treasure Keeper/wizard.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, username: "player2", user_id: User.all.pluck(:id).sample },
-  { avatar_url: "Treasure Keeper/knight.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, username: "player3", user_id: User.all.pluck(:id).sample },
-  { avatar_url: "Treasure Keeper/swordman.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, username: "player4", user_id: User.all.pluck(:id).sample }
+  { avatar_url: "../app/assets/images/Icons/elf1.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, username: "player1", user_id: User.all.pluck(:id).sample },
+  { avatar_url: "../app/assets/images/Icons/knight.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, username: "player2", user_id: User.all.pluck(:id).sample },
+  { avatar_url: "../app/assets/images/Icons/queen.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, username: "player3", user_id: User.all.pluck(:id).sample },
+  { avatar_url: "../app/assets/images/Icons/swords.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, username: "player4", user_id: User.all.pluck(:id).sample }
 ]
 
 players_data.each do |player_data|
@@ -55,35 +55,35 @@ monsters_data = [
   {
     hitpoints: 10.0,
     healthpoints: 50.0,
-    image_url: "Treasure Keeper/troll_01.png"
+    image_url: "../app/assets/images/Icons/orc2.png"
   },
   {
     hitpoints: 15.0,
     healthpoints: 75.0,
-    image_url: "Treasure Keeper/troll_02.png"
+    image_url: "../app/assets/images/Icons/orc3.png"
   },
   {
     hitpoints: 20.0,
     healthpoints: 75.0,
-    image_url: "Treasure Keeper/orc_01.png"
+    image_url: "../app/assets/images/Icons/troll.png"
   },
   {
     hitpoints: 20.0,
     healthpoints: 90.0,
-    image_url: "Treasure Keeper/orc_02.png"
+    image_url: "../app/assets/images/Icons/dragon2.png"
   },
   {
     hitpoints: 55.0,
     healthpoints: 90.0,
-    image_url: "Treasure Keeper/dragon_01.png"
+    image_url: "../app/assets/images/Icons/dragon1.png"
   },
   {
     hitpoints: 90.0,
     healthpoints: 90.0,
-    image_url: "Treasure Keeper/dragon_02.png"
+    image_url: "../app/assets/images/Icons/dragon2.png"
   }
-]
 
+]
 monsters_data.each do |monster_data|
   Monster.create(monster_data)
 end

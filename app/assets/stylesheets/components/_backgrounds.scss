@@ -1,25 +1,49 @@
 // Background wallpapers
-.treasure-chests {
-  background-image: url('treasure_keeper_chamber.jpg');
+.root-home {
+  background-image: url('treasure_keeper_battlefield.jpg');
   background-size: contain;
   background-position: center;
   height: 712px;
 }
+// This is the map
 .main-page {
   background-image: url('treasure_keeper_castle.jpg');
   background-size: contain;
   background-position: center;
   height: 84vh;
 }
-.challenges-show {
-  background-image: url('treasure_keeper_castle.jpg');
+.treasure-chests {
+  background-image: url('treasure_keeper_chamber.jpg');
   background-size: contain;
   background-position: center;
   height: 712px;
 }
-
-.portal {
+.challenges-new {
+  background-image: url('treasure_keeper_dragon_2.jpg');
+  background-size: contain;
+  background-position: center;
+  height: 84vh;
+}
+.challenges-show {
+  background-image: url('treasure_keeper_dragon.jpg');
+  background-size: contain;
+  background-position: center;
+  height: 712px;
+}
+.players-new {
   background-image: url('treasure_keeper_portal.jpg');
+  background-size: contain;
+  background-position: center;
+  height: 712px;
+}
+.players-show {
+  background-image: url('treasure_keeper_warrior.jpg');
+  background-size: contain;
+  background-position: center;
+  height: 712px;
+}
+.expenses-new {
+  background-image: url('treasure_keeper_expenses.jpg');
   background-size: contain;
   background-position: center;
   height: 712px;

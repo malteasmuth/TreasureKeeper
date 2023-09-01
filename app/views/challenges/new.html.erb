@@ -1,10 +1,12 @@
-<div class="container">
-
-  <%= simple_form_for [@treasure_chest, @challenge] do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :budget%>
-    <%= f.input :end_date, as: :date %>
-    <%= f.button :submit, "Create new challenge", class:"btn btn-primary" %>
-  <% end %>
+<div class="challenges-new d-flex flex-column justify-content-center align-items-center">
+    <h2 class="mb-3">Challenges</h2>
+    <div class="container d-flex flex-column align-items-center" style="max-width: 250px;">
+      <%= simple_form_for [@treasure_chest, @challenge] do |f| %>
+        <%= f.input :name, label: false, placeholder: "Challenge Name" %>
+        <%= f.input :description, label: false, placeholder: "Description" %>
+        <%= f.input :budget, label: false, placeholder: "Budget" %>
+        <%= f.input :end_date, as: :date, label: false, placeholder: "End Date" %>
+        <%= f.button :submit, "Create new challenge", class: "btn" %>
+      <% end %>
+    </div>
 </div>
