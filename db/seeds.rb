@@ -78,7 +78,7 @@ monsters_data = [
   {
     hitpoints: 90.0,
     healthpoints: 90.0,
-    image_url: "../app/assets/images/Icons/dragon2.png"
+    image_url: "../app/assets/images/Icons/dragon2.png
   }
 ]
 
