@@ -81,7 +81,6 @@ monsters_data = [
     image_url: "../app/assets/images/Icons/dragon2.png
   }
 ]
-
 monsters_data.each do |monster_data|
   Monster.create(monster_data)
 end
