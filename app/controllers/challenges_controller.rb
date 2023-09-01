@@ -60,13 +60,12 @@ class ChallengesController < ApplicationController
     if @monster_rage > 75
       attack_chance = 80
     elsif @monster_rage > 50
-      attack_chance = 60
-    else
-      attack_chance = 50
+      attack_chance = 40
     end
+    
     return unless rand(1..100) <= attack_chance
 
-    @player.update(healthpoints: ((@monster.hitpoints + @monster_rage) / 100))
+    @player.update(healthpoints: (@player.healthpoints - 10))
   end
 
   def challenge_params
