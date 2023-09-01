@@ -1,4 +1,6 @@
 class TreasureChestsController < ApplicationController
+  before_action :get_player
+
   def index
     @current_player = Player.find_by(user_id: current_user)
     @treasure_chests = TreasureChest.where(player_id: @current_player.id)
@@ -23,10 +25,14 @@ class TreasureChestsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-  
+
   private
 
   def treasure_params
     params.require(:treasure_chest).permit(:name, :description, :value)
+  end
+
+  def get_player
+    @current_player = Player.find_by(user_id: current_user)
   end
 end
