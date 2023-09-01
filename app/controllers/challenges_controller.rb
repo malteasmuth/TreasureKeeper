@@ -53,11 +53,6 @@ class ChallengesController < ApplicationController
 
   private
 
-  def treasure_params
-    raise
-    params.require(:challenges).permit(:treasure_chest_id)
-  end
-
   def check_attack
     attack_chance = 0
     if @monster_rage > 75
@@ -81,7 +76,7 @@ class ChallengesController < ApplicationController
     @expenses.each do |expense|
       sum += expense.amount
     end
-    return ((sum / @challenge.budget) * 100).round
+    return ((sum / @challenge.budget) * 100)
   end
 
   def calculate_damage
@@ -99,6 +94,11 @@ class ChallengesController < ApplicationController
       @challenge.lost!
     elsif @monster_rage < 100 && Date.today > @challenge.end_date
       @challenge.won!
+      if @challenge.treasure_chest.current_value.nil?
+        @challenge.treasure_chest.current_value = 0
+      end
+      @challenge.treasure_chest.current_value += @challenge.budget - @challenge.current_value
+      @challenge.treasure_chest.save
     end
   end
 end
