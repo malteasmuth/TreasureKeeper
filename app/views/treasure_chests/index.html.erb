@@ -1,5 +1,7 @@
 
   <div class="treasure-chests">
-  TREASURE CHESTS PAGE. FIND MY STYLE IN _backgrounds.scss
-
+    <% @treasure_chests.each do |treasure_chest| %>
+    <%= treasure_chest.name %>
+    <%= link_to "Open", treasure_chest_path(treasure_chest), class:"btn btn-primary"%>
+    <% end %>
   </div>
