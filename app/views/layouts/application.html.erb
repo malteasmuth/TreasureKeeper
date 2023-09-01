@@ -12,12 +12,16 @@
 
   <body>
     <div class="page-container">
-      <div class="status_bar-container"><%= render "shared/status_bar" %></div>
+      <% unless controller_name == 'sessions' && action_name == 'new' %>
+        <div class="status_bar-container"><%= render "shared/status_bar" %></div>
+      <% end %>
         <div class="content-container">
           <%= render "shared/flashes" %>
           <%= yield %>
         </div>
-      <div class="navbar-container"><%= render "shared/navbar" %></div>
+        <% unless controller_name == 'sessions' && action_name == 'new' %>
+          <div class="navbar-container"><%= render "shared/navbar" %></div>
+      <% end %>
     </div>
   </body>
 </html>
