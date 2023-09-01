@@ -2,7 +2,11 @@
   <h1 class="mb-4">Player Information</h1>
   <div class="d-flex align-items-center mb-3">
 
-    <%= image_tag(@player.avatar_url, width: 50, crop: :fill, class: "mr-3 rounded-circle") %>
+    # Calling it in your view, we do not have a category ,
+    # but he have a avatar_url field at the DB
+
+    <%= image_tag(@player.icon_creator(@player.avatar_url), width: 50, crop: :fill, class: "mr-3 rounded-circle") %>
+
     <div>
       <p><%= @player.username %></p>
       <p>Hitpoints: <%= @player.hitpoints %></p>

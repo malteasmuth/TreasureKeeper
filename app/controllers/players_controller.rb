@@ -18,6 +18,11 @@ class PlayersController < ApplicationController
     end
   end
 
+  def category
+    
+
+  end
+
   def edit
   end
 

@@ -6,4 +6,17 @@ class Player < ApplicationRecord
   validates :username, :healthpoints, :hitpoints, :rubies, presence: true
 
   has_one_attached :picture
+
+  def icon_creator(category)
+    case self.category
+
+      when "Knight"
+        "knight.png"
+      when  "Elf"
+        "elf1.png"
+      else
+        "Wizard.png"
+      end
+  end
+
 end
