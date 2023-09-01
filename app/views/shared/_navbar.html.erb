@@ -4,26 +4,22 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-treasure-keeper">
   <div class="container-fluid d-flex justify-content-around">
     <%= link_to treasure_chests_path, class: "navbar-brand" do %>
-      <%= cl_image_tag("Treasure Keeper/treasure.png", title: "Treasure Keeper/treasure.png",
-      width: 50, crop: :fill) %>
+      <%= image_tag asset_path("Icons/treasure.png") %>
     <% end %>
 
     <%= link_to home_path, class: "navbar-brand" do %>
-      <%= cl_image_tag("Treasure Keeper/map.png", title: "Treasure Keeper/map.png",
-      width: 50, crop: :fill) %>
+      <%= image_tag asset_path("Icons/map.png") %>
     <% end %>
 
     <% if @challenge %>
     <%= link_to treasure_chest_challenge_path(@challenge.treasure_chest, @challenge), class: "navbar-brand" do %>
-      <%= cl_image_tag("Treasure Keeper/swords.png", title: "Treasure Keeper/swords.png",
-      width: 50, crop: :fill) %>
+      <%= image_tag asset_path("Icons/swords.png") %>
       <% end %>
     <% end  %>
 
   <% if @player %>
     <%= link_to player_path(@player), class: "navbar-brand" do %>
-      <%= cl_image_tag("Treasure Keeper/knight.png", title: "Treasure Keeper/knight.png",
-      width: 50, crop: :fill) %>
+      <%= image_tag @player.avatar_url %>
     <% end %>
   <% end%>
   </div>
