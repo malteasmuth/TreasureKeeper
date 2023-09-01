@@ -1,7 +1,8 @@
 <div class="container mt-5">
   <h1 class="mb-4">Player Information</h1>
   <div class="d-flex align-items-center mb-3">
-    <%= cl_image_tag(@player.avatar_url, width: 50, crop: :fill, class: "mr-3 rounded-circle") %>
+
+    <%= image_tag(@player.avatar_url, width: 50, crop: :fill, class: "mr-3 rounded-circle") %>
     <div>
       <p><%= @player.username %></p>
       <p>Hitpoints: <%= @player.hitpoints %></p>
@@ -10,4 +11,3 @@
     </div>
   </div>
 </div>
-
