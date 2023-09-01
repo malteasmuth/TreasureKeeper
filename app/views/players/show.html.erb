@@ -1,7 +1,7 @@
 
 <div class="players-show d-flex flex-column justify-content-center align-items-center">
   <h5 class="mb-4">Player Information</h5>
-    <%= image_tag(@player.icon_creator(@player.avatar_url), width: 50, crop: :fill, class: "mr-3 rounded-circle") %>
+    <%= image_tag "Icons/#{@player.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %>
   <div class="transparent-bg text-center">
     <p><%= @player.username %></p>
     <p>Hitpoints: <span style="color: #F29C1F"><%= @player.hitpoints %></span></p>

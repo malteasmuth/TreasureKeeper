@@ -7,15 +7,14 @@ class Player < ApplicationRecord
 
   has_one_attached :picture
 
-  def icon_creator(category)
-    case self.category
-
+  def icon_creator
+    case self.avatar_url
       when "Knight"
         "knight.png"
       when  "Elf"
         "elf1.png"
       else
-        "Wizard.png"
+        "wizard.png"
       end
   end
 
