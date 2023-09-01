@@ -35,10 +35,10 @@ end
 
 # Seed Players
 players_data = [
-  { avatar_url: "../app/assets/images/Icons/elf1.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, username: "player1", user_id: User.all.pluck(:id).sample },
-  { avatar_url: "../app/assets/images/Icons/knight.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, username: "player2", user_id: User.all.pluck(:id).sample },
-  { avatar_url: "../app/assets/images/Icons/queen.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, username: "player3", user_id: User.all.pluck(:id).sample },
-  { avatar_url: "../app/assets/images/Icons/swords.png", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, username: "player4", user_id: User.all.pluck(:id).sample }
+  { avatar_url: "Elf", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, username: "player1", user_id: User.all.pluck(:id).sample },
+  { avatar_url: "Knight", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, username: "player2", user_id: User.all.pluck(:id).sample },
+  { avatar_url: "Queen", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, username: "player3", user_id: User.all.pluck(:id).sample },
+  { avatar_url: "Swords", hitpoints: 20.0, healthpoints: 100.0, rubies: 50.0, username: "player4", user_id: User.all.pluck(:id).sample }
 ]
 
 players_data.each do |player_data|
