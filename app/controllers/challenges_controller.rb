@@ -10,7 +10,7 @@ class ChallengesController < ApplicationController
     @monster = Monster.find(@challenge.monster_id)
     @expenses = Expense.where(challenge_id: @challenge.id)
     @monster_rage = monster_rage
-    check_attack
+    # check_attack
     resolve_challenge
   end
 
