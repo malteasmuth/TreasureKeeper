@@ -1,17 +1,11 @@
-<div class="container mt-5">
-  <h1 class="mb-4">Player Information</h1>
-  <div class="d-flex align-items-center mb-3">
 
-    # Calling it in your view, we do not have a category ,
-    # but he have a avatar_url field at the DB
-
+<div class="players-show d-flex flex-column justify-content-center align-items-center">
+  <h5 class="mb-4">Player Information</h5>
     <%= image_tag(@player.icon_creator(@player.avatar_url), width: 50, crop: :fill, class: "mr-3 rounded-circle") %>
-
-    <div>
-      <p><%= @player.username %></p>
-      <p>Hitpoints: <%= @player.hitpoints %></p>
-      <p>Healthpoints: <%= @player.healthpoints %></p>
-      <p>Rubies: <%= @player.rubies %></p>
-    </div>
+  <div class="transparent-bg text-center">
+    <p><%= @player.username %></p>
+    <p>Hitpoints: <span style="color: #F29C1F"><%= @player.hitpoints %></span></p>
+    <p>Healthpoints: <span style="color: #F29C1F"><%= @player.healthpoints %></span></p>
+    <p>Rubies: <span style="color: #F29C1F"><%= @player.rubies %></span></p>
   </div>
 </div>

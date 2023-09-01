@@ -14,17 +14,19 @@ class ChallengesController < ApplicationController
 
   def new
     @challenge = Challenge.new
+    @treasure_chest = TreasureChest.find(params["treasure_chest_id"])
   end
 
   def create
     @current_player = Player.find_by(user_id: current_user)
+    @treasure_chest = TreasureChest.find(params["treasure_chest_id"])
     @challenge = Challenge.new(challenge_params)
     @challenge.player_id = @current_player.id
-    monster = Monster.new(healthpoints: 20, hitpoints: 20)
-    monster.save
+    @challenge.treasure_chest = @treasure_chest
+    monster = Monster.create(healthpoints: 20, hitpoints: 20)
     @challenge.monster_id = monster.id
     if @challenge.save
-      redirect_to challenge_path(@challenge)
+      redirect_to treasure_chest_challenge_path(@treasure_chest, @challenge)
     else
       render :new, status: :unprocessable_entity
     end
@@ -51,6 +53,11 @@ class ChallengesController < ApplicationController
 
   private
 
+  def treasure_params
+    raise
+    params.require(:challenges).permit(:treasure_chest_id)
+  end
+
   def check_attack
     attack_chance = 0
     if @monster_rage > 75
@@ -66,7 +73,7 @@ class ChallengesController < ApplicationController
   end
 
   def challenge_params
-    params.require(:challenge).permit(:name, :description, :budget, :end_date)
+    params.require(:challenge).permit(:name, :description, :budget, :end_date, :treasure_chest_id)
   end
 
   def monster_rage

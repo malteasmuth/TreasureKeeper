@@ -14,7 +14,7 @@
     <% end %>
 
     <% if @challenge %>
-    <%= link_to challenge_path(@challenge), class: "navbar-brand" do %>
+    <%= link_to treasure_chest_challenge_path(@challenge.treasure_chest, @challenge), class: "navbar-brand" do %>
       <%= cl_image_tag("Treasure Keeper/swords.png", title: "Treasure Keeper/swords.png",
       width: 50, crop: :fill) %>
       <% end %>

@@ -5,6 +5,7 @@ class ExpensesController < ApplicationController
   def new
     @expense = Expense.new
     @challenge = Challenge.find(params[:challenge_id])
+    @treasure_chest = @challenge.treasure_chest
   end
 
   def create

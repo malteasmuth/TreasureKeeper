@@ -7,4 +7,6 @@
           <% @treasure_chest.current_value = 0 %>
         <% end %>
   <%= @treasure_chest.current_value %>/ <%= @treasure_chest.value %></p>
+
+  <%= link_to "Add a new challenge", new_treasure_chest_challenge_path(@treasure_chest), class: "btn btn-primary"%>
 </div>
