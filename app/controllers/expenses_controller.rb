@@ -13,7 +13,7 @@ class ExpensesController < ApplicationController
     @expense.challenge_id = Challenge.find(params["challenge_id"]).id
 
     if @expense.save
-      redirect_to root_path
+      redirect_to home_path
     else
       render :new, status: :unprocessable_entity
     end

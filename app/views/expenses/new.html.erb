@@ -2,7 +2,7 @@
 <p>Warning: This may lead to growing monsters!</p>
 
 <%= simple_form_for [@challenge, @expense] do |f| %>
-  <%= f.input :amount, label: 'How much did you spent?' %>
+  <%= f.input :amount, label: 'How much did you spend?' %>
   <%= f.input :expense_date, label: 'Enter date' %>
   <%= f.button :submit, 'save' %>
 <% end %>
