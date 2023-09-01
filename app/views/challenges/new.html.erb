@@ -6,7 +6,9 @@
         <%= f.input :description, label: false, placeholder: "Description" %>
         <%= f.input :budget, label: false, placeholder: "Budget" %>
         <%= f.input :end_date, as: :date, label: false, placeholder: "End Date" %>
-        <%= f.button :submit, "Create new challenge", class: "btn" %>
+        <div class="text-center">
+          <%= f.button :submit, "New Challenge", class: "btn" %>
+        </div>
       <% end %>
     </div>
 </div>
