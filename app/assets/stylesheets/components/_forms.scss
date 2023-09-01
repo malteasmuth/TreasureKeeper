@@ -1,0 +1,22 @@
+.form-control {
+  border-radius: 15px;
+  color: white;
+  content: "";
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.form-control::placeholder{
+  color: white;
+}
+.form-select {
+  border-radius: 15px;
+  font-size: 10px;
+  color: white;
+  content: "";
+  background-color: rgba(0, 0, 0, 0.3);
+}
+#challenge_end_date_1i, #challenge_end_date_2i, #challenge_end_date_3i {
+  option{
+    font-size: 10px;
+    color: white;
+  }
+}

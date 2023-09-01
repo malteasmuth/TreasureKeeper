@@ -1,7 +1,7 @@
-
-  <div class="treasure-chests">
+<div class="treasure-chests d-flex flex-column justify-content-center align-items-center px-3">
     <% @treasure_chests.each do |treasure_chest| %>
     <%= treasure_chest.name %>
     <%= link_to "Open", treasure_chest_path(treasure_chest), class:"btn btn-primary"%>
     <% end %>
   </div>
+
