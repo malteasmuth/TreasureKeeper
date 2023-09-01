@@ -11,6 +11,7 @@ class TreasureChestsController < ApplicationController
   def create
     @treasure_chest = TreasureChest.new(treasure_params)
     @treasure_chest.player_id = Player.find_by(user_id: current_user).id
+    raise
     @treasure_chest.save
   end
 
