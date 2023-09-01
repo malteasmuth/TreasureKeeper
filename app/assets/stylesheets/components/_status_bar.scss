@@ -1,25 +1,29 @@
 .navbar-treasure-keeper {
   justify-content: space-between;
-  // background-color: #FDFBF0;
-  background-color: #1a1603;
+  background-color: #F4EFDD;
+  height: 66px;
 }
 
-.navbar-treasure-keeper .navbar-collapse {
-  flex-grow: 0;
-}
+// .navbar-treasure-keeper .navbar-collapse {
+//   flex-grow: 0;
+// }
 
-.navbar-treasure-keeper .navbar-brand img {
+// .navbar-treasure-keeper .navbar-brand img {
+//   width: 40px;
+// }
+
+// .page-container {
+//   display: grid;
+//   min-height: 100vh;
+//   grid-template-rows: auto 4fr auto;
+// }
+
+// .status-bar-container {
+//   position: fixed;
+//   top: 0;
+//   width: 100vw;
+// }
+
+.icon {
   width: 40px;
-}
-
-.page-container {
-  display: grid;
-  min-height: 100vh;
-  grid-template-rows: auto 4fr auto;
-}
-
-.status-bar-container {
-  position: fixed;
-  top: 0;
-  width: 100vw;
 }
