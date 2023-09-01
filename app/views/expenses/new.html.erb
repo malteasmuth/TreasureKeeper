@@ -2,8 +2,7 @@
   <h5>Add an expense</h5>
   <p style="color: #E64C3C">Warning:</p>
   <p class="text-center">This may lead to growing monsters!</p>
-
-  <%= simple_form_for [@challenge, @expense] do |f| %>
+  <%= simple_form_for [@challenge.treasure_chest, @challenge, @expense] do |f| %>
     <%= f.input :amount, label: 'How much did you spend?' %>
     <%= f.input :expense_date, label: 'Enter date' %>
     <div class="text-center">

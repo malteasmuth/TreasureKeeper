@@ -6,7 +6,7 @@
       <div class="text-center">
         <h6><span style="color: #F29C1F;"><%= challenge.name %><span></h6>
         <h6>Status: <span style="color: #F29C1F;"><%= challenge.status %><span></h6>
-        <p><%= link_to "continue", challenge_path(challenge), class: "btn" %></p>
+        <p><%= link_to "continue", treasure_chest_challenge_path(challenge.treasure_chest, challenge), class: "btn" %></p>
       </div>
     <% end %>
   </div>

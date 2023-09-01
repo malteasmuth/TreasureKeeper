@@ -45,6 +45,8 @@ players_data.each do |player_data|
   Player.create(player_data)
 end
 
+player = Player.create(players_data)
+
 
 puts "Creating new monsters....🧌🧌"
 
@@ -89,35 +91,32 @@ end
 # First, seed the "Challenges" table without the expense_id column.
 # Next, seed the "Expenses" table with the challenge_id column, referring to the
 
+treasure_1 = TreasureChest.create({
+
+  name: "treasure_2",
+  description: "asd",
+  value: 2134,
+  player_id: player
+
+})
+treasure_2 = TreasureChest.create({
+
+  name: "treasure_1",
+  description: "asd",
+  value: 2134,
+  player_id: player
+
+})
+treasure_3 = TreasureChest.create({
+
+  name: "treasure_3",
+  description: "asd",
+  value: 2134
+})
+
 puts "Creating some challenges..🌱🌱"
 
 # Seed Challenges
-challenges_data = [
-  {
-    name: "Challenge 1",
-    description: "Description 1",
-    status: 0,
-    player_id: Player.all.pluck(:id).sample, # the first player that exist if we do not drop the DB
-    end_date: Date.today + 7.days,
-    monster_id: Monster.all.pluck(:id).sample, # this is a troll
-    budget: 100.0,
-    current_value: 50.0,
-  },
-  {
-    name: "Challenge 2",
-    description: "Description 2",
-    status: 0,
-    player_id: Player.all.pluck(:id).sample,
-    end_date: Date.today + 14.days,
-    monster_id: Monster.all.pluck(:id).sample, # a Dragon here!
-    budget: 150.0,
-    current_value: 100.0,
-  }
-]
-
-challenges_data.each do |challenge_data|
-  Challenge.create(challenge_data)
-end
 
 # Seed Expenses
 expenses_data = [

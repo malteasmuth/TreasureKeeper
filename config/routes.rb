@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  root to: "players#new"
+
   resources :pages, only: %i[index home]
-  resources :challenges do
-    get "attack", to: "challenges#player_attack"
-    resources :expenses, only: %i[show new create]
+
+  resources :treasure_chests, only: %i[index show new create] do
+    resources :challenges do
+      get "attack", to: "challenges#player_attack"
+      resources :expenses, only: %i[show new create]
+    end
   end
 
-  # root to: "pages#index"
-  root to: "players#new"
-  get "home", to: "pages#home"
-
-  resources :treasure_chests, only: %i[index show new create]
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :players, only: %i[index show new create edit update delete]
-  # Defines the root path route ("/")
-  # root "articles#index"
+
+  get "home", to: "pages#home"
 end

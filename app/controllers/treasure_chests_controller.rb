@@ -5,8 +5,9 @@ class TreasureChestsController < ApplicationController
   end
 
   def show
-    @curent_player = Player.find_by(user_id: current_user)
+    @current_player = Player.find_by(user_id: current_user)
     @treasure_chest = TreasureChest.find(params[:id])
+    @challenges = Challenge.where(player_id: @current_player.id)
   end
 
   def new
@@ -22,7 +23,7 @@ class TreasureChestsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
+  
   private
 
   def treasure_params
