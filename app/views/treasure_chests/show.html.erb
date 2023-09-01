@@ -1,16 +1,16 @@
 <div class="treasure-chests-show d-flex flex-column justify-content-center align-items-center">
-  <h2><%= @treasure_chest.name %></h2>
-  <h2><%= @treasure_chest.description %></h2>
-        <% if @treasure_chest.current_value != nil %>
-          <% @treasure_chest.current_value %>
-        <% else %>
-          <% @treasure_chest.current_value = 0 %>
-        <% end %>
-
-      <% if @treasure_chest.current_value != nil %>
-      <% else %>
-      <%= @treasure_chest.current_value %> / <%= @treasure_chest.value %>
-      <% end %>
-
-  <%= link_to "Add a new challenge", new_treasure_chest_challenge_path(@treasure_chest), class: "btn btn-primary"%>
+  <div class="transparent-bg border d-flex flex-column justify-content-center align-items-center mb-5" style="border-radius: 15px; width: 300px;">
+    <p class="pt-3">Challenge: </p>
+    <span style="font-weight: bold; font-size: 18px; color: #F29C1F; margin-top: -10px;"><%= @treasure_chest.name %></span>
+    <p>Description:</p>
+    <span style="font-weight: bold; font-size: 18px; color: #F29C1F; margin-top: -10px;"><%= @treasure_chest.description %></span>
+    <% if @treasure_chest.current_value != nil %>
+      <% @treasure_chest.current_value %>
+    <% else %>
+      <% @treasure_chest.current_value = 0 %>
+    <% end %>
+    <p class="mt-2">Progress:</p>
+    <span style="margin-top: -15px; margin-bottom: 10px; color: #F29C1F">$<%= @treasure_chest.current_value %> / $<%= @treasure_chest.value %></span>
+  </div>
+    <%= link_to "Add a new challenge", new_treasure_chest_challenge_path(@treasure_chest), class: "btn btn-primary"%>
 </div>
