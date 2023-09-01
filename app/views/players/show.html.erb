@@ -6,5 +6,8 @@
     <p>Hitpoints: <span style="color: #F29C1F"><%= @player.hitpoints %></span></p>
     <p>Healthpoints: <span style="color: #F29C1F"><%= @player.healthpoints %></span></p>
     <p>Rubies: <span style="color: #F29C1F"><%= @player.rubies %></span></p>
+    <div class="mb-2">
+      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+    </div>
   </div>
 </div>
