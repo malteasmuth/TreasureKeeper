@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_01_071240) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_01_125624) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_071240) do
     t.bigint "monster_id"
     t.bigint "expense_id"
     t.float "budget"
-    t.float "current_value"
+    t.float "current_value", default: 0.0
     t.bigint "treasure_chest_id"
     t.index ["expense_id"], name: "index_challenges_on_expense_id"
     t.index ["monster_id"], name: "index_challenges_on_monster_id"
@@ -102,7 +102,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_071240) do
     t.bigint "player_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "current_value"
+    t.float "current_value", default: 0.0
     t.index ["player_id"], name: "index_treasure_chests_on_player_id"
   end
 

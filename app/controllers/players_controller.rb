@@ -1,7 +1,8 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
 
-  def show; end
+  def show
+  end
 
   def new
     @player = Player.new
@@ -19,7 +20,6 @@ class PlayersController < ApplicationController
   end
 
   def category
-    
 
   end
 

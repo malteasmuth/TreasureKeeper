@@ -1,4 +1,6 @@
 class ChallengesController < ApplicationController
+  before_action :get_player
+
   def index
   end
 
@@ -41,7 +43,7 @@ class ChallengesController < ApplicationController
   def delete
   end
 
-  def player_attack()
+  def player_attack
     @challenge = Challenge.find(params["challenge_id"])
     @player = Player.find_by(user_id: current_user)
     @monster = Monster.find(@challenge.monster_id)
@@ -53,23 +55,17 @@ class ChallengesController < ApplicationController
 
   private
 
-  def treasure_params
-    raise
-    params.require(:challenges).permit(:treasure_chest_id)
-  end
-
   def check_attack
     attack_chance = 0
     if @monster_rage > 75
       attack_chance = 80
     elsif @monster_rage > 50
-      attack_chance = 60
-    else
-      attack_chance = 50
+      attack_chance = 40
     end
+    
     return unless rand(1..100) <= attack_chance
 
-    @player.update(healthpoints: ((@monster.hitpoints + @monster_rage) / 100))
+    @player.update(healthpoints: (@player.healthpoints - 10))
   end
 
   def challenge_params
@@ -81,7 +77,7 @@ class ChallengesController < ApplicationController
     @expenses.each do |expense|
       sum += expense.amount
     end
-    return ((sum / @challenge.budget) * 100).round
+    return ((sum / @challenge.budget) * 100)
   end
 
   def calculate_damage
@@ -99,6 +95,15 @@ class ChallengesController < ApplicationController
       @challenge.lost!
     elsif @monster_rage < 100 && Date.today > @challenge.end_date
       @challenge.won!
+      if @challenge.treasure_chest.current_value.nil?
+        @challenge.treasure_chest.current_value = 0
+      end
+      @challenge.treasure_chest.current_value += @challenge.budget - @challenge.current_value
+      @challenge.treasure_chest.save
     end
+  end
+
+  def get_player
+    @current_player = Player.find_by(user_id: current_user)
   end
 end
