@@ -1,0 +1,10 @@
+<div>
+  <h2><%= @treasure_chest.name %></h2>
+  <h2><%= @treasure_chest.description %></h2>
+        <% if @treasure_chest.current_value != nil %>
+          <% @treasure_chest.current_value %>
+        <% else %>
+          <% @treasure_chest.current_value = 0 %>
+        <% end %>
+  <%= @treasure_chest.current_value %>/ <%= @treasure_chest.value %></p>
+</div>
