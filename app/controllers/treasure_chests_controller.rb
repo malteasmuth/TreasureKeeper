@@ -4,6 +4,11 @@ class TreasureChestsController < ApplicationController
     @treasure_chests = TreasureChest.where(player_id: @current_player.id)
   end
 
+  def show
+    @curent_player = Player.find_by(user_id: current_user)
+    @treasure_chest = TreasureChest.find(params[:id])
+  end
+
   def new
     @treasure_chest = TreasureChest.new
   end
