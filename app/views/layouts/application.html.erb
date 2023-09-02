@@ -16,7 +16,6 @@
         <div class="status_bar-container"><%= render "shared/status_bar" %></div>
       <% end %>
         <div class="content-container">
-          <%= render "shared/flashes" %>
           <%= yield %>
         </div>
         <% unless controller_name == 'sessions' && action_name == 'new' %>
