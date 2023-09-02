@@ -3,7 +3,7 @@
 <div class="container d-flex flex-column align-items-center" style="max-width: 250px;">
   <%= simple_form_for @player do |f| %>
       <%= f.input :username, label: false, placeholder: 'Username' %>
-      <%= f.input :avatar_url, collection: ["Knight", "Elf","Wizard"] %>
+      <%= f.input :avatar_url, collection: ["Knight", "Elf1","Elf2","Swordman","Queen","wizard"] %>
       <%= f.button :submit, 'Start your journey' %>
   <% end %>
 </div>
