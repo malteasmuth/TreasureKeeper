@@ -18,8 +18,6 @@ Player.destroy_all
 User.destroy_all
 puts "Creating 4 users...."
 
-
-
 users_data = [
   { email: "romeo@example.com", password: "123456" },
   { email: "malte@example.com", password: "123456" },
@@ -45,7 +43,7 @@ players_data.each do |player_data|
   Player.create(player_data)
 end
 
-puts "Creating 1  Tresure chest...📦 ."
+puts "Creating 1 Tresure chest...📦 ."
 
 
 treasure_chest_data =[
@@ -60,56 +58,26 @@ treasure_chest_data.each do |treasure_data|
   TreasureChest.create(treasure_data)
 end
 
+puts "Creating 1 Challenge ...🔮."
 
-puts "Creating new monsters....🧌🧌  (Actualy not seeding monsters)"
+Challenge.create(
+  name: "Challenge1",
+  description: "A tough challenge",
+  status: 0,
+  player_id: Player.all.sample.id,
+  end_date: Date.today + 7.days,
+  budget: 200.0,
+  current_value: 0.0,
+  treasure_chest_id: TreasureChest.all.sample.id
+)
 
-# Seed Monsters
-monsters_data = [
-  {
-    hitpoints: 10.0,
-    healthpoints: 50.0,
-    image_url: "Orc"
-  },
-  {
-    hitpoints: 15.0,
-    healthpoints: 75.0,
-    image_url: "Troll"
-  },
-  {
-    hitpoints: 20.0,
-    healthpoints: 75.0,
-    image_url: "Orc2"
-  },
-  {
-    hitpoints: 30.0,
-    healthpoints: 90.0,
-    image_url: "Orc3"
-  },
-  {
-    hitpoints: 40.0,
-    healthpoints: 90.0,
-    image_url: "Dragon"
-  }
-]
-monsters_data.each do |monster_data|
-  Monster.create(monster_data)
-end
+puts "Creating 1 Expese ...💰."
+Expense.create(amount: 50.0, expense_date: Date.today - 3.days, player_id: Player.all.sample.id, challenge_id: Challenge.all.sample.id)
 
-# First, seed the "Challenges" table without the expense_id column.
-# Next, seed the "Expenses" table with the challenge_id column, referring to the
+puts "Creating 3 monsters ...🧌🧌🧌"
 
+Monster.create(hitpoints: 10.0, healthpoints: 50.0, image_url: "Orc", challenge_id: Challenge.all.sample.id)
+Monster.create(hitpoints: 15.0, healthpoints: 75.0, image_url: "Troll", challenge_id: Challenge.all.sample.id)
+Monster.create(hitpoints: 15.0, healthpoints: 75.0, image_url: "Dragon", challenge_id: Challenge.all.sample.id)
 
-
-puts "Creating some challenges..🌱🌱 (Actualy not seeding challenges)"
-
-# Seed Challenges
-
-# Seed Expenses
-expenses_data = [
-  { amount: 50.0, expense_date: Date.today - 3.days, player_id: Player.all.pluck(:id).sample },
-  { amount: 75.0, expense_date: Date.today - 2.days, player_id: Player.all.pluck(:id).sample }
-]
-
-expenses_data.each do |expense_data|
-  Expense.create(expense_data)
-end
+puts "Seed data created successfully."
