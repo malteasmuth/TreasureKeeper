@@ -19,7 +19,7 @@ User.destroy_all
 puts "Creating 4 users...."
 
 
-# this not secure, but we dont care about that, at devise you should, seed the password field, not the enc
+
 users_data = [
   { email: "romeo@example.com", password: "123456" },
   { email: "malte@example.com", password: "123456" },
@@ -45,44 +45,51 @@ players_data.each do |player_data|
   Player.create(player_data)
 end
 
-player = Player.create(players_data)
+puts "Creating 1  Tresure chest...📦 ."
 
 
-puts "Creating new monsters....🧌🧌"
+treasure_chest_data =[
+{
+  name: "treasure_1",
+  description: "asd",
+  value: 2134,
+  player_id: Player.all.pluck(:id).sample
+}
+]
+treasure_chest_data.each do |treasure_data|
+  TreasureChest.create(treasure_data)
+end
+
+
+puts "Creating new monsters....🧌🧌  (Actualy not seeding monsters)"
 
 # Seed Monsters
 monsters_data = [
   {
     hitpoints: 10.0,
     healthpoints: 50.0,
-    image_url: "../app/assets/images/Icons/orc2.png"
+    image_url: "Orc"
   },
   {
     hitpoints: 15.0,
     healthpoints: 75.0,
-    image_url: "../app/assets/images/Icons/orc3.png"
+    image_url: "Troll"
   },
   {
     hitpoints: 20.0,
     healthpoints: 75.0,
-    image_url: "../app/assets/images/Icons/troll.png"
+    image_url: "Orc2"
   },
   {
-    hitpoints: 20.0,
+    hitpoints: 30.0,
     healthpoints: 90.0,
-    image_url: "../app/assets/images/Icons/dragon2.png"
+    image_url: "Orc3"
   },
   {
-    hitpoints: 55.0,
+    hitpoints: 40.0,
     healthpoints: 90.0,
-    image_url: "../app/assets/images/Icons/dragon1.png"
-  },
-  {
-    hitpoints: 90.0,
-    healthpoints: 90.0,
-    image_url: "../app/assets/images/Icons/dragon2.png"
+    image_url: "Dragon"
   }
-
 ]
 monsters_data.each do |monster_data|
   Monster.create(monster_data)
@@ -91,37 +98,16 @@ end
 # First, seed the "Challenges" table without the expense_id column.
 # Next, seed the "Expenses" table with the challenge_id column, referring to the
 
-treasure_1 = TreasureChest.create({
 
-  name: "treasure_2",
-  description: "asd",
-  value: 2134,
-  player_id: player
 
-})
-treasure_2 = TreasureChest.create({
-
-  name: "treasure_1",
-  description: "asd",
-  value: 2134,
-  player_id: player
-
-})
-treasure_3 = TreasureChest.create({
-
-  name: "treasure_3",
-  description: "asd",
-  value: 2134
-})
-
-puts "Creating some challenges..🌱🌱"
+puts "Creating some challenges..🌱🌱 (Actualy not seeding challenges)"
 
 # Seed Challenges
 
 # Seed Expenses
 expenses_data = [
-  { amount: 50.0, expense_date: Date.today - 3.days, player_id: 22  },
-  { amount: 75.0, expense_date: Date.today - 2.days, player_id: 23  },
+  { amount: 50.0, expense_date: Date.today - 3.days, player_id: Player.all.pluck(:id).sample },
+  { amount: 75.0, expense_date: Date.today - 2.days, player_id: Player.all.pluck(:id).sample }
 ]
 
 expenses_data.each do |expense_data|
