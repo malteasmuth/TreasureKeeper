@@ -9,13 +9,18 @@ class Player < ApplicationRecord
 
   def icon_creator
     case self.avatar_url
-      when "Knight"
-        "knight.png"
-      when  "Elf"
-        "elf1.png"
-      else
-        "wizard.png"
-      end
+    when "Knight"
+      "knight.png"
+    when  "Elf1"
+      "elf1.png"
+    when  "Elf2"
+      "elf2.png"
+    when "Swordman"
+      "swordman.png"
+    when "Queen"
+      "queen.png"
+    else
+      "wizard.png"
+    end
   end
-
 end
