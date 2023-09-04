@@ -5,7 +5,7 @@
         <p class="text-center">You Have No Treasures</p>
       <% else %>
         <% @treasure_chests.each do |treasure_chest| %>
-          <div class="d-flex flex-column text-center mb-3">
+          <div class="d-flex flex-column text-center mb-3 text-break">
             <%= link_to "Open", treasure_chest_path(treasure_chest), class: "btn" %>
             <span style="font-weight: bold; color: #F29C1F; margin-top: 5px;"><%= treasure_chest.name %></span>
           </div>
