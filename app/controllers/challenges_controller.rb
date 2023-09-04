@@ -51,7 +51,6 @@ class ChallengesController < ApplicationController
     @damage_dealt = calculate_damage
     @monster.update(hitpoints: (@monster.hitpoints - @damage_dealt))
     redirect_to treasure_chest_challenge_path(@challenge.treasure_chest, @challenge)
-    raise
   end
 
   private
