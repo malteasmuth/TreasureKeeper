@@ -55,12 +55,12 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.find(params["challenge_id"])
     @player = Player.find_by(user_id: current_user)
     @monster = Monster.find(@challenge.monster_id)
-
-    return redirect_to treasure_chest_challenge_path(@challenge.treasure_chest, @challenge) unless @player.rubies >= 5
-
-    @player.update(rubies: (@player.rubies - 5))
-    @damage_dealt = calculate_damage
-    @monster.update(hitpoints: (@monster.hitpoints - @damage_dealt))
+    if @player.rubies >= 5
+      new_rubies = @player.rubies - 5
+      @player.update(rubies: new_rubies)
+      @damage_dealt = calculate_damage
+      @monster.update(hitpoints: (@monster.hitpoints - @damage_dealt))
+    end
     redirect_to treasure_chest_challenge_path(@challenge.treasure_chest, @challenge)
   end
 
