@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TreasureKeeper</title>
+    <title>Treasure Keeper - Keep track of your savings in a fun way!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,13 +12,13 @@
 
   <body>
     <div class="page-container">
-      <% unless controller.devise_controller? %>
+      <% unless controller.devise_controller?  || (controller_name == 'pages' && action_name == 'landing') %>
         <div class="status_bar-container"><%= render "shared/status_bar" %></div>
       <% end %>
         <div class="content-container">
           <%= yield %>
         </div>
-        <% unless controller.devise_controller? %>
+        <% unless controller.devise_controller? || (controller_name == 'pages' && action_name == 'landing') %>
           <div class="navbar-container"><%= render "shared/navbar" %></div>
       <% end %>
     </div>

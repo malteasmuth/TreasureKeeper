@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: "players#new"
 
-  resources :pages, only: %i[index home]
+  resources :pages, only: %i[index landing]
 
   resources :treasure_chests, only: %i[index show new create] do
     resources :challenges do
@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :players, only: %i[index show new create edit update delete]
 
   get "home", to: "pages#home"
+  get "landing", to: "pages#landing"
 end
