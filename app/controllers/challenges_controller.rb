@@ -25,7 +25,12 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new(challenge_params)
     @challenge.player_id = @current_player.id
     @challenge.treasure_chest = @treasure_chest
-    monster = Monster.create(healthpoints: 20, hitpoints: 20)
+    monster = Monster.create(
+      {
+        healthpoints: 20,
+        hitpoints: 20,
+        image_url: ["Orc", "Troll", "Dragon"].sample
+      })
     @challenge.monster_id = monster.id
     if @challenge.save
       redirect_to treasure_chest_challenge_path(@treasure_chest, @challenge)
@@ -48,6 +53,9 @@ class ChallengesController < ApplicationController
     @player = Player.find_by(user_id: current_user)
     @monster = Monster.find(@challenge.monster_id)
 
+    return redirect_to treasure_chest_challenge_path(@challenge.treasure_chest, @challenge) unless @player.rubies >= 5
+
+    @player.update(rubies: (@player.rubies - 5))
     @damage_dealt = calculate_damage
     @monster.update(hitpoints: (@monster.hitpoints - @damage_dealt))
     redirect_to treasure_chest_challenge_path(@challenge.treasure_chest, @challenge)
@@ -63,7 +71,7 @@ class ChallengesController < ApplicationController
     else
       attack_chance = 20
     end
-    return unless rand(1..100) <= attack_chance
+    return redirect_to treasure_chest_challenge_path(@challenge.treasure_chest, @challenge) unless rand(1..100) <= attack_chance
 
     @player.update(healthpoints: (@player.healthpoints - @monster.hitpoints))
   end
