@@ -1,18 +1,22 @@
-<h2>Forgot your password?</h2>
+<div class="container d-flex flex-column justify-content-center align-items-center" style="background-color: #F4EFDD; min-height: 85vh;">
+  <h1 class="mb-5" style="color: #E64C3C">Treasure Keeper</h1>
+  <%= image_tag asset_path("Icons/treasure.png"), class: "sign-in-logo" %>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-  </div>
+    <div class="form-inputs mt-5">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  label: false,
+                  input_html: { autocomplete: "email", placeholder: "Email" } %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
+    <div class="form-actions text-center my-4">
+      <%= f.button :submit, "Reset Password" %>
+    </div>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>
