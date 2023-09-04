@@ -1,0 +1,23 @@
+<%# This file is here for test purposes, please do not remove!  %>
+
+<div class="container d-flex flex-column justify-content-center align-items-center" style="background-color: #F4EFDD; min-height: 100vh;">
+  <%# <h1 class="mb-5" style="color: #E64C3C">Treasure Keeper</h1> %>
+  <div class="text-center my-3 d-flex flex-column align-items-center" data-controller="chest">
+    <div class="chest-container">
+      <%= image_tag asset_path("chest/chest_open.png"), id: "open-chest", data: { target: "chest.openChest" } %>
+      <%= image_tag asset_path("chest/chest_closed.png"), id: "closed-chest", class: "hidden", data: { target: "chest.closedChest" } %>
+    </div>
+  </div>
+  <h1 class="mb-5" style="color: #E64C3C">Treasure Keeper</h1>
+  <div>
+    <li>
+      <ul>Fill up chests to meet your savings challenges!</ul>
+      <ul>Keep expenses at bay turning them into quests!</ul>
+    </li>
+  </div>
+  <div class="form-actions text-center my-3">
+      <%= link_to "Log In", new_user_session_path %>
+      <br>
+      <%= link_to "Sign Up", new_user_registration_path %>
+    </div>
+</div>

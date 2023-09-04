@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home, :landing ]
   before_action :get_player
 
   def home
@@ -10,5 +10,8 @@ class PagesController < ApplicationController
 
   def get_player
     @current_player = Player.find_by(user_id: current_user)
+  end
+
+  def landing
   end
 end
