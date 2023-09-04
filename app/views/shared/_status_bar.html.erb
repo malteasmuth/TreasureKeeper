@@ -1,9 +1,11 @@
+<% current_player = Player.find_by(user_id: current_user)  %>
+
 <div class="navbar navbar-expand-sm navbar-light navbar-treasure-keeper">
   <div class="container-fluid d-flex justify-content-around">
 
-    <%= image_tag asset_path("Icons/life_full.png"), class: "icon" %>
+    <p><%= current_player.healthpoints.to_i %><%= image_tag asset_path("Icons/life_full.png"), class: "icon" %></p>
 
-    <%= image_tag asset_path("Icons/rubygem.png"), class: "icon" %>
+    <p><%= current_player.rubies.to_i %><%= image_tag asset_path("Icons/rubygem.png"), class: "icon" %></p>
 
   </div>
 </div>
