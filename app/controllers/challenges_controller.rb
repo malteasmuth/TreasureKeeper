@@ -25,7 +25,12 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new(challenge_params)
     @challenge.player_id = @current_player.id
     @challenge.treasure_chest = @treasure_chest
-    monster = Monster.create(healthpoints: 20, hitpoints: 20)
+    monster = Monster.create(
+      {
+        healthpoints: 20,
+        hitpoints: 20,
+        image_url: ["Orc", "Troll", "Dragon"].sample
+      })
     @challenge.monster_id = monster.id
     if @challenge.save
       redirect_to treasure_chest_challenge_path(@treasure_chest, @challenge)
