@@ -31,16 +31,11 @@
         <p><small> HP: <span style="color: #F29C1F"><%= [@monster.hitpoints.to_i, 0].max %></span></small></p>
       </div>
     </div>
-
-    <div>
-      <p><small> HP: <span style="color: #F29C1F"><%= @player.hitpoints %></span> </small></p>
-      <p><small> HP: <span style="color: #F29C1F"><%= @monster.hitpoints %></span></small></p>
-    </div>
     <div>
       <p style="color: #E64C3C">Monster rage: <%= [@monster_rage.to_i, 0].max %> %</p>
       <p style="color: #41C835">Your healthpoints: <%= [@player.healthpoints.to_i, 0].max %></p>
     </div>
   </div>
   <%= link_to "Enrage the monster", new_treasure_chest_challenge_expense_path(@challenge.treasure_chest, @challenge) %>
-  <%= link_to "Attack!", treasure_chest_challenge_attack_path(@challenge.treasure_chest, @challenge) %>
+  <span style="margin-bottom: 5px;"><%= link_to "Attack!", treasure_chest_challenge_attack_path(@challenge.treasure_chest, @challenge) %></span>
 </div>
