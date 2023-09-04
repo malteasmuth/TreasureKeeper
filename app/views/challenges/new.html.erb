@@ -1,5 +1,9 @@
 <div class="challenges-new d-flex flex-column justify-content-center align-items-center">
     <h2 class="mb-3">Challenges</h2>
+      <p style="font-size: 10px;"> Add your Budget to your treasure chest,</p>
+      <p style="font-size: 10px;"> Schedule a date to complete the budget,</p>
+      <p style="font-size: 10px;"> Good luck and be careful along the way!</p>
+
     <div class="container d-flex flex-column align-items-center" style="max-width: 250px;">
       <%= simple_form_for [@treasure_chest, @challenge] do |f| %>
         <%= f.input :name, label: false, placeholder: "Challenge Name" %>
