@@ -9,8 +9,11 @@ class ChallengesController < ApplicationController
     @player = Player.find_by(user_id: current_user)
     @monster = Monster.find(@challenge.monster_id)
     @expenses = Expense.where(challenge_id: @challenge.id)
-    @monster_rage = monster_rage
-    check_attack
+    @attack_chance = @monster.check_attack(@expenses, @challenge)[0]
+    @monster_rage = @monster.check_attack(@expenses, @challenge)[1]
+    if @attack_chance > rand(1..100)
+      @player.update(healthpoints: (@player.healthpoints - @monster.hitpoints))
+    end
     resolve_challenge
   end
 
@@ -65,15 +68,17 @@ class ChallengesController < ApplicationController
 
   def check_attack
     if @monster_rage > 75
-      attack_chance = 80
+      @attack_chance = 40
     elsif @monster_rage > 50
-      attack_chance = 40
+      @attack_chance = 20
     else
-      attack_chance = 20
+      @attack_chance = 10
     end
-    return redirect_to treasure_chest_challenge_path(@challenge.treasure_chest, @challenge) unless rand(1..100) <= attack_chance
 
-    @player.update(healthpoints: (@player.healthpoints - @monster.hitpoints))
+    if @attack_chance > rand(1..100)
+      @player.update(healthpoints: (@player.healthpoints - @monster.hitpoints))
+    end
+    redirect_to treasure_chests_path
   end
 
   def challenge_params
