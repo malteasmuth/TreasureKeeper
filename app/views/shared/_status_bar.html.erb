@@ -3,6 +3,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-treasure-keeper">
   <div class="container-fluid d-flex justify-content-around">
 
+ <% if current_player %>
   <div class="d-flex align-items-center">
     <span style="margin-right: 7px;"><%= image_tag asset_path("Icons/life_full.png"), class: "icon" %></span>
     <span><%= [current_player.healthpoints.to_i, 0].max %></span>
@@ -12,6 +13,7 @@
     <span style="margin-right: 7px;"><%= image_tag asset_path("Icons/rubygem.png"), class: "icon" %></span>
     <span><%= [current_player.rubies.to_i, 0].max %></span>
   </div>
+  <% end  %>
 
   </div>
 </div>

@@ -20,14 +20,12 @@ class PlayersController < ApplicationController
   end
 
   def category
-
   end
 
   def edit
   end
 
   def update
-
   end
 
   def delete
