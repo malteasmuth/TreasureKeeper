@@ -4,9 +4,15 @@
   <p class="text-center">This may lead to growing monsters!</p>
   <%= simple_form_for [@challenge.treasure_chest, @challenge, @expense] do |f| %>
     <%= f.input :amount, label: 'How much did you spend?' %>
-    <%= f.input :expense_date, label: 'Enter date' %>
+    <%= f.input :expense_date,
+                as: :string,
+                input_html: { data: { controller: "datepicker" },
+                            placeholder: "Until:",
+                            enableTime: true,
+                            dateFormat: "Y-m-d H:i",
+                            } %>
     <div class="text-center">
       <%= f.button :submit, 'Save' %>
-    </div
+    </div>
   <% end %>
 </div>

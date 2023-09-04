@@ -5,7 +5,13 @@
         <%= f.input :name, label: false, placeholder: "Challenge Name" %>
         <%= f.input :description, label: false, placeholder: "Description" %>
         <%= f.input :budget, label: false, placeholder: "Budget" %>
-        <%= f.input :end_date, as: :date, label: false, placeholder: "End Date" %>
+        <%= f.input :end_date,
+                as: :string,
+                input_html: { data: { controller: "datepicker" },
+                            placeholder: "End Date:",
+                            enableTime: true,
+                            dateFormat: "Y-m-d H:i",
+                            } %>
         <div class="text-center">
           <%= f.button :submit, "New Challenge", class: "btn" %>
         </div>
