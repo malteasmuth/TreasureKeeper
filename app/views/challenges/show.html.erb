@@ -6,22 +6,22 @@
     <p>Status: <span style="color: #F29C1F"><%= @challenge.status %></span><p>
   </div>
   <div class="transparent-bg mb-2 pt-3 px-3 border d-flex flex-column justify-content-center align-items-center" style="border-radius: 10px; width: 355px;">
-    <p>Your budget: <span style="color: #F29C1F">$<%= @challenge.budget %></span></p>
+    <p>Your budget: <span style="color: #F29C1F">$<%= [@challenge.budget.to_i, 0].max %></span></p>
     <p>Your expenses: </p>
 
     <div class="overflow-auto" style="max-height: 80px;">
       <%# calculate sum of expenses %>
       <% sum = 0 %>
       <% @expenses.each do |expense| %>
-        <p style="color: #F29C1F">$<%= expense.amount %></p>
+        <p style="color: #F29C1F">$<%= [expense.amount.to_i, 0].max %></p>
         <% sum += expense.amount %>
       <% end %>
     </div>
     <p>Total amount: <span style="color: #F29C1F">$<%= sum %></span></p>
   </div>
   <div class="transparent-bg mb-2 pt-2 px-2 border d-flex flex-column justify-content-center align-items-center" style="border-radius: 10px; width: 355px;">
-    <p style="color: #E64C3C">Monster rage: <%= @monster_rage.to_i %> %</p>
-    <p style="color: #41C835">Your healthpoints: <%= @player.healthpoints.to_i %></p>
+    <p style="color: #E64C3C">Monster rage: <%= [@monster_rage.to_i, 0].max %> %</p>
+    <p style="color: #41C835">Your healthpoints: <%= [@player.healthpoints.to_i, 0].max %></p>
   </div>
   <%= link_to "Enrage the monster", new_treasure_chest_challenge_expense_path(@challenge.treasure_chest, @challenge) %>
   <%= link_to "Attack!", treasure_chest_challenge_attack_path(@challenge.treasure_chest, @challenge) %>
