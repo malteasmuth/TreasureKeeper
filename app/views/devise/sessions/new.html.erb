@@ -1,6 +1,6 @@
 <div class="container d-flex flex-column justify-content-center align-items-center" style="background-color: #F4EFDD; min-height: 100vh;">
-    <h4 class="mb-5" style="color: #E64C3C">Treasure Keeper</h4>
-    <%= image_tag asset_path("Icons/treasure.png"), class: "sign-in-logo" %>
+  <h1 class="mb-5" style="color: #E64C3C">Treasure Keeper</h1>
+  <%= image_tag asset_path("Icons/treasure.png"), class: "sign-in-logo" %>
   <div class="d-flex flex-column justify-content-center align-items-center">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs mt-5">
@@ -17,7 +17,7 @@
       </div>
 
       <div class="form-actions text-center my-3">
-        <%= f.button :submit, "Log in" %>
+        <%= f.button :submit, "Log in", style: "width: 110px;" %>
       </div>
     <% end %>
 

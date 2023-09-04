@@ -12,13 +12,13 @@
 
   <body>
     <div class="page-container">
-      <% unless controller_name == 'sessions' && action_name == 'new' %>
+      <% unless controller.devise_controller? %>
         <div class="status_bar-container"><%= render "shared/status_bar" %></div>
       <% end %>
         <div class="content-container">
           <%= yield %>
         </div>
-        <% unless controller_name == 'sessions' && action_name == 'new' %>
+        <% unless controller.devise_controller? %>
           <div class="navbar-container"><%= render "shared/navbar" %></div>
       <% end %>
     </div>

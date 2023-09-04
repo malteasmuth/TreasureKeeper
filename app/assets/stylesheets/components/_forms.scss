@@ -4,8 +4,10 @@
   content: "";
   background-color: rgba(0, 0, 0, 0.3);
 }
-.form-control::placeholder{
+.form-control::placeholder {
+  font-size: 14px;
   color: white;
+  text-align: center;
 }
 .form-select {
   border-radius: 15px;
