@@ -1,20 +1,22 @@
 <div class="treasure-chests d-flex flex-column justify-content-center align-items-center">
   <div class="transparent-bg overflow-auto border p-3" style="width: 300px; max-height: 200px; border-radius: 15px;">
     <div class="d-flex flex-column align-items-center">
-      <% if @treasure_chests.empty? %>
-        <p class="text-center">You Have No Treasures</p>
-      <% else %>
+        <% if @treasure_chests.empty? %>
+          <p class="text-center">You Have No Treasures</p>
+        <% else %>
         <% @treasure_chests.each do |treasure_chest| %>
-          <div class="d-flex flex-column text-center mb-3">
-            <%= link_to "Open", treasure_chest_path(treasure_chest), class: "btn" %>
-            <span style="font-weight: bold; color: #F29C1F; margin-top: 5px;"><%= treasure_chest.name %></span>
-          </div>
+        <div class="d-flex flex-column text-center mb-3">
+          <%= link_to treasure_chest_path(treasure_chest) do %>
+          <%= image_tag asset_path("Icons/treasure.png"), alt: "Treasure Icon", class: "treasure-image" %>
+          <% end %>
+          <span style="font-weight: bold; color: #F29C1F; margin-top: 5px;"><%= treasure_chest.name %></span>
+        </div>
+          <% end %>
         <% end %>
-      <% end %>
     </div>
-
+    </div>
+      <div class="text-center mt-5">
+        <%= link_to "New Treasure Chest", new_treasure_chest_path, class: "btn" %>
+    </div>
   </div>
-    <div class="text-center mt-5">
-      <%= link_to "New Treasure Chest", new_treasure_chest_path, class: "btn" %>
-    </div>
 </div>
