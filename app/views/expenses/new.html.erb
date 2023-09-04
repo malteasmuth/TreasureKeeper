@@ -1,13 +1,13 @@
 <div class="expenses-new d-flex flex-column justify-content-center align-items-center">
   <h5>Add an expense</h5>
   <p style="color: #E64C3C">Warning:</p>
-  <p class="text-center">This may lead to growing monsters!</p>
+  <p class="text-center">It might may the monsters grow!</p>
   <%= simple_form_for [@challenge.treasure_chest, @challenge, @expense] do |f| %>
     <%= f.input :amount, label: 'How much did you spend?' %>
     <%= f.input :expense_date,
                 as: :string,
                 input_html: { data: { controller: "datepicker" },
-                            placeholder: "Until:",
+                            placeholder: "When did you spend it?",
                             enableTime: true,
                             dateFormat: "Y-m-d H:i",
                             } %>
