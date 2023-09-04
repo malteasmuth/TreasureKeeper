@@ -2,7 +2,7 @@
   <h5 class="mb-4">Player Information</h5>
     <%= image_tag "Icons/#{@player.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %>
   <div class="transparent-bg text-center border p-3" style="border-radius: 15px;">
-    <p><%= @player.username %></p>
+    <p><span style="color: #F29C1F"><%= @player.username %></span></p>
     <p>Hitpoints: <span style="color: #F29C1F"><%= @player.hitpoints %></span></p>
     <p>Healthpoints: <span style="color: #F29C1F"><%= @player.healthpoints %></span></p>
     <p>Rubies: <span style="color: #F29C1F"><%= @player.rubies %></span></p>
