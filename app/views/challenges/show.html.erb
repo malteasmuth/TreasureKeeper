@@ -19,9 +19,20 @@
     </div>
     <p>Total amount: <span style="color: #F29C1F">$<%= sum %></span></p>
   </div>
+  
   <div class="transparent-bg mb-2 pt-2 px-2 border d-flex flex-column justify-content-center align-items-center" style="border-radius: 10px; width: 355px;">
-    <p style="color: #E64C3C">Monster rage: <%= [@monster_rage.to_i, 0].max %> %</p>
-    <p style="color: #41C835">Your healthpoints: <%= [@player.healthpoints.to_i, 0].max %></p>
+    <div class = "d-flex">
+      <%= image_tag "Icons/#{@player.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %>
+      <%= image_tag "Icons/#{@monster.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %>
+    </div>
+    <div>
+      <p><small> HP: <span style="color: #F29C1F"><%= @player.hitpoints %></span> </small></p>
+      <p><small> HP: <span style="color: #F29C1F"><%= @player.hitpoints %></span></small></p>
+    </div>
+    <div> 
+      <p style="color: #E64C3C">Monster rage: <%= [@monster_rage.to_i, 0].max %> %</p>
+      <p style="color: #41C835">Your healthpoints: <%= [@player.healthpoints.to_i, 0].max %></p>
+    </div>
   </div>
   <%= link_to "Enrage the monster", new_treasure_chest_challenge_expense_path(@challenge.treasure_chest, @challenge) %>
   <%= link_to "Attack!", treasure_chest_challenge_attack_path(@challenge.treasure_chest, @challenge) %>
