@@ -1,5 +1,4 @@
 class Monster < ApplicationRecord
-  belongs_to :challenge
   has_one_attached :picture
 
   def icon_creator
