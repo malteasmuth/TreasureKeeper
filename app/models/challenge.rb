@@ -6,5 +6,5 @@ class Challenge < ApplicationRecord
   # validates :name, :description, :monster, :end_date, :status, presence: true
   validates :name, :description, :status, presence: true
 
-  enum status: %i[running lost won]
+  enum status: %i[ongoing lost won]
 end
