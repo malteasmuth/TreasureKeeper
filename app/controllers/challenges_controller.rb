@@ -104,12 +104,14 @@ class ChallengesController < ApplicationController
   end
 
   def resolve_challenge
+    @current_player = Player.find_by(user_id: current_user)
     if @monster_rage >= 100
       @challenge.lost!
     elsif @monster_rage < 100 && Date.today > @challenge.end_date
       @challenge.won!
       if @challenge.treasure_chest.current_value.nil?
         @challenge.treasure_chest.current_value = 0
+        @current_player.update(rubies: (@current_player.rubies += rand(1..10)))
       end
       @challenge.treasure_chest.current_value += @challenge.budget - @challenge.current_value
       @challenge.treasure_chest.save
