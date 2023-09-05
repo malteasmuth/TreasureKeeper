@@ -1,10 +1,12 @@
 <div class="challenges-new d-flex flex-column justify-content-center align-items-center">
-    <h2 class="mb-3">Challenges</h2>
-      <p class="text-center px-5" style="font-size: 10px;">
+    <h2 class="mb-3">CHALLENGES</h2>
+    <div class="text-center p-3 text-break" style="width: 355px;">
+      <p class="px-5" style="font-size: 10px;">
         Add your Budget to your treasure chest,
         Schedule a date to complete the budget,
         Good luck and be careful along the way!
       </p>
+      </div>
 
     <div class="container d-flex flex-column align-items-center" style="max-width: 250px;">
       <%= simple_form_for [@treasure_chest, @challenge] do |f| %>
@@ -13,6 +15,7 @@
         <%= f.input :budget, label: false, placeholder: "Budget" %>
         <%= f.input :end_date,
                 as: :string,
+                label: false,
                 input_html: { data: { controller: "datepicker" },
                             placeholder: "End Date:",
                             enableTime: true,

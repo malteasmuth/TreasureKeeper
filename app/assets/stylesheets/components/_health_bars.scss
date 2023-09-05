@@ -1,0 +1,13 @@
+.health-bar {
+  width: 100%;
+  height: 20px; /* Adjust the height as needed */
+  background-color: #E64C3C; /* Background color for the health bar container */
+  border: 1px solid #333; /* Optional: Add a border */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  margin-bottom: 10px; /* Optional: Add spacing between health bars */
+}
+
+.health-bar-fill {
+  height: 100%;
+  transition: width 0.3s ease-in-out; /* Optional: Add a transition effect */
+}
