@@ -8,11 +8,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-treasure-keeper">
   <div class="container-fluid d-flex justify-content-around">
 
-  <% if @challenge %>
      <%= link_to treasure_chests_path, class: "navbar-brand" do %>
       <%= image_tag asset_path("Icons/castle1.png") %>
-    <% end %>
-  <% end %>
+     <% end %>
 
   <% if @treasure_chest %>
     <%= link_to treasure_chest_path(@treasure_chest), class: "navbar-brand" do %>
