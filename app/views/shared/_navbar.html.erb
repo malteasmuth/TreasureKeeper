@@ -8,16 +8,16 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-treasure-keeper">
   <div class="container-fluid d-flex justify-content-around">
 
-     <%= link_to treasure_chests_path, class: "navbar-brand" do %>
+    <%= link_to treasure_chests_path, class: "navbar-brand" do %>
       <%= image_tag asset_path("Icons/castle1.png") %>
-     <% end %>
+    <% end %>
 
-  <% if @treasure_chest %>
+  <% if @challenge %>
     <%= link_to treasure_chest_path(@treasure_chest), class: "navbar-brand" do %>
       <%= image_tag asset_path("Icons/treasure.png") %>
     <% end %>
 
-    <%= link_to treasure_chest_challenge_path(@challenge.treasure_chest, @challenge), class: "navbar-brand" do %>
+    <%= link_to home_path, class: "navbar-brand" do %>
       <%= image_tag asset_path("Icons/swords.png") %>
       <% end %>
     <% end  %>

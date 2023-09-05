@@ -5,6 +5,8 @@ class PlayersController < ApplicationController
   end
 
   def new
+    @player = Player.find_by(user_id: current_user)
+    redirect_to player_path(@player) unless @player.blank?
     @player = Player.new
   end
 
@@ -35,9 +37,9 @@ class PlayersController < ApplicationController
     @player = Player.find_by(user_id: current_user)
 
     if @player.experience_points >= @player.level * 10
-     @player.update(level: (@player.level += 1))
-     @player.update(healthpoints: (@player.healthpoints += 5))
-     @player.update(healthpoints: (@player.hitpoints += 2))
+    @player.update(level: (@player.level += 1))
+    @player.update(healthpoints: (@player.healthpoints += 5))
+    @player.update(healthpoints: (@player.hitpoints += 2))
     end
     redirect_to player_path(@player)
   end

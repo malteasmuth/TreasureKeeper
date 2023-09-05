@@ -2,8 +2,8 @@
 
 <div class="container d-flex flex-column align-items-center" style="max-width: 250px;">
   <%= simple_form_for @player do |f| %>
-      <%= f.input :username, label: false, placeholder: 'Username' %>
-      <%= f.input :avatar_url, label: "Choose your Avatar", collection: ["Knight", "Elf1","Elf2","Swordman","Queen","wizard"] %>
-      <%= f.button :submit, 'Start your journey' %>
+      <%= f.input :username, label: false, placeholder: 'Name' %>
+      <%= f.input :avatar_url, label: "Character", collection: ["Knight", "Elf archer", "Elf maiden", "Swordman", "Queen", "Wizard"] %>
+      <%= f.button :submit, 'Start your journey!' %>
   <% end %>
 </div>

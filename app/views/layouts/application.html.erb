@@ -14,13 +14,13 @@
 
   <body>
     <div class="page-container">
-      <% unless controller.devise_controller?  || (controller_name == 'pages' && action_name == 'landing') %>
+      <% unless controller.devise_controller?  || (controller_name == 'players' && action_name == 'new') %>
         <div class="status_bar-container"><%= render "shared/status_bar" %></div>
       <% end %>
         <div class="content-container">
           <%= yield %>
         </div>
-        <% unless controller.devise_controller? || (controller_name == 'pages' && action_name == 'landing') %>
+        <% unless controller.devise_controller? || (controller_name == 'players' && action_name == 'new') %>
           <div class="navbar-container"><%= render "shared/navbar" %></div>
       <% end %>
     </div>
