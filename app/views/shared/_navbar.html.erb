@@ -1,5 +1,6 @@
-<% @challenge = Challenge.find_by(player_id: current_user, status: "running", status: "won", status: "lost") %>
 <% @player = Player.find_by(user_id: current_user) %>
+<% @challenge = Challenge.where(player_id: @player).last %>
+
 
 <div class="navbar navbar-expand-sm navbar-light navbar-treasure-keeper">
   <div class="container-fluid d-flex justify-content-around">
@@ -8,7 +9,7 @@
     <% end %>
 
     <%= link_to home_path, class: "navbar-brand" do %>
-      <%= image_tag asset_path("Icons/map.png") %>
+      <%= image_tag asset_path("Icons/castle1.png") %>
     <% end %>
 
     <% if @challenge %>
