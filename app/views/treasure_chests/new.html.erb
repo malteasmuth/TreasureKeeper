@@ -1,10 +1,10 @@
 <div class="treasure-chests-new d-flex flex-column justify-content-center align-items-center px-3">
   <%= simple_form_for @treasure_chest do |f| %>
-    <%= f.input :name, label: false, placeholder: "Name" %>
-    <%= f.input :description, label: false, placeholder: "Description" %>
-    <%= f.input :value, label: false, placeholder: "Your Goal" %>
+    <%= f.input :name, label: false, placeholder: "Name your savings goal" %>
+    <%= f.input :description, label: false, placeholder: "Describe it" %>
+    <%= f.input :value, label: false, placeholder: "Set a desired amount" %>
     <div class="text-center">
-      <%= f.button :submit, "New Treasure!" %>
+      <%= f.button :submit, "New chest!" %>
     </div>
   <% end %>
 </div>

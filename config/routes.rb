@@ -17,5 +17,4 @@ Rails.application.routes.draw do
   end
 
   get "home", to: "pages#home"
-  get "landing", to: "pages#landing"
 end
