@@ -1,6 +1,8 @@
 <div class="container d-flex flex-column justify-content-center align-items-center" style="background-color: #F4EFDD; min-height: 100vh;">
-  <h2 class="mb-5 p-3" style="color: #E64C3C">Treasure Keeper</h2>
-  <div class="text-center my-3 d-flex flex-column align-items-center" data-controller="chest">
+  <h2 class="mb-5 p-3 animate__animated animate__pulse" style="color: #E64C3C">Treasure Keeper</h2>
+  <div class="text-center my-3 d-flex flex-column align-items-center"
+      data-controller="chest"
+      data-chest-url-value="<%= asset_path("chest-slam.mp3") %>">
     <div class="chest-container">
       <%= image_tag asset_path("chest/chest_open.png"), id: "open-chest", data: { target: "chest.openChest" } %>
       <%= image_tag asset_path("chest/chest_closed.png"), id: "closed-chest", class: "hidden", data: { target: "chest.closedChest" } %>
