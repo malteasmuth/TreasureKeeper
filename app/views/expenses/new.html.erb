@@ -1,7 +1,8 @@
 <div class="expenses-new d-flex flex-column justify-content-center align-items-center">
   <h5>Add an expense</h5>
-  <p style="color: #E64C3C">Warning:</p>
-  <p class="text-center">It might may the monsters grow!</p>
+  <br>
+  <%# <p style="color: #E64C3C">Warning:</p>
+  <p class="text-center">The monsters may grow!</p> %>
   <%= simple_form_for [@challenge.treasure_chest, @challenge, @expense] do |f| %>
     <%= f.input :amount, label: 'How much did you spend?' %>
     <%= f.input :expense_date,
@@ -12,7 +13,7 @@
                             dateFormat: "Y-m-d H:i",
                             } %>
     <div class="text-center">
-      <%= f.button :submit, 'Save' %>
+      <%= f.button :submit, 'Enrage the monster!' %>
     </div>
   <% end %>
 </div>
