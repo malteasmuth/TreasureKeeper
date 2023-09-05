@@ -11,9 +11,9 @@ class Player < ApplicationRecord
     case self.avatar_url
     when "Knight"
       "knight.png"
-    when  "Elf1"
+    when  "Elf archer"
       "elf1.png"
-    when  "Elf2"
+    when  "Elf maiden"
       "elf2.png"
     when "Swordman"
       "swordman.png"
