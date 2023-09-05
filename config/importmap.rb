@@ -10,3 +10,7 @@ pin "@popperjs/core", to: "popper.js", preload: true
 pin "animate.css", to: "https://ga.jspm.io/npm:animate.css@4.1.1/animate.css"
 pin "stimulus-flatpickr", to: "https://ga.jspm.io/npm:stimulus-flatpickr@1.4.0/dist/index.js"
 pin "flatpickr", to: "https://ga.jspm.io/npm:flatpickr@4.6.9/dist/flatpickr.js"
+# Adding jQuery UI separately
+
+pin "@hotwired/stimulus", to: "stimulus.js"
+pin "jquery-ui", to: "https://code.jquery.com/ui/1.12.1/jquery-ui.js"
