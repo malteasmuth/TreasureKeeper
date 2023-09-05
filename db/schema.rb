@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_01_125624) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_05_083342) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -91,6 +91,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_125624) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.integer "level", default: 1
+    t.integer "experience_points", default: 0
     t.index ["user_id"], name: "index_players_on_user_id"
   end
 

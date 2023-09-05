@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :players, only: %i[index show new create edit update delete]
+  resources :players, only: %i[index show new create edit update delete] do
+    get "level-up", to: "players#level_up"
+  end
 
   get "home", to: "pages#home"
   get "landing", to: "pages#landing"
