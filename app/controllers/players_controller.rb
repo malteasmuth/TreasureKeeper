@@ -5,6 +5,8 @@ class PlayersController < ApplicationController
   end
 
   def new
+    @player = Player.find_by(user_id: current_user)
+    redirect_to player_path(@player) unless @player.blank?
     @player = Player.new
   end
 
