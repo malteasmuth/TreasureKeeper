@@ -9,8 +9,11 @@ class ChallengesController < ApplicationController
     @player = Player.find_by(user_id: current_user)
     @monster = Monster.find(@challenge.monster_id)
     @expenses = Expense.where(challenge_id: @challenge.id)
-    @monster_rage = monster_rage
-    check_attack
+    @attack_chance = @monster.check_attack(@expenses, @challenge)[0]
+    @monster_rage = @monster.check_attack(@expenses, @challenge)[1]
+    if @attack_chance > rand(1..100)
+      @player.update(healthpoints: (@player.healthpoints - @monster.hitpoints))
+    end
     resolve_challenge
   end
 
@@ -25,7 +28,12 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new(challenge_params)
     @challenge.player_id = @current_player.id
     @challenge.treasure_chest = @treasure_chest
-    monster = Monster.create(healthpoints: 20, hitpoints: 20)
+    monster = Monster.create(
+      {
+        healthpoints: 20,
+        hitpoints: 20,
+        image_url: ["Orc", "Troll", "Dragon"].sample
+      })
     @challenge.monster_id = monster.id
     if @challenge.save
       redirect_to treasure_chest_challenge_path(@treasure_chest, @challenge)
@@ -47,9 +55,12 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.find(params["challenge_id"])
     @player = Player.find_by(user_id: current_user)
     @monster = Monster.find(@challenge.monster_id)
-
-    @damage_dealt = calculate_damage
-    @monster.update(hitpoints: (@monster.hitpoints - @damage_dealt))
+    if @player.rubies >= 5
+      new_rubies = @player.rubies - 5
+      @player.update(rubies: new_rubies)
+      @damage_dealt = calculate_damage
+      @monster.update(hitpoints: (@monster.hitpoints - @damage_dealt))
+    end
     redirect_to treasure_chest_challenge_path(@challenge.treasure_chest, @challenge)
   end
 
@@ -57,15 +68,17 @@ class ChallengesController < ApplicationController
 
   def check_attack
     if @monster_rage > 75
-      attack_chance = 80
+      @attack_chance = 40
     elsif @monster_rage > 50
-      attack_chance = 40
+      @attack_chance = 20
     else
-      attack_chance = 20
+      @attack_chance = 10
     end
-    return unless rand(1..100) <= attack_chance
 
-    @player.update(healthpoints: (@player.healthpoints - @monster.hitpoints))
+    if @attack_chance > rand(1..100)
+      @player.update(healthpoints: (@player.healthpoints - @monster.hitpoints))
+    end
+    redirect_to treasure_chests_path
   end
 
   def challenge_params

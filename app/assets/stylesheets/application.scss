@@ -13,6 +13,8 @@
 @import "pages/index";
 @import "pages/landing";
 @import url('https://fonts.googleapis.com/css2?family=Goblin+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Cinzel+Decorative&family=Tangerine&display=swap');
+
 
 ::-webkit-scrollbar {
   width: 0px; /* Width of the scrollbar */
@@ -30,11 +32,13 @@ body {
   font-family: 'Goblin One', cursive;
   color: white;
   text-shadow: 1px 1px 2px black;
+  overflow-wrap: break-word;
 }
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6, p, span {
   font-family: 'Goblin One', cursive;
   color: white;
   text-shadow: 1px 1px 2px black;
+  overflow-wrap: break-word;
 }
 
 // This does nothing. I added it so I can see the colors on the hex
