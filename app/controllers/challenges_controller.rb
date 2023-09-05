@@ -30,8 +30,8 @@ class ChallengesController < ApplicationController
     @challenge.treasure_chest = @treasure_chest
     monster = Monster.create(
       {
-        healthpoints: 20,
-        hitpoints: 20,
+        healthpoints: 0,
+        hitpoints: 0,
         image_url: ["Orc", "Troll", "Dragon"].sample
       })
     @challenge.monster_id = monster.id
@@ -67,6 +67,7 @@ class ChallengesController < ApplicationController
   private
 
   def check_attack
+
     if @monster_rage > 75
       @attack_chance = 40
     elsif @monster_rage > 50
@@ -95,7 +96,6 @@ class ChallengesController < ApplicationController
 
   def calculate_damage
     if rand(1..10) == 1
-      0
     elsif rand(1..10) == 2
       (@player.hitpoints * rand(1.4..2.0)) / 10
     else

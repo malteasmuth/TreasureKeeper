@@ -14,6 +14,8 @@ class ExpensesController < ApplicationController
     @expense = Expense.new(expense_params)
     @expense.player_id = Player.find_by(user_id: current_user).id
     @expense.challenge_id = Challenge.find(params["challenge_id"]).id
+    monster = Monster.find(@expense.challenge.monster_id)
+    monster.update(hitpoints: (monster.hitpoints += @expense.amount))
 
     if @expense.save
       redirect_to home_path
