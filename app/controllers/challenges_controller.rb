@@ -96,6 +96,7 @@ class ChallengesController < ApplicationController
 
   def calculate_damage
     if rand(1..10) == 1
+      0
     elsif rand(1..10) == 2
       (@player.hitpoints * rand(1.4..2.0)) / 10
     else
