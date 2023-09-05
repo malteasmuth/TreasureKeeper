@@ -1,17 +1,22 @@
-<% @challenge = Challenge.find_by(player_id: current_user, status: "running", status: "won", status: "lost") %>
 <% @player = Player.find_by(user_id: current_user) %>
+<% @challenge = Challenge.where(player_id: @player).last %>
+<% @treasure_chest = @challenge.treasure_chest %>
+
+
+
 
 <div class="navbar navbar-expand-sm navbar-light navbar-treasure-keeper">
   <div class="container-fluid d-flex justify-content-around">
-    <%= link_to treasure_chests_path, class: "navbar-brand" do %>
+
+  <% if @challenge %>
+     <%= link_to treasure_chests_path, class: "navbar-brand" do %>
+      <%= image_tag asset_path("Icons/castle1.png") %>
+    <% end %>
+
+    <%= link_to treasure_chest_path(@treasure_chest), class: "navbar-brand" do %>
       <%= image_tag asset_path("Icons/treasure.png") %>
     <% end %>
 
-    <%= link_to home_path, class: "navbar-brand" do %>
-      <%= image_tag asset_path("Icons/map.png") %>
-    <% end %>
-
-    <% if @challenge %>
     <%= link_to treasure_chest_challenge_path(@challenge.treasure_chest, @challenge), class: "navbar-brand" do %>
       <%= image_tag asset_path("Icons/swords.png") %>
       <% end %>
