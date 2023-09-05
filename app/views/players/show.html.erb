@@ -1,11 +1,12 @@
 <div class="players-show d-flex flex-column justify-content-center align-items-center">
-  <h5 class="mb-4">Player Information</h5>
-    <%= image_tag "Icons/#{@player.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %>
   <div class="transparent-bg text-center border p-3 text-break" style="border-radius: 15px; width: 355px;">
-    <p class="text-break"><span style="color: #F29C1F"><%= @player.username %></span></p>
+    <h5 class="mb-4"style="color: #F29C1F"><%= @player.username %></h5>
+    <%= image_tag "Icons/#{@player.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %>
     <p>Hitpoints: <span style="color: #F29C1F"><%= [@player.hitpoints.to_i, 0].max %></span></p>
-    <p>Healthpoints: <span style="color: #F29C1F"><%= [@player.healthpoints.to_i, 0].max %></span></p>
-    <p>Rubies: <span style="color: #F29C1F"><%= [@player.rubies.to_i, 0].max %></span></p>
+
+    <span style="margin-right: 7px;color: #F29C1F"><%= image_tag asset_path("Icons/life_full2.png"), class: "icon" %><%= [@player.healthpoints.to_i, 0].max %></span>
+    <span style="margin-right: 7px;color: #F29C1F"><%= image_tag asset_path("Icons/ruby.png"), class: "icon" %><%= [@player.rubies.to_i, 0].max %></span>
+
     <div class="mb-2">
       <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
     </div>
