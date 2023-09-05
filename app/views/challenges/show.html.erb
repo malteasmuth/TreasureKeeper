@@ -20,22 +20,25 @@
   </div>
 
   <div class="transparent-bg mb-2 pt-2 px-2 border d-flex flex-column align-items-center" style="border-radius: 10px; width: 355px;">
-
     <div class="d-flex">
       <div class="d-flex flex-column" style="margin-right: 100px;">
         <span><%= image_tag "Icons/#{@player.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %></span>
-        <p><small> HP: <span style="color: #F29C1F"><%= [@player.hitpoints.to_i, 0].max %></span> </small></p>
+        <div class="health-bar mt-2">
+          <div class="health-bar-fill" style="width: <%= [@player.healthpoints.to_i, 0].max %>%; background-color: #41C835;"></div>
+        </div>
       </div>
       <div class="d-flex flex-column">
         <span><%= image_tag "Icons/#{@monster.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %></span>
-        <p><small> HP: <span style="color: #F29C1F"><%= [@monster.hitpoints.to_i, 0].max %></span></small></p>
+        <div class="health-bar mt-2">
+          <div class="health-bar-fill" style="width: <%= [@monster.hitpoints.to_i, 0].max %>%; background-color: #41C835;"></div>
+        </div>
       </div>
     </div>
     <div>
-      <p style="color: #E64C3C">Monster rage: <%= [@monster_rage.to_i, 0].max %> %</p>
-      <p style="color: #41C835">Your healthpoints: <%= [@player.healthpoints.to_i, 0].max %></p>
+      <p style="color: #F29C1F">Monster rage: <%= [@monster_rage.to_i, 0].max %> %</p>
+      <p style="color: #41C835">Your hitpoints: <%= [@player.hitpoints.to_i, 0].max %></p>
     </div>
   </div>
-  <%= link_to "Enrage the monster", new_treasure_chest_challenge_expense_path(@challenge.treasure_chest, @challenge) %>
-  <span style="margin-bottom: 5px;"><%= link_to "Attack!", treasure_chest_challenge_attack_path(@challenge.treasure_chest, @challenge) %></span>
+  <span style="margin-bottom: 5px;"><%= link_to "Enrage the monster", new_treasure_chest_challenge_expense_path(@challenge.treasure_chest, @challenge), class: "enrage-button" %></span>
+  <%= link_to "Attack!", treasure_chest_challenge_attack_path(@challenge.treasure_chest, @challenge), class: "button" %>
 </div>
