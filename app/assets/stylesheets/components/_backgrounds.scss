@@ -1,6 +1,9 @@
 // Background wallpapers
 .root-home {
-  background-image: url('treasure_keeper_battlefield.jpg');
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(10, 10, 10, 0.3)
+    ), url('treasure_keeper_battlefield.jpg');
   background-size: contain;
   background-position: center;
   height: 84vh;
@@ -8,63 +11,90 @@
 }
 // This is the map
 .treasure-chests {
-  background-image: url('treasure_keeper_battlefield.jpg');
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(10, 10, 10, 0.3)
+    ), url('treasure_keeper_battlefield.jpg');
   background-size: contain;
   background-position: center;
   height: 84vh;
   background-repeat: no-repeat;
 }
 .treasure-chests-new {
-  background-image: url('treasure_keeper_expenses.jpg');
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(10, 10, 10, 0.3)
+    ), url('treasure_keeper_expenses.jpg');
   background-size: contain;
   background-position: center;
   height: 84vh;
   background-repeat: no-repeat;
 }
 .treasure-chests-show {
-  background-image: url('treasure_keeper_chamber.jpg');
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(10, 10, 10, 0.3)
+    ), url('treasure_keeper_chamber.jpg');
   background-size: contain;
   background-position: center;
   height: 84vh;
   background-repeat: no-repeat;
 }
 .challenges-index {
-  background-image: url('treasure_keeper_battlefield_2.jpg');
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(10, 10, 10, 0.3)
+    ), url('treasure_keeper_battlefield_2.jpg');
   background-size: contain;
   background-position: center;
   height: 84vh;
   background-repeat: no-repeat;
 }
 .challenges-new {
-  background-image: url('treasure_keeper_dragon_2.jpg');
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(10, 10, 10, 0.3)
+    ), url('treasure_keeper_dragon_2.jpg');
   background-size: contain;
   background-position: center;
   height: 84vh;
   background-repeat: no-repeat;
 }
 .challenges-show {
-  background-image: url('treasure_keeper_dragon.jpg');
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(10, 10, 10, 0.3)
+    ), url('treasure_keeper_dragon.jpg');
   background-size: contain;
   background-position: center;
   height: 84vh;
   background-repeat: no-repeat;
 }
 .players-new {
-  background-image: url('treasure_keeper_portal.jpg');
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(10, 10, 10, 0.3)
+    ), url('treasure_keeper_portal.jpg');
   background-size: contain;
   background-position: center;
   height: 84vh;
   background-repeat: no-repeat;
 }
 .players-show {
-  background-image: url('treasure_keeper_warrior.jpg');
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(10, 10, 10, 0.3)
+    ), url('treasure_keeper_warrior.jpg');
   background-size: contain;
   background-position: center;
   height: 84vh;
   background-repeat: no-repeat;
 }
 .expenses-new {
-  background-image: url('treasure_keeper_expenses.jpg');
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(10, 10, 10, 0.3)
+    ), url('treasure_keeper_expenses.jpg');
   background-size: contain;
   background-position: center;
   height: 84vh;
@@ -74,5 +104,5 @@
 // use this to make div containers have a transparent background
 .transparent-bg {
   content: "";
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
 }
