@@ -4,7 +4,7 @@
   <%# <p style="color: #E64C3C">Warning:</p>
   <p class="text-center">The monsters may grow!</p> %>
   <%= simple_form_for [@challenge.treasure_chest, @challenge, @expense] do |f| %>
-    <%= f.input :amount, label: 'How much did you spend?' %>
+    <%='How much did you spend?' %>
     <h4 data-slider-target="amount">0</h4>
     <%= f.input :amount, as: :range, selected: 0, label: false, input_html: {value: 0, data: { action: "input->slider#updateAmount"}}, placeholder: "amount" %>
     <%= f.input :expense_date,
