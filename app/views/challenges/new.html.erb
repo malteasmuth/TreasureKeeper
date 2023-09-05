@@ -2,8 +2,8 @@
     <h2 class="mb-3">Embark on a quest</h2>
     <div class="text-center p-3 text-break" style="width: 355px;">
       <p class="px-5" style="font-size: 10px;">
-        One quest at a time, meet the goal
-        established in your treasure chest...
+        One quest at a time, meet your goal
+        and fill up your treasure chest...
       </p>
     </div>
 
@@ -12,7 +12,7 @@
         <%= f.input :name, label: false, placeholder: "Name your quest" %>
         <%= f.input :description, label: false, placeholder: "Describe it" %>
         <h4 data-slider-target="budget">0</h4>
-        <%= f.input :budget, as: :range, selected: 0, label: false, input_html: {value: 0, data: { action: "input->slider#updateBudget"}}, placeholder: "Budget" %>
+        <%= f.input :budget, as: :range, selected: 0, label: false, input_html: {value: 0, data: { action: "input->slider#updateBudget"}}, placeholder: "Establish a budget" %>
         <%= f.input :end_date,
                 as: :string,
                 label: false,
