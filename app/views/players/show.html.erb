@@ -4,7 +4,6 @@
       <h1 style="color: #F29C1F"><%= @player.username.upcase %></h1>
       <%= image_tag "Icons/#{@player.icon_creator}" , width: 50, crop: :fill, class: "rounded-circle" %>
     </div>
-
     <div class="d-flex justify-content-around mb-3">
       <span style="color: #F29C1F;"><%= image_tag asset_path("Icons/life_full2.png"), class: "icon" %><%= [@player.healthpoints.to_i, 0].max %></span>
       <span style="color: #F29C1F;"><%= image_tag asset_path("Icons/swords.png"), class: "icon" %> <%= [@player.hitpoints.to_i, 0].max %></span>

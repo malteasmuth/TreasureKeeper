@@ -4,5 +4,5 @@ class TreasureChest < ApplicationRecord
 
   validates :name, :description, :value, presence: true
 
-  enum status: %i[running lost won]
+  enum status: %i[ongoing lost won]
 end
