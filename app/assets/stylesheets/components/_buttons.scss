@@ -62,7 +62,7 @@ a {
 
 // button animations for attack monster
 
-@keyframes shake {
+@keyframes buttonshake {
   0% { transform: translateX(0); }
   25% { transform: translateX(-5px); }
   50% { transform: translateX(5px); }
@@ -71,5 +71,5 @@ a {
 }
 
 .shake-animation {
-  animation: shake 2s ease infinite;
+  animation: buttonshake 0.5s ease infinite;
 }
