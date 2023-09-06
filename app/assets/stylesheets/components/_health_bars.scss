@@ -5,9 +5,11 @@
   border: 1px solid #333; /* Optional: Add a border */
   border-radius: 5px; /* Optional: Add rounded corners */
   margin-bottom: 10px; /* Optional: Add spacing between health bars */
+  overflow: hidden; /* Hide overflowing content */
 }
 
 .health-bar-fill {
   height: 100%;
   transition: width 0.3s ease-in-out; /* Optional: Add a transition effect */
+  background-color: #41C835; /* Color of the filled portion */
 }
