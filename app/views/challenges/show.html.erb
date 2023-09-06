@@ -1,8 +1,16 @@
-<div class="challenges-show pt-3 d-flex flex-column justify-content-center align-items-center overflow-auto">
+<div data-controller="notifications" class="challenges-show pt-3 d-flex flex-column justify-content-center align-items-center overflow-auto">
+
+  <div class="popup d-none" data-notifications-target="popUp">
+    <span><%= image_tag "Icons/#{@monster.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %></span>
+    <h2 data-notifications-target="h2">Outch!</h2>
+    <p data-notifications-target="p">You lost the fight, now pay with your life!</p>
+    <button type="button", data-action="click->notifications#closePopUp">Ok!</button>
+  </div>
+
   <div class="transparent-bg mb-2 pt-3 px-3 border d-flex flex-column align-items-center overflow-auto" style="border-radius: 10px; width: 355px;">
     <h6 class="text-break"><%= @challenge.name %></h6>
     <h6 class="text-break"><%= @challenge.description %></h6>
-    <p>Status: <span style="color: #F29C1F"><%= @challenge.status %></span><p>
+    <p>Status: <span style="color: #F29C1F", data-notifications-target="status"><%= @challenge.status %></span><p>
   </div>
   <div class="transparent-bg mb-2 pt-3 px-3 border d-flex flex-column justify-content-center align-items-center" style="border-radius: 10px; width: 355px;">
     <p>Your budget: <span style="color: #F29C1F">$<%= [@challenge.budget.to_i, 0].max %></span></p>
@@ -34,14 +42,8 @@
         </div>
       </div>
     </div>
+    <div>
 
-    <div data-controller="notifications">
-       <div class="popup", data-notifications-target="popUp">
-          <span><%= image_tag "Icons/#{@monster.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %></span>
-          <h2>Outch!</h2>
-          <p>You lost the fight, now pay with your life!</p>
-          <button type="button", data-action="click->notifications#closePopUp">Ok!</button>
-        </div>
       <p style="color: #F29C1F">Monster rage: <span style="color: #F29C1F", data-notifications-target="monsterRage"><%= [@monster_rage.to_i, 0].max %></span></p>
       <p style="color: #41C835">Your hitpoints: <%= [@player.hitpoints.to_i, 0].max %></p>
     </div>

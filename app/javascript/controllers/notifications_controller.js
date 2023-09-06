@@ -3,26 +3,35 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="controller"
 export default class extends Controller {
 
-  static targets = ["popUp", "monsterRage"];
+  static targets = ["popUp", "monsterRage", "status"];
 
   connect() {
-    console.log("Notification");
-    console.log(this.monsterRageTarget);
-    console.log(this.popUpTarget);
-    console.log(this.buttonTarget);
-
+    console.log(this.statusTarget.innerText);
     if (this.monsterRageTarget.innerText >= 100) {
       this.openPopUp();
+    }
+
+    if (this.statusTarget.innerText == "won"){
+      this.openWonPopUp();
     }
   }
 
   openPopUp() {
     const popup = this.popUpTarget;
-    popup.classList.add("open-popup");
+    popup.classList.remove("d-none");
+    popup.classList.add("open-popup-start");
   }
 
   closePopUp() {
     const popup = this.popUpTarget;
-    popup.classList.remove("open-popup");
+    popup.classList.remove("open-popup-start");
+  }
+
+  openWonPopUp() {
+    const popup = this.popUpTarget;
+    popup.classList.remove("d-none");
+    setTimeout(() =>{
+      popup.classList.add("open-popup-start")
+    }, 1000)
   }
 }
