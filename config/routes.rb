@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :treasure_chests, only: %i[index show new create] do
     resources :challenges do
+      get "revive", to: "players#revive_player"
       get "attack", to: "challenges#player_attack"
       resources :expenses, only: %i[show new create]
     end
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :players, only: %i[index show new create edit update delete] do
     get "level-up", to: "players#level_up"
+    get "buy_health", to: "players#buy_health"
   end
 
   get "home", to: "pages#home"
