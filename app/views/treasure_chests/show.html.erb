@@ -13,6 +13,31 @@
     <% end %>
     <p class="mt-2">Progress:</p>
     <span style="margin-top: -15px; margin-bottom: 10px; color: #F29C1F">$<%= [@treasure_chest.current_value, 0].max %> / $<%= [@treasure_chest.value, 0].max %></span>
-  </div>
+          <div class="d-flex flex-column justify-content-center align-items-center">
+          <h5>Your quests</h5>
+          <% if @challenges.empty? %>
+            <div class="overflow-auto p-3" style="width: 300px; max-height: 500px; border-radius: 15px;">
+              <p class="text-center">You Have No Challenges</p>
+            <% else %>
+              <div class="transparent-bg overflow-auto border p-3 mt-3" style="width: 350px; max-height: 550px; border-radius: 15px;">
+                <% end %>
+                <% @challenges.each do |challenge| %>
+                <div class="mb-3 text-break border p-3" style="border-radius: 15px;">
+                  <%= link_to treasure_chest_challenge_path(challenge.treasure_chest, challenge), class: "d-flex text-decoration-none" do %>
+                    <div class="col-3 d-flex align-items-center">
+                      <%= image_tag asset_path("Icons/ruby_milestone.png"), alt: "Treasure Icon", class: "challenge-image" %>
+                    </div>
+                    <div class="col-9 text-center">
+                      <h6><span style="color: #F29C1F;"><%= challenge.name %></span></h6>
+                      <h6>Status: <span style="color: #F29C1F;"><%= challenge.status %></span></h6>
+                    </div>
+                  <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
     <%= link_to "Embark on a new quest!", new_treasure_chest_challenge_path(@treasure_chest), class: "btn btn-primary"%>
+        </div>
+  </div>
 </div>
