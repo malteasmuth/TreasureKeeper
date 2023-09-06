@@ -4,6 +4,8 @@ class Player < ApplicationRecord
   has_many :treasure_chests, dependent: :destroy
   validates :username, :healthpoints, :hitpoints, :rubies, presence: true
   validates :user, uniqueness: true
+  validates :avatar_url, presence: true
+  validates :username, presence: true
 
   has_one_attached :picture
 
