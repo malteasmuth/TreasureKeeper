@@ -12,5 +12,7 @@
     <p class="mt-2">Progress:</p>
     <span style="margin-top: -15px; margin-bottom: 10px; color: #F29C1F">$<%= [@treasure_chest.current_value, 0].max %> / $<%= [@treasure_chest.value, 0].max %></span>
   </div>
-    <%= link_to "Embark on a new quest!", new_treasure_chest_challenge_path(@treasure_chest), class: "btn btn-primary"%>
+  <div class="text-center" data-controller="challenges" data-challenges-url-value="<%= asset_path("coin-drop.mp3") %>">
+    <%= link_to "Embark on a new quest!", new_treasure_chest_challenge_path(@treasure_chest), class: "btn", data: { target: "challenges.newquest", action: "click->challenges#newquest" } %>
+  </div>
 </div>

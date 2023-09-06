@@ -19,7 +19,7 @@
       <% end %>
     </div>
   </div>
-  <div class="text-center mt-5">
-    <%= link_to "New chest", new_treasure_chest_path, class: "btn" %>
+  <div class="text-center mt-5" data-controller="challenges" data-challenges-url-value="<%= asset_path("coin-spill.mp3") %>">
+    <%= link_to "New chest", new_treasure_chest_path, class: "btn", data: { target: "challenges.newchest", action: "click->challenges#newchest" } %>
   </div>
 </div>
