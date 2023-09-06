@@ -52,6 +52,15 @@ a {
   }
 }
 
+// level up button
+
+.disabled {
+  opacity: 0.5; /* Adjust the opacity as needed */
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+
 // styling the chest button at treasure chest index
 .treasure-image {
   width:30px;

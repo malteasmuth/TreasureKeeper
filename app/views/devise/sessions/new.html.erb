@@ -1,5 +1,5 @@
 <div class="container d-flex flex-column justify-content-center align-items-center" style="background-color: #F4EFDD; min-height: 100vh;">
-  <h2 class="mb-5 p-3 animate__animated animate__pulse" style="color: #E64C3C">Treasure Keeper</h2>
+  <h1 class="mb-3 p-2 animate__animated animate__pulse" style="color: #E64C3C">Treasure Keeper</h1>
   <div class="text-center my-3 d-flex flex-column align-items-center"
       data-controller="chest"
       data-chest-url-value="<%= asset_path("chest-slam.mp3") %>">
@@ -8,13 +8,13 @@
       <%= image_tag asset_path("chest/chest_closed.png"), id: "closed-chest", class: "hidden", data: { target: "chest.closedChest" } %>
     </div>
   </div>
-  <div class="p-3" style="width: 300px;">
+  <div class="p-2" style="width: 300px;">
     <p class="text-center" style="color: #F29C1F;">Turn your savings goals into treasure chests!</p>
     <p class="text-center" style="color: #F29C1F;">Embark on epic quests to keep your expenses at bay!</p>
   </div>
   <div class="d-flex flex-column justify-content-center align-items-center">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-inputs mt-5">
+      <div class="form-inputs mt-2">
         <%= f.input :email,
                     required: false,
                     autofocus: true,
