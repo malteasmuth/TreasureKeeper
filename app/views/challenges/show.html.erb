@@ -4,7 +4,7 @@
     <span><%= image_tag "Icons/#{@monster.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %></span>
     <h2 data-notifications-target="h2">Outch!</h2>
     <p data-notifications-target="p">You lost the fight, now pay with your life!</p>
-    <button type="button", data-action="click->notifications#closePopUp">Ok!</button>
+    <%= link_to "Ok!", treasure_chests_path, class: "button" %>
   </div>
 
   <div class="transparent-bg mb-2 pt-3 px-3 border d-flex flex-column align-items-center overflow-auto" style="border-radius: 10px; width: 355px;">
