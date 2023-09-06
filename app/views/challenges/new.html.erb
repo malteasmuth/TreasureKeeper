@@ -11,6 +11,7 @@
       <%= simple_form_for [@treasure_chest, @challenge] do |f| %>
         <%= f.input :name, label: false, placeholder: "Name your quest" %>
         <%= f.input :description, label: false, placeholder: "Describe it" %>
+        <%='Establish your budget:' %>
         <h4 data-slider-target="budget">0</h4>
         <%= f.input :budget, as: :range, selected: 0, label: false, input_html: {value: 0, data: { action: "input->slider#updateBudget"}}, placeholder: "Establish a budget" %>
         <%= f.input :end_date,
