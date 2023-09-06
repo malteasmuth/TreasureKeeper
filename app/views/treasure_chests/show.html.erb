@@ -1,7 +1,9 @@
 <div class="treasure-chests-show d-flex flex-column justify-content-center align-items-center">
   <div class="transparent-bg border d-flex flex-column mb-5 p-2 overflow-auto text-break text-center" style="border-radius: 15px; width: 300px;">
-    <p class="pt-3">Your goal: </p>
-    <span style="font-weight: bold; font-size: 18px; color: #F29C1F; margin-top: -10px;"><%= @treasure_chest.name %></span>
+    <div class="p-2">
+      <%= image_tag asset_path("Icons/treasure.png"), alt: "Treasure Icon", class: "treasure-image" %>
+      <span style="font-weight: bold; font-size: 18px; color: #F29C1F; margin-left: 5px;"><%= @treasure_chest.name %></span>
+    </div>
     <p>Description:</p>
     <span style="font-weight: bold; font-size: 18px; color: #F29C1F; margin-top: -10px;"><%= @treasure_chest.description %></span>
     <% if @treasure_chest.current_value != nil %>
