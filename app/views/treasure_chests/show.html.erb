@@ -18,7 +18,7 @@
   <div class="transparent-bg border d-flex flex-column p-2 overflow-auto text-break text-center" style="border-radius: 15px; max-height: 370px; width: 350px;">
     <div class="px-2">
       <% if @challenges.empty? %>
-        <p class="text-center" style="padding-top: 12px;">You Have No Quests</p>
+        <p class="text-center py-1">You Have No Quests</p>
       <% else %>
         <div class="mt-3" style="border-radius: 15px;">
           <% @challenges.each do |challenge| %>
@@ -33,6 +33,7 @@
                 </div>
               <% end %>
             </div>
+          <% end %>
         </div>
       <% end %>
     </div>
