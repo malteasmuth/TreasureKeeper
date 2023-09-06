@@ -3,8 +3,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-treasure-keeper", data-controller="health">
 
 <% if current_player.healthpoints >= 0 %>
-  <% nil %>
-<% else %>
+  <% nil  %>
+<% else%>
   <div class="d-none" data-health-target="popUp">
     <span><%= image_tag "Icons/#{current_player.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %></span>
     <h2 data-health-target="h2">You are dead</h2>
@@ -12,7 +12,9 @@
       <% if current_player.rubies >= 10 %>
          <%= link_to "Buy Health", player_buy_health_path(current_player), class: "button" %>
       <% end%>
+      <% if @challenge != nil %>
         <%= link_to "Go back", treasure_chest_challenge_revive_path(@challenge.treasure_chest, @challenge), class: "button" %>
+      <% end %>
   </div>
   <% end %>
 
