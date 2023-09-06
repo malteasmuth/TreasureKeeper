@@ -4,6 +4,7 @@
 //= link_tree ../../../vendor/javascript .js
 //= link popper.js
 //= link bootstrap.min.js
+//= link manifest.json
 
 //= link chest-slam.mp3
 //= link enrage.mp3
