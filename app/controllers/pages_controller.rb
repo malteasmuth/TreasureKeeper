@@ -4,8 +4,8 @@ class PagesController < ApplicationController
 
   def home
     @player = Player.find_by(user_id: current_user)
-    @challenges = Challenge.where(player_id: @player.id, status: "running")
-    @challenge = Challenge.find_by(player_id: current_user, status: "running")
+    @challenges = Challenge.where(player_id: @player.id, status: "ongoing")
+    @challenge = Challenge.find_by(player_id: current_user, status: "ongoing")
   end
 
   def get_player

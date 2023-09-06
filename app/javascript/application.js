@@ -3,3 +3,4 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
+// import 'your_js_file'; // Import your custom JavaScript module

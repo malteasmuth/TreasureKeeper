@@ -1,10 +1,14 @@
-<div class="expenses-new d-flex flex-column justify-content-center align-items-center">
+<div class="expenses-new d-flex flex-column justify-content-center align-items-center" data-controller="slider">
   <h5>Add an expense</h5>
-  <p style="color: #E64C3C">Warning:</p>
-  <p class="text-center">It might may the monsters grow!</p>
+  <br>
+  <%# <p style="color: #E64C3C">Warning:</p>
+  <p class="text-center">The monsters may grow!</p> %>
   <%= simple_form_for [@challenge.treasure_chest, @challenge, @expense] do |f| %>
-    <%= f.input :amount, label: 'How much did you spend?' %>
+    <%='How much did you spend?' %>
+    <h4 data-slider-target="amount">0</h4>
+    <%= f.input :amount, as: :range, selected: 0, label: false, input_html: {value: 0, data: { action: "input->slider#updateAmount"}}, placeholder: "amount" %>
     <%= f.input :expense_date,
+                label: "When did you spend it?",
                 as: :string,
                 input_html: { data: { controller: "datepicker" },
                             placeholder: "When did you spend it?",
@@ -12,7 +16,7 @@
                             dateFormat: "Y-m-d H:i",
                             } %>
     <div class="text-center">
-      <%= f.button :submit, 'Save' %>
+      <%= f.button :submit, 'Enrage the monster!' %>
     </div>
   <% end %>
 </div>

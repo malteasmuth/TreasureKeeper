@@ -3,13 +3,14 @@ class TreasureChestsController < ApplicationController
 
   def index
     @current_player = Player.find_by(user_id: current_user)
-    @treasure_chests = TreasureChest.where(player_id: @current_player.id, status: "running")
+    @treasure_chests = TreasureChest.where(player_id: @current_player.id, status: "ongoing")
   end
 
   def show
     @current_player = Player.find_by(user_id: current_user)
     @treasure_chest = TreasureChest.find(params[:id])
-    @challenges = Challenge.where(player_id: @current_player.id)
+   # @challenge = Challenge.where(treasure_chest_id: @treasure_chest)
+    @challenges = @treasure_chest.challenges
   end
 
   def new
