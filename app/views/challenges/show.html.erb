@@ -1,8 +1,16 @@
-<div class="challenges-show pt-3 d-flex flex-column justify-content-center align-items-center overflow-auto">
+<div data-controller="notifications" class="challenges-show pt-3 d-flex flex-column justify-content-center align-items-center overflow-auto">
+
+  <div class="popup d-none" data-notifications-target="popUp">
+    <span><%= image_tag "Icons/#{@monster.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %></span>
+    <h2 data-notifications-target="h2">Outch!</h2>
+    <p data-notifications-target="p">You lost the fight, now pay with your life!</p>
+    <%= link_to "Ok!", treasure_chests_path, class: "button" %>
+  </div>
+
   <div class="transparent-bg mb-2 pt-3 px-3 border d-flex flex-column align-items-center overflow-auto" style="border-radius: 10px; width: 355px;">
     <h6 class="text-break" style="font-size: 15px;"><span style="color: #F29C1F"><%= @challenge.name %></span></h6>
     <!-- <h6 class="text-break" style="font-size: 10px;">Description: <span style="color: #F29C1F"><%= @challenge.description %></span></h6>
-    <h6 class="text-break" style="font-size: 10px;">Status: <span style="color: #F29C1F"><%= @challenge.status %></span></h6>
+    <h6 class="text-break" style="font-size: 10px;">Status: <span style="color: #F29C1F", data-notifications-target="status"><%= @challenge.status %></span></h6>
     <h6 class="text-break" style="font-size: 10px;">Deadline:<span style="color: #F29C1F"><%= @challenge.end_date %></span></h6>-->
     <h6 class="text-break" style="font-size: 15px;"><%= (@challenge.end_date - Date.today).to_i %> days left!</h6>
   </div>
@@ -40,14 +48,8 @@
         </div>
       </div>
     </div>
+    <div>
 
-    <div data-controller="notifications">
-       <div class="popup", data-notifications-target="popUp">
-          <span><%= image_tag "Icons/#{@monster.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %></span>
-          <h2>Outch!</h2>
-          <p>You lost the fight, now pay with your life!</p>
-          <button type="button", data-action="click->notifications#closePopUp">Ok!</button>
-        </div>
       <p style="color: #F29C1F">Monster rage: <span style="color: #F29C1F", data-notifications-target="monsterRage"><%= [@monster_rage.to_i, 0].max %></span></p>
       <p style="color: #41C835">Your hitpoints: <%= [@player.hitpoints.to_i, 0].max %></p>
     </div>
