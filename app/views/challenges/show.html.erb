@@ -20,8 +20,9 @@
       <% sum = 0 %>
       <% @expenses.each do |expense| %>
         <div class="d-flex">
-          <p style="color: #F29C1F; margin-right: 10px;">$<%= [expense.amount.to_i, 0].max  %></p>
-          <p style="color: #F29C1F;"><%= expense.expense_date.strftime("%b %d") %></p>
+          <p style="color: #F29C1F; margin-right: 10px;font-size: 13px;">$<%= [expense.amount.to_i, 0].max  %></p>
+          <p style="color: #F29C1F;font-size: 13px;"><%= expense.expense_date.strftime("%b %d")  %></p>
+          <p style="color: #F29C1F;font-size: 13px;"><%= expense.category%></p>
         </div>
 
         <% sum += expense.amount %>
