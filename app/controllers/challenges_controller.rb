@@ -67,7 +67,6 @@ class ChallengesController < ApplicationController
   private
 
   def check_attack
-
     if @monster_rage > 75
       @attack_chance = 40
     elsif @monster_rage > 50

@@ -34,8 +34,15 @@
         </div>
       </div>
     </div>
-    <div>
-      <p style="color: #F29C1F">Monster rage: <%= [@monster_rage.to_i, 0].max %> %</p>
+
+    <div data-controller="notifications">
+       <div class="popup", data-notifications-target="popUp">
+          <span><%= image_tag "Icons/#{@monster.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %></span>
+          <h2>Outch!</h2>
+          <p>You lost the fight, now pay with your life!</p>
+          <button type="button", data-action="click->notifications#closePopUp">Ok!</button>
+        </div>
+      <p style="color: #F29C1F">Monster rage: <span style="color: #F29C1F", data-notifications-target="monsterRage"><%= [@monster_rage.to_i, 0].max %></span></p>
       <p style="color: #41C835">Your hitpoints: <%= [@player.hitpoints.to_i, 0].max %></p>
     </div>
   </div>
