@@ -11,3 +11,4 @@
 //= link coin-drop.mp3
 //= link coin-spill.mp3
 //= link level-up.mp3
+//= link quest.mp3
