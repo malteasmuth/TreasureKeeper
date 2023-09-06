@@ -36,13 +36,12 @@ export default class extends Controller {
 
       // Execute the button's original functionality (e.g., navigate or trigger some action)
       window.location.href = button.getAttribute("href"); // Example: Navigate to the link's href
-    }, 2000);
+    }, 1200);
   }
 
 
   newchest(event) {
     const button = event.currentTarget;
-    const buttonText = event.currentTarget.innerText
     const coinspillSound = new Audio(this.urlValue);
 
     // Add the shake animation class to buttons
@@ -58,13 +57,12 @@ export default class extends Controller {
 
       // Execute the button's original functionality (e.g., navigate or trigger some action)
       window.location.href = button.getAttribute("href"); // Example: Navigate to the link's href
-    }, 2000);
+    }, 1200);
   }
 
 
   newquest (event) {
     const button = event.currentTarget;
-    const buttonText = event.currentTarget.innerText
     const coindropSound = new Audio(this.urlValue);
 
     // Add the shake animation class to buttons
@@ -80,6 +78,6 @@ export default class extends Controller {
 
       // Execute the button's original functionality (e.g., navigate or trigger some action)
       window.location.href = button.getAttribute("href"); // Example: Navigate to the link's href
-    }, 2000);
+    }, 1200);
   }
 }
