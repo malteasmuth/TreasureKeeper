@@ -2,7 +2,7 @@
   <div class="transparent-bg mb-2 pt-3 px-3 border d-flex flex-column align-items-center overflow-auto" style="border-radius: 10px; width: 355px;">
     <h6 class="text-break">Quest: <span style="color: #F29C1F"><%= @challenge.name %></span></h6>
     <h6 class="text-break">Description: <span style="color: #F29C1F"><%= @challenge.description %></span></h6>
-    <p>Status: <span style="color: #F29C1F"><%= @challenge.status %></span><p>
+    <p>Status: <span style="color: #F29C1F;"><%= @challenge.status %></span></p>
   </div>
   <div class="transparent-bg mb-2 pt-3 px-3 border d-flex flex-column justify-content-center align-items-center" style="border-radius: 10px; width: 355px;">
     <p>Budget: <span style="color: #F29C1F">$<%= [@challenge.budget.to_i, 0].max %></span></p>
