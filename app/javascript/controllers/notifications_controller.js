@@ -19,7 +19,9 @@ export default class extends Controller {
   openPopUp() {
     const popup = this.popUpTarget;
     popup.classList.remove("d-none");
-    popup.classList.add("open-popup-start");
+    setTimeout(() =>{
+      popup.classList.add("open-popup-start")
+    }, 1000)
   }
 
   closePopUp() {
