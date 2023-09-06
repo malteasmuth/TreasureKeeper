@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="controller"
 export default class extends Controller {
 
-  static targets = ["popUp", "monsterRage", "status"];
+  static targets = ["popUp", "monsterRage", "status", "h2", "p"];
 
   connect() {
     console.log(this.statusTarget.innerText);
@@ -11,14 +11,26 @@ export default class extends Controller {
       this.openPopUp();
     }
 
-    if (this.statusTarget.innerText == "won"){
-      this.openWonPopUp();
+    if (this.statusTarget.innerText == "won") {
+      this.winPopUp();
     }
   }
 
   openPopUp() {
     const popup = this.popUpTarget;
     popup.classList.remove("d-none");
+    popup.classList.add("popup-red");
+    setTimeout(() =>{
+      popup.classList.add("open-popup-start")
+    }, 1000)
+  }
+
+  winPopUp() {
+    const popup = this.popUpTarget;
+    popup.classList.remove("d-none");
+    popup.classList.add("popup-green");
+    this.h2Target.innerText = "You beat the monster";
+    this.pTarget.innerText = "Now loot the corpse and fill your chest with teasure!";
     setTimeout(() =>{
       popup.classList.add("open-popup-start")
     }, 1000)
@@ -27,13 +39,5 @@ export default class extends Controller {
   closePopUp() {
     const popup = this.popUpTarget;
     popup.classList.remove("open-popup-start");
-  }
-
-  openWonPopUp() {
-    const popup = this.popUpTarget;
-    popup.classList.remove("d-none");
-    setTimeout(() =>{
-      popup.classList.add("open-popup-start")
-    }, 1000)
   }
 }
