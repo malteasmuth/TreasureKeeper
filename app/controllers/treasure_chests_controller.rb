@@ -9,7 +9,7 @@ class TreasureChestsController < ApplicationController
   def show
     @current_player = Player.find_by(user_id: current_user)
     @treasure_chest = TreasureChest.find(params[:id])
-   # @challenge = Challenge.where(treasure_chest_id: @treasure_chest)
+    # @challenge = Challenge.find(treasure_chest_id: @treasure_chest)
     @challenges = @treasure_chest.challenges
   end
 
