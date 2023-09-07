@@ -4,8 +4,12 @@ class Challenge < ApplicationRecord
   has_many :expenses, dependent: :destroy
   has_many :monsters, dependent: :destroy
   # validates :name, :description, :monster, :end_date, :status, presence: true
-  validates :name, :description, :status, :budget, :end_date, presence: true
+  validates :description, :status, :budget, :end_date, presence: true
   validate :end_date_cannot_be_in_past
+
+  CATEGORIES = ["Coffee", "Gummibärchen", "tiny pizzas", "fake mustaches", "lava lamps"]
+  validates :name, inclusion: { in: CATEGORIES, message: "is not included in the list" }, presence: true
+
 
   def end_date_cannot_be_in_past
     if end_date.present? && end_date < Date.today

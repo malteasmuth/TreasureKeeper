@@ -6,10 +6,9 @@
         and fill up your treasure chest...
       </p>
     </div>
-
     <div class="container d-flex flex-column align-items-center" style="max-width: 250px;" data-controller="slider">
       <%= simple_form_for [@treasure_chest, @challenge] do |f| %>
-        <%= f.input :name, label: false, placeholder: "Name your quest" %>
+        <%= f.input :name, label:  "Name your quest", collection: Challenge::CATEGORIES %>
         <%= f.input :description, label: false, placeholder: "Describe it" %>
         <%='Establish your budget:' %>
         <h4 data-slider-target="budget">0</h4>

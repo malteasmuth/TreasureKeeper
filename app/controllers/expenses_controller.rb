@@ -38,7 +38,7 @@ class ExpensesController < ApplicationController
   private
 
   def expense_params
-    params.require(:expense).permit(:amount, :expense_date, :challenge_id, :category)
+    params.require(:expense).permit(:amount, :expense_date, :challenge_id)
   end
 
   def get_player
