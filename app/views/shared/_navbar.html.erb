@@ -17,7 +17,7 @@
       <%= image_tag asset_path("Icons/treasure.png") %>
     <% end %>
 
-    <%= link_to home_path, class: "navbar-brand" do %>
+    <%= link_to treasure_chest_challenge_path(@challenge.treasure_chest, @challenge), class: "navbar-brand" do %>
       <%= image_tag asset_path("Icons/swords.png") %>
       <% end %>
     <% end  %>
