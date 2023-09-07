@@ -107,11 +107,13 @@ class ChallengesController < ApplicationController
     @current_player = Player.find_by(user_id: current_user)
     if @monster_rage >= 100
       @challenge.lost!
+      @current_player.update(healthpoints: (@current_player.healthpoints -= 10))
     elsif @monster_rage < 100 && Date.today > @challenge.end_date
       @challenge.won!
+      @current_player.update(rubies: (@current_player.rubies += rand(2..10)))
+      @current_player.update(experience_points: (@current_player.experience_points += 10))
       if @challenge.treasure_chest.current_value.nil?
         @challenge.treasure_chest.current_value = 0
-        @current_player.update(rubies: (@current_player.rubies += rand(1..10)))
       end
       @challenge.treasure_chest.current_value += @challenge.budget - @challenge.current_value
       @challenge.treasure_chest.save
