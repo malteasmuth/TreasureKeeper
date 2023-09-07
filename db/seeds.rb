@@ -61,8 +61,7 @@ end
 puts "Creating 1 Challenge ...🔮."
 
 Challenge.create(
-  name: "Challenge1",
-  description: "A tough challenge",
+  name: "bad habits",
   status: 0,
   player_id: Player.all.sample.id,
   end_date: Date.today + 7.days,
@@ -71,8 +70,15 @@ Challenge.create(
   treasure_chest_id: TreasureChest.all.sample.id
 )
 
-puts "Creating 1 Expese ...💰."
-Expense.create(amount: 50.0, expense_date: Date.today - 3.days, player_id: Player.all.sample.id, challenge_id: Challenge.all.sample.id)
+puts "Creating 1 expense ...💰."
+
+Expense.create(
+  amount: 50.0,
+  expense_date: Date.today - 3.days,
+  player_id: Player.all.sample.id,
+  challenge_id: Challenge.all.sample.id,
+  category: "bad habits"
+)
 
 puts "Creating 3 monsters ...🧌🧌🧌"
 
