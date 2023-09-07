@@ -2,11 +2,14 @@
   width: 30vh;
   height: 30vh;
   background: #9c2828;
-  border-radius: 6px;
+  border-radius: 50px;
   position: absolute;
   top: 0%;
   left: 0%;
   transform: translate(-50%, -50%) scale(0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
   align-items: center;
   color: #333;
@@ -15,14 +18,17 @@
 }
 
 .popup-green {
-  width: 30vh;
-  height: 30vh;
+  width: 34vh;
+  height: 34vh;
   background: #446e31;
-  border-radius: 6px;
+  border-radius: 50px;
   position: absolute;
   top: 0%;
   left: 0%;
   transform: translate(-50%, -50%) scale(0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
   align-items: center;
   color: #333;
@@ -43,4 +49,8 @@
   left: 50%;
   margin-top: 75%;
   transform: translate(-50%, -50%) scale(1);
+}
+
+.pop-up-win {
+  background-color: #41C835;
 }

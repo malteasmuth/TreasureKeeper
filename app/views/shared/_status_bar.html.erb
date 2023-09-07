@@ -6,11 +6,12 @@
   <% nil  %>
 <% else%>
   <div class="d-none" data-health-target="popUp">
-    <span><%= image_tag "Icons/#{current_player.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %></span>
-    <h2 data-health-target="h2">You are dead</h2>
-    <p data-health-target="p">You should rest for a while</p>
+    <span style="margin-bottom: 20px;"><%= image_tag "Icons/#{current_player.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %></span>
+    <h2 data-health-target="h2">YOU ARE DEAD</h2>
+    <p style="margin-bottom: 10px;" data-health-target="p">You should rest for a while</p>
+    <div>
       <% if current_player.rubies >= 10 %>
-         <%= link_to "Buy Health", player_buy_health_path(current_player), class: "button" %>
+         <%= link_to "Buy HP", player_buy_health_path(current_player), class: "button" %>
       <% end%>
       <% if @challenge != nil %>
         <% if @challenge.id != nil %>
@@ -18,6 +19,7 @@
         <% end %>
       <% end %>
     </div>
+  </div>
   <% end %>
 
   <div class="container-fluid d-flex justify-content-around">
