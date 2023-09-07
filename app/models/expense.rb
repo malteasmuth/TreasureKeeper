@@ -12,4 +12,9 @@ class Expense < ApplicationRecord
       errors.add(:expense_date, "can't be in the future")
     end
   end
+  def amount_cannot_be_zero
+    if amount.present? && amount.zero?
+      errors.add(:amount, "can't be zero")
+    end
+  end
 end
