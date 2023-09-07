@@ -10,9 +10,9 @@
       </div>
     <% end  %>
   <div class="transparent-bg mb-2 pt-3 px-3 border d-flex flex-column align-items-center overflow-auto" style="border-radius: 10px; width: 355px;">
-    <h6 class="text-break" style="font-size: 15px;"><span style="color: #F29C1F"><%= @challenge.name %></span></h6>
-    <span style="color: #F29C1F", data-notifications-target="status"><%= @challenge.status %></span>
-    <h6 class="text-break" style="font-size: 15px;"><%= (@challenge.end_date - Date.today).to_i %> days left!</h6>
+    <h6 class="text-break" style="font-size: 16px;"><span style="color: #F29C1F">Save on <%= @challenge.name %></span></h6>
+    <span style="font-size: 14px; color: #F29C1F", data-notifications-target="status"><%= @challenge.status %></span>
+    <h6 class="text-break" style="font-size: 14px;"><%= (@challenge.end_date - Date.today).to_i %> days left!</h6>
   </div>
   <div class="transparent-bg mb-2 pt-3 px-3 border d-flex flex-column justify-content-center align-items-center" style="border-radius: 10p-->x; width: 355px;">
     <p>Budget: <span style="color: #F29C1F">$<%= [@challenge.budget.to_i, 0].max %></span></p>
