@@ -14,7 +14,9 @@
          <%= link_to "Buy HP", player_buy_health_path(current_player), class: "button" %>
       <% end%>
       <% if @challenge != nil %>
-        <%= link_to "Go Back", treasure_chest_challenge_revive_path(@challenge.treasure_chest, @challenge), class: "button" %>
+        <% if @challenge.id != nil %>
+          <%= link_to "Go back", treasure_chest_challenge_revive_path(@challenge.treasure_chest, @challenge), class: "button" %>
+        <% end %>
       <% end %>
     </div>
   </div>

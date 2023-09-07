@@ -4,12 +4,15 @@ class Expense < ApplicationRecord
 
   validates :amount, :expense_date, presence: true
   validate :expense_date_cannot_be_in_future
-  CATEGORIES = ["Coffee", "Gummibärchen", "Gambling", "Beer", "Toilet paper"]
-  validates :category, inclusion: { in: CATEGORIES, message: "is not included in the list" }, presence: true
-
+ 
   def expense_date_cannot_be_in_future
     if expense_date.present? && expense_date > Date.today
       errors.add(:expense_date, "can't be in the future")
+    end
+  end
+  def amount_cannot_be_zero
+    if amount.present? && amount.zero?
+      errors.add(:amount, "can't be zero")
     end
   end
 end

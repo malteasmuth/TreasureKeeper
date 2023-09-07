@@ -1,5 +1,5 @@
 <div class="treasure-chests d-flex flex-column justify-content-center align-items-center">
-  <h1 class="text-center mb-3">~YOUR TREASURES~</h1>
+  <h1 class="text-center mb-3">~YOUR CHESTS~</h1>
   <div class="transparent-bg overflow-auto border p-3" style="width: 350px; max-height: 350px; border-radius: 15px;">
     <div class="d-flex flex-column align-items-center">
       <% if @treasure_chests.empty? %>
@@ -21,6 +21,6 @@
     </div>
   </div>
   <div class="text-center mt-3" data-controller="challenges" data-challenges-url-value="<%= asset_path("coin-spill.mp3") %>">
-    <%= link_to "New chest", new_treasure_chest_path, class: "btn", data: { target: "challenges.newchest", action: "click->challenges#newchest" } %>
+    <%= link_to "New chest!", new_treasure_chest_path, class: "btn", data: { target: "challenges.newchest", action: "click->challenges#newchest" } %>
   </div>
 </div>
