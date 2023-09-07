@@ -5,9 +5,12 @@ export default class extends Controller {
     url: String,
     url2: String
   }
+
+  static targets = ["playerIcon", "monsterIcon"]
+
   connect() {
-    console.log("Everything is fine");
-    console.log(this.url2Value);
+    console.log(this.playerIconTarget, this.monsterIconTarget);
+
   }
 
   // treasure_chests/show/challenges/show page
@@ -22,10 +25,14 @@ export default class extends Controller {
       button.classList.add("shake-animation");
 
       if (buttonText === 'Attack!') {
-        attackSound.play()
+        attackSound.play();
+        this.playerIconTarget.classList.add("shake-animation");
+        this.monsterIconTarget.classList.add("shake-animation");
       } else {
       enrageSound.play();
       }
+
+
 
 
     // Prevent the default behavior temporarily
