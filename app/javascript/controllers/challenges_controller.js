@@ -27,11 +27,14 @@ export default class extends Controller {
       if (buttonText === 'Attack!') {
         attackSound.play();
         this.playerIconTarget.classList.add("shake-animation");
-        this.monsterIconTarget.classList.add("shake-animation");
+
+        this.monsterIconTarget.classList.add("shake-animation-reverse");
+
         setTimeout(() => {
 
           window.location.href = button.getAttribute("href");
         }, 1200);
+
       } else {
       enrageSound.play();
       setTimeout(() => {
@@ -87,3 +90,4 @@ export default class extends Controller {
     }, 2000);
   }
 }
+// I need to make a comment for no reason so I can pull this branch
