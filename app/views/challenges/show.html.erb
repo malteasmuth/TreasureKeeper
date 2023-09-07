@@ -3,9 +3,9 @@
       <% nil %>
     <% else %>
       <div class="d-none" data-notifications-target="popUp">
-        <span><%= image_tag "Icons/#{@monster.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %></span>
+        <span style="margin-bottom: 20px;"><%= image_tag "Icons/#{@monster.icon_creator}" , width: 50, crop: :fill, class: "mr-3 rounded-circle" %></span>
         <h2 data-notifications-target="h2">Ouch!</h2>
-        <p data-notifications-target="p">You lost the fight, now pay with your life!</p>
+        <p style="margin-bottom: 10px;" data-notifications-target="p">You lost the fight, now pay with your life!</p>
         <%= link_to "Ok!", treasure_chests_path, class: "button" %>
       </div>
     <% end  %>
