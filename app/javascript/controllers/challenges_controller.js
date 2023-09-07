@@ -27,23 +27,25 @@ export default class extends Controller {
       if (buttonText === 'Attack!') {
         attackSound.play();
         this.playerIconTarget.classList.add("shake-animation");
+
         this.monsterIconTarget.classList.add("shake-animation-reverse");
+
+        setTimeout(() => {
+
+          window.location.href = button.getAttribute("href");
+        }, 1200);
+
       } else {
       enrageSound.play();
+      setTimeout(() => {
+
+        // Execute the button's original functionality (e.g., navigate or trigger some action)
+        window.location.href = button.getAttribute("href"); // Example: Navigate to the link's href
+      }, 5000);
       }
-
-
-
 
     // Prevent the default behavior temporarily
     event.preventDefault();
-
-    // After a short delay, remove the shake animation class
-    setTimeout(() => {
-
-      // Execute the button's original functionality (e.g., navigate or trigger some action)
-      window.location.href = button.getAttribute("href"); // Example: Navigate to the link's href
-    }, 1200);
   }
 
 
@@ -64,7 +66,7 @@ export default class extends Controller {
 
       // Execute the button's original functionality (e.g., navigate or trigger some action)
       window.location.href = button.getAttribute("href"); // Example: Navigate to the link's href
-    }, 1200);
+    }, 4000);
   }
 
 
@@ -85,6 +87,6 @@ export default class extends Controller {
 
       // Execute the button's original functionality (e.g., navigate or trigger some action)
       window.location.href = button.getAttribute("href"); // Example: Navigate to the link's href
-    }, 1200);
+    }, 2000);
   }
 }
