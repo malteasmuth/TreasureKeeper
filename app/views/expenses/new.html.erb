@@ -2,6 +2,7 @@
 
   <span style="color: #F29C1F; font-size: 26px;"><%= @challenge.name.upcase %></span>
   <span style="color: #F29C1F; font-size: 26px;"><%= "Monster" %></span>
+  <%= image_tag "Icons/#{@monster.icon_creator}", width: 50, crop: :fill, class: "mr-3 rounded-circle" %>
   <h5>~Add an expense~</h5>
   <br>
   <%# <p style="color: #E64C3C">Warning:</p>

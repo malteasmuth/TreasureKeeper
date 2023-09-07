@@ -18,10 +18,11 @@ class ExpensesController < ApplicationController
 
     @expense.challenge_id = @challenge.id
 
-    monster = Monster.find(@expense.challenge.monster_id)
+    #monster = Monster.find(@expense.challenge.monster_id)
+    @monster = Monster.find(@challenge.monster_id)
 
     if @expense.save
-      monster.update(hitpoints: (monster.hitpoints += @expense.amount))
+      @monster.update(hitpoints: (@monster.hitpoints += @expense.amount))
       redirect_to treasure_chest_challenge_path(@challenge.treasure_chest, @challenge)
     else
       render :new, status: :unprocessable_entity
