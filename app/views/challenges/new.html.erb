@@ -10,7 +10,7 @@
       <%= simple_form_for [@treasure_chest, @challenge] do |f| %>
         <%= f.input :name, label:  "Quest to save on:", collection: Challenge::CATEGORIES %>
         <%='Establish your budget:' %>
-        <h4 data-slider-target="budget">0</h4>
+        <p>$ <span data-slider-target="budget">0</span></p>
         <%= f.input :budget, as: :range, selected: 0, label: false, input_html: {value: 0, data: { action: "input->slider#updateBudget"}}, placeholder: "Establish a budget" %>
         <%= f.input :end_date,
                 as: :string,
