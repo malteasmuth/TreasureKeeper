@@ -23,7 +23,7 @@ class Monster < ApplicationRecord
     expenses.each do |expense|
       sum += expense.amount
     end
-    monster_rage = ((sum / challenge.budget) * 100)
+    monster_rage = ((sum / [challenge.budget, 1].max) * 100)
     if monster_rage > 75
       attack_chance = 40
     elsif monster_rage > 50
