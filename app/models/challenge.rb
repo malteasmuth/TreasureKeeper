@@ -12,5 +12,10 @@ class Challenge < ApplicationRecord
       errors.add(:end_date, "can't be in the past")
     end
   end
+  def budget_cannot_be_zero
+    if budget.present? && budget.zero?
+      errors.add(:budget, "can't be zero")
+    end
+  end
   enum status: %i[ongoing lost won]
 end
