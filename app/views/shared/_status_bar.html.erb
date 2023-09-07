@@ -14,10 +14,10 @@
       <% end%>
       <% if @challenge != nil %>
         <% if @challenge.id != nil %>
-        <%= link_to "Go back", treasure_chest_challenge_revive_path(@challenge.treasure_chest, @challenge), class: "button" %>
+          <%= link_to "Go back", treasure_chest_challenge_revive_path(@challenge.treasure_chest, @challenge), class: "button" %>
+        <% end %>
       <% end %>
-      <%end %>
-  </div>
+    </div>
   <% end %>
 
   <div class="container-fluid d-flex justify-content-around">

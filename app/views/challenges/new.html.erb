@@ -1,5 +1,5 @@
 <div class="challenges-new d-flex flex-column justify-content-center align-items-center">
-    <h4 class="mb-3">~EMBARK ON A NEW QUEST~</h4>
+    <h4 class="mb-3">~YOUR NEW QUEST~</h4>
     <div class="text-center p-3 text-break" style="width: 355px;">
       <p class="px-5" style="font-size: 10px;">
         One quest at a time, meet your goal
@@ -8,8 +8,7 @@
     </div>
     <div class="container d-flex flex-column align-items-center" style="max-width: 250px;" data-controller="slider">
       <%= simple_form_for [@treasure_chest, @challenge] do |f| %>
-        <%= f.input :name, label:  "Name your quest", collection: Challenge::CATEGORIES %>
-        <%= f.input :description, label: false, placeholder: "Describe it" %>
+        <%= f.input :name, label:  "Quest to save on:", collection: Challenge::CATEGORIES %>
         <%='Establish your budget:' %>
         <h4 data-slider-target="budget">0</h4>
         <%= f.input :budget, as: :range, selected: 0, label: false, input_html: {value: 0, data: { action: "input->slider#updateBudget"}}, placeholder: "Establish a budget" %>
@@ -22,7 +21,7 @@
                             dateFormat: "Y-m-d H:i",
                             } %>
         <div class="text-center">
-          <%= f.button :submit, "New quest!", class: "btn" %>
+          <%= f.button :submit, "Embark!", class: "btn" %>
         </div>
       <% end %>
     </div>
