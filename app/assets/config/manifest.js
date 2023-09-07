@@ -4,6 +4,7 @@
 //= link_tree ../../../vendor/javascript .js
 //= link popper.js
 //= link bootstrap.min.js
+//= link manifest.json
 
 //= link chest-slam.mp3
 //= link enrage.mp3
@@ -11,3 +12,4 @@
 //= link coin-drop.mp3
 //= link coin-spill.mp3
 //= link level-up.mp3
+//= link quest.mp3

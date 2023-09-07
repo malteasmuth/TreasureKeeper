@@ -13,7 +13,7 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     @expense.player_id = Player.find_by(user_id: current_user).id
-    @challenge = Challenge.find(params["challenge_id"])
+    @challenge = Challenge.find(params[:challenge_id])
     @expense.challenge_id = @challenge.id
 
     monster = Monster.find(@expense.challenge.monster_id)
@@ -38,7 +38,7 @@ class ExpensesController < ApplicationController
   private
 
   def expense_params
-    params.require(:expense).permit(:amount, :expense_date, :challenge_id)
+    params.require(:expense).permit(:amount, :expense_date, :challenge_id, :category)
   end
 
   def get_player
