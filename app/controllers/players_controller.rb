@@ -15,7 +15,7 @@ class PlayersController < ApplicationController
     @player.user = current_user
 
     if @player.save
-      redirect_to home_path, notice: 'Player was successfully created.'
+      redirect_to treasure_chests_path, notice: 'Player was successfully created.'
     else
       render :new
     end

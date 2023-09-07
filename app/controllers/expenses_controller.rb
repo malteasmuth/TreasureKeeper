@@ -20,7 +20,7 @@ class ExpensesController < ApplicationController
 
     if @expense.save
       monster.update(hitpoints: (monster.hitpoints += @expense.amount))
-      redirect_to home_path
+      redirect_to treasure_chest_challenge_path(@challenge.treasure_chest, @challenge)
     else
       render :new, status: :unprocessable_entity
     end
