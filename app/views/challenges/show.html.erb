@@ -1,4 +1,4 @@
-<div data-controller="notifications challenges" class="challenges-show pt-3 d-flex flex-column justify-content-center align-items-center overflow-auto">
+<div data-controller="notifications challenges"  data-challenges-url-value="<%= asset_path("enrage.mp3") %>" data-challenges-url2-value="<%= asset_path("attack.mp3") %>" class="challenges-show pt-3 d-flex flex-column justify-content-center align-items-center overflow-auto">
     <% if @player.healthpoints <= 0 %>
       <% nil %>
     <% else %>
@@ -55,7 +55,7 @@
       <p class="mb-2" style="color: #41C835">Your hitpoints: <%= [@player.hitpoints.to_i, 0].max %></p>
     </div>
   </div>
-  <div class="d-flex flex-column align-items-center mt-2" data-challenges-url-value="<%= asset_path("enrage.mp3") %>" data-challenges-url2-value="<%= asset_path("attack.mp3") %>">
+  <div class="d-flex flex-column align-items-center mt-2">
     <span style="margin-bottom: 5px;">
       <%= link_to "Enrage the monster", new_treasure_chest_challenge_expense_path(@challenge.treasure_chest, @challenge),
       class: "enrage-button", data: { target: "challenges.enrage", action: "click->challenges#attack" } %>
