@@ -7,7 +7,10 @@ class Challenge < ApplicationRecord
   validates :description, :status, :budget, :end_date, presence: true
   validate :end_date_cannot_be_in_past
 
-  CATEGORIES = ["Coffee", "Gummibärchen", "tiny pizzas", "fake mustaches", "lava lamps"]
+  CATEGORIES = ["bad habits", "pricey coffee", "gummibärchen", "crazy costumes", "food delivery",
+                "funky socks", "crazy masks", "funny glasses", "gourmet popcorn", "lava lamps",
+                "rubber ducks", "scented candles", "silly t-shirts", "squishy toys", "tiny pizzas",
+                "useless gadgets", "weird plants", "yoga mats", "redundant expenses", "miscellaneous"]
   validates :name, inclusion: { in: CATEGORIES, message: "is not included in the list" }, presence: true
 
 
