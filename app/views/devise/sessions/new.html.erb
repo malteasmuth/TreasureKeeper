@@ -8,9 +8,9 @@
       <%= image_tag asset_path("chest/chest_closed.png"), id: "closed-chest", class: "hidden", data: { target: "chest.closedChest" } %>
     </div>
   </div>
-  <div class="p-2" style="width: 300px;">
-    <p class="text-center" style="color: #F29C1F;">Turn your savings goals into treasure chests!</p>
-    <p class="text-center" style="color: #F29C1F;">Embark on epic quests to keep your expenses at bay!</p>
+  <div class="p-3" style="width: 300px;">
+    <p class="text-center p-1" style="color: #F29C1F;">Turn your savings goals into treasure chests!</p>
+    <p class="text-center p-1" style="color: #F29C1F;">Embark on epic quests to keep your expenses at bay!</p>
   </div>
   <div class="d-flex flex-column justify-content-center align-items-center">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
