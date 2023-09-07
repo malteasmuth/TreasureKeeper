@@ -3,6 +3,7 @@ class TreasureChest < ApplicationRecord
   has_many :challenges, dependent: :destroy
 
   validates :name, :description, :value, presence: true
+  validates :value, numericality:{other_than: 0}
 
   enum status: %i[ongoing lost won]
 
