@@ -9,7 +9,8 @@
         <%= link_to "Ok!", treasure_chests_path, class: "button", data: { target: 'notifications.popupbtn'} %>
       </div>
     <% end  %>
-  <h2 class="text-break" style="font-size: 22px;">SAVE ON <span style="color: #F29C1F; font-size: 26px;"><%= @challenge.name.upcase %></span></h2>
+  <h2 class="text-break" style="font-size: 20px;">SAVE ON</h2>
+  <span style="color: #F29C1F; font-size: 26px;"><%= @challenge.name.upcase %></span>
   <div class="transparent-bg mb-2 pt-3 px-3 border d-flex flex-column justify-content-center align-items-center" style="border-radius: 10px; width: 355px;">
     <p style="font-size: 14px;">Status: <span style="font-size: 14px; color: #F29C1F", data-notifications-target="status"><%= @challenge.status %></span></p>
     <h6 class="text-break" style="font-size: 14px;"><%= (@challenge.end_date - Date.today).to_i %> days left!</h6>
