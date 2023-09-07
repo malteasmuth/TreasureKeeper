@@ -4,7 +4,7 @@ class Challenge < ApplicationRecord
   has_many :expenses, dependent: :destroy
   has_many :monsters, dependent: :destroy
   # validates :name, :description, :monster, :end_date, :status, presence: true
-  validates :description, :status, :budget, :end_date, presence: true
+  validates :status, :budget, :end_date, presence: true
   validate :end_date_cannot_be_in_past
   validates :budget, numericality:{other_than: 0}
 
