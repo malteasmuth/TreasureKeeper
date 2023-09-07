@@ -27,7 +27,7 @@ export default class extends Controller {
       if (buttonText === 'Attack!') {
         attackSound.play();
         this.playerIconTarget.classList.add("shake-animation");
-        this.monsterIconTarget.classList.add("shake-animation");
+        this.monsterIconTarget.classList.add("shake-animation-reverse");
       } else {
       enrageSound.play();
       }

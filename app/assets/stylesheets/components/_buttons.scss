@@ -79,6 +79,17 @@ a {
   100% { transform: translateX(5px); }
 }
 
+@keyframes buttonshake-reverse {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(5px); }
+  50% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+  100% { transform: translateX(-5px); }
+}
+
 .shake-animation {
   animation: buttonshake 0.5s ease infinite;
+}
+.shake-animation-reverse {
+  animation: buttonshake-reverse 0.5s ease infinite;
 }
