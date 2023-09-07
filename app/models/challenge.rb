@@ -6,6 +6,7 @@ class Challenge < ApplicationRecord
   # validates :name, :description, :monster, :end_date, :status, presence: true
   validates :description, :status, :budget, :end_date, presence: true
   validate :end_date_cannot_be_in_past
+  validates :budget, numericality:{other_than: 0}
 
   CATEGORIES = ["Coffee", "Gummibärchen", "tiny pizzas", "fake mustaches", "lava lamps"]
   validates :name, inclusion: { in: CATEGORIES, message: "is not included in the list" }, presence: true
