@@ -33,6 +33,23 @@ class PlayersController < ApplicationController
   def delete
   end
 
+  def revive_player
+    @player = Player.find_by(user_id: current_user)
+    @player.update(healthpoints: 10)
+    @player.update(rubies: 10)
+    @challenge = Challenge.find(params["challenge_id"])
+    # takes you back to create quest
+    @challenge.update(status: "lost")
+    # marks quest as lost
+    redirect_to home_path(@player)
+  end
+
+  def buy_health
+    @player = Player.find_by(user_id: current_user)
+    @player.update(healthpoints: 10, rubies: (@player.rubies -= 20))
+    redirect_to home_path(@player)
+  end
+
   def level_up
     @player = Player.find_by(user_id: current_user)
 
