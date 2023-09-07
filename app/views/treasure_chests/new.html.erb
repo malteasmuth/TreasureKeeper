@@ -3,7 +3,7 @@
     <%= f.input :name, label: false, placeholder: "Name your savings goal" %>
     <%= f.input :description, label: false, placeholder: "Describe it" %>
     <%="Set a desired amount" %>
-    <h4 data-slider-target="value">0</h4>
+    <p>$ <span data-slider-target="value">0</span></p>
     <%= f.input :value, as: :range, selected: 0, label: false, input_html: {value: 0, data: { action: "input->slider#updateValue"}, max: 5000}, placeholder: "Set a desired amount" %>
     <div class="text-center">
       <%= f.button :submit, "New chest!" %>

@@ -8,12 +8,14 @@ class ExpensesController < ApplicationController
     @expense = Expense.new
     @challenge = Challenge.find(params[:challenge_id])
     @treasure_chest = @challenge.treasure_chest
+    @monster = Monster.find(@challenge.monster_id)
   end
 
   def create
     @expense = Expense.new(expense_params)
     @expense.player_id = Player.find_by(user_id: current_user).id
     @challenge = Challenge.find(params[:challenge_id])
+
     @expense.challenge_id = @challenge.id
 
     monster = Monster.find(@expense.challenge.monster_id)
