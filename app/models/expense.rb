@@ -5,6 +5,7 @@ class Expense < ApplicationRecord
   validates :amount, :expense_date, presence: true
   validate :expense_date_cannot_be_in_future
   validates :amount, numericality:{other_than: 0}
+  
   def expense_date_cannot_be_in_future
     if expense_date.present? && expense_date > Date.today
       errors.add(:expense_date, "can't be in the future")
