@@ -23,12 +23,10 @@ export default class extends Controller {
         this.openChestTarget.classList.add("hidden");
          // Play the sound
         const chestSlamSound = new Audio(this.urlValue);
-        console.log(chestSlamSound.src)
+        console.log("Chest slam!")
         chestSlamSound.play();
         this.closedChestTarget.classList.remove("hidden");
-
-
-      }, 2000);
+      }, 1000);
     }, 2000);
   }
 }
